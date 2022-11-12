@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         int a = 5;
+        int b = 15;
         bool lol;
-
     }
 
     // Update is called once per frame
