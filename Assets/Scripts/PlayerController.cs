@@ -11,7 +11,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private GroundCheck groundCheck;
 
     private Rigidbody _rb;
-    private Vector3 _movement = Vector2.zero;
+    private Vector3 movement = Vector2.zero;
 
     protected override void Awake()
     {
