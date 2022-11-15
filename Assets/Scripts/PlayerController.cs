@@ -9,6 +9,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _gravity;
     [SerializeField] private GroundCheck groundCheck;
+    [SerializeField] private Gun gun;
 
     private Rigidbody _rb;
     private Vector3 movement = Vector2.zero;
@@ -31,23 +32,23 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             _rb.AddForce(Vector3.up * _jumpForce, ForceMode.VelocityChange);
             
         }
-       
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            gun.Fire();
+        }
     }
 
     void FixedUpdate()
     {
-        _movement = Vector3.zero;
-        _movement += transform.forward * Input.GetAxis("Vertical") * _speed;
-        _movement += transform.right * Input.GetAxis("Horizontal") * _speed;
-        _movement = Vector3.ClampMagnitude(_movement, _speed);
-        _rb.velocity = _movement;
+        // Lateral Movement
+        movement = Vector3.zero;
+        movement += transform.forward * Input.GetAxis("Vertical") * _speed;
+        movement += transform.right * Input.GetAxis("Horizontal") * _speed;
+        movement = Vector3.ClampMagnitude(movement, _speed);
+        _rb.velocity = movement;
+
+        // Gravity
         _rb.AddForce(Vector3.down * _gravity, ForceMode.Acceleration);
-
-
-
-
-        
     }
-
-
 }
