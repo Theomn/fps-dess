@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
         }
         if(enemyHealth <= 0)
         {
+            enemyHealth = 0;
             Die();
         }
        
