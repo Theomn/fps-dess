@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -9,13 +10,17 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int enemyHealth;
     [SerializeField] private int enemyMaxHealth;
 
-    [Header("Movement")]
-    [SerializeField] private int enemySpeed;// besoin?
-    [SerializeField] private int enemyRotationSpeed;//besoin?
+    [Header("Aim")]
+    [SerializeField] private Transform playerPosition;
+    [SerializeField] private Transform bulletSpawn;
+    [SerializeField] private GameObject EnemyBulletPrefab; 
+    [SerializeField] private int enemyRotationSpeed;
+
 
 
     void update()
     {
+        //Gestion de health
         if(enemyHealth >= enemyMaxHealth)
         {
             enemyHealth = enemyMaxHealth;   
