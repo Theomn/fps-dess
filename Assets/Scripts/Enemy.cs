@@ -6,10 +6,31 @@ public class Enemy : MonoBehaviour
 {
     //Enemy Health
     [Header("Health")]
-    [SerializeField] private int EnemyHealth;
-    [SerializeField] private int EnemyMaxHealth;
+    [SerializeField] private int enemyHealth;
+    [SerializeField] private int enemyMaxHealth;
 
     [Header("Movement")]
-    [SerializeField] private int EnemySpeed;
-    [SerializeField] private int EnemyRotationSpeed;
+    [SerializeField] private int enemySpeed;// besoin?
+    [SerializeField] private int enemyRotationSpeed;//besoin?
+
+
+    void update()
+    {
+        if(enemyHealth >= enemyMaxHealth)
+        {
+            enemyHealth = enemyMaxHealth;   
+        }
+        if(enemyHealth <= 0)
+        {
+            die();
+        }
+
+
+    }
+
+
+    void die()
+    {
+        Destroy(gameObject);
+    }
 }
