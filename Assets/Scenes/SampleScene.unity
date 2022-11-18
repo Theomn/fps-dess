@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 100
   enemyMaxHealth: 100
-  playerPosition: {fileID: 2074540469}
+  target: {fileID: 2074540469}
   bulletSpawn: {fileID: 0}
   EnemyBulletPrefab: {fileID: 0}
   enemyRotationSpeed: 5
