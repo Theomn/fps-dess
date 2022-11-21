@@ -10,25 +10,30 @@ public class Bullet : MonoBehaviour
     [SerializeField] private int pierceCount;
     [SerializeField] private float lifetime;
 
-    public void Initialize(Vector3 direction)
-    {
-        
-    }
+    private float lifetimeTimer;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Initialize()
     {
-        
+        lifetimeTimer = lifetime;
     }
+    
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, transform.forward * speed * Time.deltaTime, float.MaxValue);
+        if (lifetimeTimer > 0f)
+        {
+            lifetimeTimer -= Time.deltaTime;
+            if (lifetimeTimer <= 0)
+            {
+                Despawn();
+            }
+        }
+        transform.localPosition = Vector3.MoveTowards(transform.localPosition, transform.localPosition + transform.forward * speed * Time.deltaTime, float.MaxValue);
     }
 
     private void Despawn()
     {
-
+        LeanPool.Despawn(this);
     }
 }

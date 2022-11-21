@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         enemyMaxHealth = 1000;
+
         // Retrieve the only instance of PlayerController in the scene automatically
         player = PlayerController.Instance.transform;
     }
@@ -54,7 +55,6 @@ public class Enemy : MonoBehaviour
     {
         if (distanceToPlayer <= detectionRange)
         {
-            //transform.LookAt(player.position); Ca marche mais on peut pas controller la vitesse.
             var step = enemyRotationSpeed * Time.deltaTime;
             var targetRotation = Quaternion.LookRotation(player.position - transform.position);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);

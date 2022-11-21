@@ -15,16 +15,16 @@ public class Gun : MonoBehaviour
 
     [SerializeField] private Transform nozzle;
     [SerializeField] private GameObject bulletPrefab;
-    public PlayerController player;
 
     private float energy;
     private bool ready;
-    private float timer;
+    private float fireRateTimer;
 
     // Start is called before the first frame update
     void Awake()
     {
         energy = maxEnergy;
+        ready = true;
     }
 
     // Update is called once per frame
@@ -39,10 +39,10 @@ public class Gun : MonoBehaviour
             }
         }
 
-        if (timer > 0)
+        if (fireRateTimer > 0)
         {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
+            fireRateTimer -= Time.deltaTime;
+            if (fireRateTimer <= 0)
             {
                 ready = true;
             }
@@ -54,10 +54,13 @@ public class Gun : MonoBehaviour
         if (ready && energy >= energyCost)
         {
             ready = false;
-            timer = fireRate;
+            fireRateTimer = fireRate;
             energy -= energyCost;
 
             Bullet bullet = LeanPool.Spawn(bulletPrefab).GetComponent<Bullet>();
+            bullet.transform.localPosition = nozzle.position;
+            bullet.transform.rotation = transform.rotation;
+            bullet.Initialize();
         }
     }
 }
