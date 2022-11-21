@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraController : SingletonMonoBehaviour<CameraController>
 {
     [SerializeField] private float sensitivity;
     [SerializeField] private Transform player;
@@ -10,6 +10,11 @@ public class CameraController : MonoBehaviour
 
     private Vector2 mouse;
     private Vector3 velocity;
+
+    private void Awake()
+    {
+        base.Awake();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -32,5 +37,11 @@ public class CameraController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(mouse.y, mouse.x, 0);
     }
 
+    public Vector3 GetCrosshairTarget()
+    {
+        //TODO does not work when looking at horizon
+        var raycast = Physics.Raycast(transform.position, transform.forward, out RaycastHit hit);
+        return hit.point;
+    }
     
 }

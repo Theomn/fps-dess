@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
     {
         lifetimeTimer = lifetime;
     }
-    
+
 
     // Update is called once per frame
     void Update()

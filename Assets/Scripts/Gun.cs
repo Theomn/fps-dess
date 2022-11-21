@@ -59,7 +59,7 @@ public class Gun : MonoBehaviour
 
             Bullet bullet = LeanPool.Spawn(bulletPrefab).GetComponent<Bullet>();
             bullet.transform.localPosition = nozzle.position;
-            bullet.transform.rotation = transform.rotation;
+            bullet.transform.LookAt(CameraController.Instance.GetCrosshairTarget());
             bullet.Initialize();
         }
     }
