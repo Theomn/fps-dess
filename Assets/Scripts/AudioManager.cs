@@ -28,7 +28,11 @@ public class AudioManager : ScriptableObject
         Instance.clips = new Dictionary<string, AudioClip>();
         foreach (Sound sound in Instance.sounds)
         {
-            Instance.clips.Add(sound.name, sound.clip);
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.volume = s.volume;
+            
+          
         }
         Debug.Log("AudioManager initialized with " + Instance.clips.Count + " sounds.");
     }
