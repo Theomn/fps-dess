@@ -1,25 +1,41 @@
-using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
-public class AudioManager : SingletonMonoBehaviour<AudioManager>
+[Serializable]
+public struct Sound
 {
-    public Sound[] sounds;
-    protected override void Awake()
+    public string name;
+    public AudioClip clip;
+}
+
+[CreateAssetMenu(fileName = "SoundManager", menuName = "ScriptableObjects/SoundManager", order = 1)]
+public class AudioManager : ScriptableObject
+{
+    public static AudioManager Instance { get; private set; }
+    public List<Sound> sounds = new List<Sound>();
+
+    private Dictionary<string, AudioClip> clips;
+
+
+    public AudioManager()
     {
-        base.Awake();
-        foreach (Sound s in sounds)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-        }
+        Instance = this;
     }
 
-    public void Play (string name)
+    public static void Initialize()
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.Play();
+        Instance.clips = new Dictionary<string, AudioClip>();
+        foreach (Sound sound in Instance.sounds)
+        {
+            Instance.clips.Add(sound.name, sound.clip);
+        }
+        Debug.Log("AudioManager initialized with " + Instance.clips.Count + " sounds.");
+    }
+
+
+    public AudioClip GetClip(string name)
+    {
+        return clips[name];
     }
 }

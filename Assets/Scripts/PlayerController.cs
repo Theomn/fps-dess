@@ -18,6 +18,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     {
         base.Awake();
         _rb = GetComponent<Rigidbody>();
+        AudioManager.Initialize();
     }
 
     void Start()

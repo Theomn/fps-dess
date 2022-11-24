@@ -19,7 +19,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private string fireSound;
 
     private AudioManager audioManager;
-    
+    private AudioSource audioSource;
 
     private float energy;
     private bool ready;
@@ -28,7 +28,7 @@ public class Gun : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-       
+        audioSource = GetComponent<AudioSource>();
         energy = maxEnergy;
         ready = true;
     }
@@ -71,7 +71,7 @@ public class Gun : MonoBehaviour
             Bullet bullet;
             if (!string.IsNullOrEmpty(fireSound))
             {
-                audioManager.Play(fireSound);
+                audioSource.PlayOneShot(audioManager.GetClip(fireSound));
             }
 
             
