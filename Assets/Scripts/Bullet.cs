@@ -9,14 +9,18 @@ public class Bullet : MonoBehaviour
     [SerializeField] private bool damagesEnemies;
     [SerializeField] public float damage;
     [SerializeField] private float speed;
-    [SerializeField] private int pierceCount;
+    [SerializeField] private int maxPierceCount;
     [SerializeField] private float lifetime;
     [SerializeField] private float gravity;
+
+    // This will be spawned when the bullet despawns. Used for explosions, gas clouds, etc.
     [SerializeField] private GameObject endEvent;
 
     private Rigidbody rb;
-    private float lifetimeTimer;
     private TrailRenderer trail;
+
+    private float lifetimeTimer;
+    private int pierceCount;
 
     void Awake()
     {
@@ -24,14 +28,14 @@ public class Bullet : MonoBehaviour
         trail = GetComponent<TrailRenderer>();
     }
 
+    // Called when the gun spawns the bullet
     public void Initialize()
     {
+        pierceCount = 0;
         lifetimeTimer = lifetime;
         trail?.Clear();
     }
-
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (lifetimeTimer > 0f)
@@ -46,12 +50,22 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Travel forward
         rb.MovePosition(Vector3.MoveTowards(transform.localPosition, transform.localPosition + transform.forward * speed * Time.fixedDeltaTime, float.MaxValue));
-        rb.AddForce(Vector3.down * gravity * 10 * Time.fixedDeltaTime, ForceMode.Acceleration);
+
+        // Apply gravity
+        if (gravity != 0)
+        {
+            rb.AddForce(Vector3.down * gravity * 10 * Time.fixedDeltaTime, ForceMode.Acceleration);
+        }
     }
 
     private void Despawn()
     {
+        if (endEvent)
+        {
+            LeanPool.Spawn(endEvent);
+        }
         LeanPool.Despawn(this);
     }
 
@@ -69,7 +83,36 @@ public class Bullet : MonoBehaviour
             if (damagesEnemies)
             {
                 enemy.Damage(this);
+                pierceCount++;
+                if (pierceCount >= maxPierceCount)
+                {
+                    Despawn();
+                }
             }
+        }
+
+        else if (layer == Layer.playerLayer)
+        {
+            var player = other.GetComponent<PlayerController>();
+            if (!player)
+            {
+                Debug.LogWarning("Bullet collided with an object on the Player layer but with no PlayerController component");
+                return;
+            }
+            if (damagesPlayer)
+            {
+                // TODO
+                pierceCount++;
+                if (pierceCount >= maxPierceCount)
+                {
+                    Despawn();
+                }
+            }
+        }
+
+        else if (layer == Layer.groundLayer)
+        {
+            Despawn();
         }
     }
 }

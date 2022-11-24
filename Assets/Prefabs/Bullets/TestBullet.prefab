@@ -53,7 +53,7 @@ MonoBehaviour:
   damagesEnemies: 1
   damage: 5
   speed: 50
-  pierceCount: 0
+  maxPierceCount: 1
   lifetime: 5
   gravity: 0
   endEvent: {fileID: 0}
