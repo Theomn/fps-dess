@@ -2,11 +2,12 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : SingletonMonoBehaviour<AudioManager>
 {
     public Sound[] sounds;
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();

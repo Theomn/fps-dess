@@ -16,6 +16,10 @@ public class Gun : MonoBehaviour
     [SerializeField] private Transform nozzle;
     [SerializeField] private bool fireAtCrosshair;
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private string fireSound;
+
+    private AudioManager audioManager;
+    
 
     private float energy;
     private bool ready;
@@ -24,8 +28,14 @@ public class Gun : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+       
         energy = maxEnergy;
         ready = true;
+    }
+
+    void Start()
+    {
+        audioManager = AudioManager.Instance;
     }
 
     // Update is called once per frame
@@ -52,13 +62,19 @@ public class Gun : MonoBehaviour
 
     public void Fire()
     {
-        FindObjectOfType<AudioManager>().Play("ShotPH");
+        
         if (ready && energy >= energyCost)
         {
             ready = false;
             fireRateTimer = fireRate;
             energy -= energyCost;
             Bullet bullet;
+            if (!string.IsNullOrEmpty(fireSound))
+            {
+                audioManager.Play(fireSound);
+            }
+
+            
 
             for (int i = 0; i < bulletCount; i++)
             {

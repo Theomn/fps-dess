@@ -850,6 +850,7 @@ MonoBehaviour:
   nozzle: {fileID: 867846847}
   fireAtCrosshair: 1
   bulletPrefab: {fileID: 2143104629013085516, guid: 38a9f3dc4e8a84e43aed599742afe278, type: 3}
+  fireSound: ShotPH
 --- !u!4 &563155745
 Transform:
   m_ObjectHideFlags: 0
@@ -1752,6 +1753,7 @@ MonoBehaviour:
   nozzle: {fileID: 2101279086}
   fireAtCrosshair: 0
   bulletPrefab: {fileID: 1509308970927356427, guid: a8ac9829f9083f542b4133840e682ab0, type: 3}
+  fireSound: 
 --- !u!33 &527530100379305542
 MeshFilter:
   m_ObjectHideFlags: 0
