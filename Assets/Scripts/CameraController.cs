@@ -43,12 +43,10 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
     {
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, Mathf.Infinity, crosshairLayerMask))
         {
-            Debug.Log("hit");
             return hit.point;
         }
         else
         {
-            Debug.Log("no hit");
             return transform.position + transform.TransformDirection(Vector3.forward * 100f);
         }
     }

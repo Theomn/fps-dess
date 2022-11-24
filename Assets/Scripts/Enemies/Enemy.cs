@@ -37,17 +37,6 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        //health management
-        if (health >= maxHealth)
-        {
-            health = maxHealth;
-        }
-        if (health <= 0)
-        {
-            health = 0;
-            Destroy();
-        }
-
         //calcul de la distance entre enemi et le joueur
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
@@ -63,6 +52,9 @@ public class Enemy : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Turns toward the player when within tracking range
+    /// </summary>
     void TrackingBehaviour()
     {
         if (distanceToPlayer <= trackingRange)
@@ -73,6 +65,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Fires in front of itself when within fire range
+    /// </summary>
     void FireBehaviour()
     {
         if (distanceToPlayer <= fireRange)
@@ -81,9 +76,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Damage(Bullet bullet)
+    // Called by a bullet when it collides with that enemy
+    public void Damage(Bullet bullet)
     {
         health -= bullet.damage;
+        if (health <= 0)
+        {
+            Destroy();
+        }
     }
 
     void Destroy()

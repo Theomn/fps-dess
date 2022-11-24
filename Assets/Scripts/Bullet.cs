@@ -7,10 +7,11 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private bool damagesPlayer;
     [SerializeField] private bool damagesEnemies;
+    [SerializeField] public float damage;
     [SerializeField] private float speed;
-    [SerializeField] public float damage { get; private set; }
     [SerializeField] private int pierceCount;
     [SerializeField] private float lifetime;
+    [SerializeField] private float gravity;
     [SerializeField] private GameObject endEvent;
 
     private Rigidbody rb;
@@ -41,7 +42,12 @@ public class Bullet : MonoBehaviour
                 Despawn();
             }
         }
-        transform.localPosition = Vector3.MoveTowards(transform.localPosition, transform.localPosition + transform.forward * speed * Time.deltaTime, float.MaxValue);
+    }
+
+    private void FixedUpdate()
+    {
+        rb.MovePosition(Vector3.MoveTowards(transform.localPosition, transform.localPosition + transform.forward * speed * Time.fixedDeltaTime, float.MaxValue));
+        rb.AddForce(Vector3.down * gravity * 10 * Time.fixedDeltaTime, ForceMode.Acceleration);
     }
 
     private void Despawn()
@@ -51,6 +57,19 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // future usine a gaz
+        var layer = other.gameObject.layer;
+        if(layer == Layer.enemyLayer)
+        {
+            var enemy = other.GetComponent<Enemy>();
+            if (!enemy)
+            {
+                Debug.LogWarning("Bullet collided with an object on the Enemy layer but with no Enemy component");
+                return;
+            }
+            if (damagesEnemies)
+            {
+                enemy.Damage(this);
+            }
+        }
     }
 }
