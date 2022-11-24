@@ -52,6 +52,7 @@ public class Gun : MonoBehaviour
 
     public void Fire()
     {
+        FindObjectOfType<AudioManager>().Play("ShotPH");
         if (ready && energy >= energyCost)
         {
             ready = false;
