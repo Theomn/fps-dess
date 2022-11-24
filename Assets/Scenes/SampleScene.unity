@@ -604,6 +604,81 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417343458}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &542413293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 542413294}
+  - component: {fileID: 542413295}
+  m_Layer: 0
+  m_Name: Viewmodel Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &542413294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542413293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 963194228}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &542413295
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542413293}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 3
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.01
+  far clip plane: 1000
+  field of view: 70
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_AllowMSAA: 0
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 0
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &543049411
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 563155745}
   - component: {fileID: 563155744}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,8 +807,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563155743}
-  m_LocalRotation: {x: -0.028689126, y: -0.034972377, z: -0.0010043554, w: 0.99897593}
-  m_LocalPosition: {x: 0.32, y: -0.22, z: 0.54}
+  m_LocalRotation: {x: -0.057127584, y: 0.0053145243, z: 0.00030410688, w: 0.9983527}
+  m_LocalPosition: {x: 0.26, y: -0.242, z: 0.415}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -741,7 +816,7 @@ Transform:
   - {fileID: 4513460404574936500}
   m_Father: {fileID: 963194228}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -3.29, y: -4.01, z: 0}
+  m_LocalEulerAnglesHint: {x: -6.55, y: 0.61, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,7 +1018,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 867846847}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Nozzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1001,8 +1076,8 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0, g: 0.67209816, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1015,15 +1090,15 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
-  field of view: 60
+  field of view: 90
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1015
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1048,6 +1123,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 563155745}
+  - {fileID: 542413294}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
@@ -1675,7 +1751,7 @@ GameObject:
   - component: {fileID: 1365444980386459232}
   - component: {fileID: 3210364406971849694}
   - component: {fileID: 7150179716189242658}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: R_Clip1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1800,7 +1876,7 @@ GameObject:
   - component: {fileID: 1778217820757083234}
   - component: {fileID: 2164969485334848415}
   - component: {fileID: 3488455198286437851}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: R_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1891,7 +1967,7 @@ GameObject:
   - component: {fileID: 8887118706218553928}
   - component: {fileID: 2720784354033102624}
   - component: {fileID: 5368764633665815597}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: R_Grip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1907,7 +1983,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4513460404574936500}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2012,7 +2088,7 @@ GameObject:
   - component: {fileID: 1151250943571478225}
   - component: {fileID: 4240541393113523040}
   - component: {fileID: 2193798038322253389}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: R_Clip2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2137,7 +2213,7 @@ GameObject:
   - component: {fileID: 2604837777082109697}
   - component: {fileID: 5976397659988882297}
   - component: {fileID: 5227088374802011156}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: R_Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2205,7 +2281,7 @@ GameObject:
   - component: {fileID: 4179130680044930865}
   - component: {fileID: 527530100379305542}
   - component: {fileID: 2090966566869895612}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: R_FusionSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2238,7 +2314,7 @@ GameObject:
   - component: {fileID: 5690965333303242239}
   - component: {fileID: 7517356660783017177}
   - component: {fileID: 4021242591440282636}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: R_Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
