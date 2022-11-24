@@ -1,20 +1,33 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using Lean.Pool;
 
+[Serializable]
+public struct BulletData
+{
+    [Tooltip("If false, ignores objects on the Player layer.")]
+    public bool damagesPlayer;
+    [Tooltip("If false, ignores object on the Enemy layer.")]
+    public bool damagesEnemies;
+    [Tooltip("Damage dealt per bullet.")]
+    public float damage;
+    [Tooltip("Speed at which the bullet travels.")]
+    public float speed;
+    [Tooltip("How many entities the bullet will go through before despawning. Does not pierce objects on Ground layer.")]
+    public int maxPierceCount;
+    [Tooltip("Time in second before bullet despawns without colliding with anything.")]
+    public float lifetime;
+    [Tooltip("Adds an arc to trajectory.")]
+    public float gravity;
+
+    [Tooltip("Object that will be spawned when and where the bullet despawns. (Explosions, gas clouds...)")]
+    public GameObject endEvent;
+}
+
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private bool damagesPlayer;
-    [SerializeField] private bool damagesEnemies;
-    [SerializeField] public float damage;
-    [SerializeField] private float speed;
-    [SerializeField] private int maxPierceCount;
-    [SerializeField] private float lifetime;
-    [SerializeField] private float gravity;
-
-    // This will be spawned when the bullet despawns. Used for explosions, gas clouds, etc.
-    [SerializeField] private GameObject endEvent;
+    private BulletData data;
 
     private Rigidbody rb;
     private TrailRenderer trail;
@@ -29,10 +42,11 @@ public class Bullet : MonoBehaviour
     }
 
     // Called when the gun spawns the bullet
-    public void Initialize()
+    public void Spawn(BulletData data)
     {
+        this.data = data;
         pierceCount = 0;
-        lifetimeTimer = lifetime;
+        lifetimeTimer = data.lifetime;
         trail?.Clear();
     }
     
@@ -51,20 +65,20 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
         // Travel forward
-        rb.MovePosition(Vector3.MoveTowards(transform.localPosition, transform.localPosition + transform.forward * speed * Time.fixedDeltaTime, float.MaxValue));
+        rb.MovePosition(Vector3.MoveTowards(transform.localPosition, transform.localPosition + transform.forward * data.speed * Time.fixedDeltaTime, float.MaxValue));
 
         // Apply gravity
-        if (gravity != 0)
+        if (data.gravity != 0)
         {
-            rb.AddForce(Vector3.down * gravity * 10 * Time.fixedDeltaTime, ForceMode.Acceleration);
+            rb.AddForce(Vector3.down * data.gravity * 10 * Time.fixedDeltaTime, ForceMode.Acceleration);
         }
     }
 
     private void Despawn()
     {
-        if (endEvent)
+        if (data.endEvent)
         {
-            LeanPool.Spawn(endEvent);
+            LeanPool.Spawn(data.endEvent);
         }
         LeanPool.Despawn(this);
     }
@@ -80,11 +94,11 @@ public class Bullet : MonoBehaviour
                 Debug.LogWarning("Bullet collided with an object on the Enemy layer but with no Enemy component");
                 return;
             }
-            if (damagesEnemies)
+            if (data.damagesEnemies)
             {
-                enemy.Damage(this);
+                enemy.Damage(data);
                 pierceCount++;
-                if (pierceCount >= maxPierceCount)
+                if (pierceCount >= data.maxPierceCount)
                 {
                     Despawn();
                 }
@@ -99,11 +113,11 @@ public class Bullet : MonoBehaviour
                 Debug.LogWarning("Bullet collided with an object on the Player layer but with no PlayerController component");
                 return;
             }
-            if (damagesPlayer)
+            if (data.damagesPlayer)
             {
                 // TODO
                 pierceCount++;
-                if (pierceCount >= maxPierceCount)
+                if (pierceCount >= data.maxPierceCount)
                 {
                     Despawn();
                 }

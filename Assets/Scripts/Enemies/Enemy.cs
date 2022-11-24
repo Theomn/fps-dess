@@ -11,12 +11,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int maxHealth;
 
     [Header("Tracking Behaviour")]
+    [Tooltip("If activated, the enemy will turn towards the player when within range.")]
     [SerializeField] private bool tracksPlayer;
     [SerializeField] private float trackingSpeed;
     [SerializeField] private float trackingRange;
     
-
     [Header("Fire Behaviour")]
+    [Tooltip("If activated, the enemy is able to shoot the equipped gun.")]
     [SerializeField] private bool firesBullets;
     [SerializeField] private float fireRange;
     [SerializeField] private Gun gun;
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour
     protected float distanceToPlayer;
     private Transform player;
     private float fireRateTimer;
+    [Tooltip("False if tracking behaviour is enabled and the player is further than 10 degress from the enemy.")]
     protected bool targetAcquired;
 
 
@@ -83,7 +85,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Called by a bullet when it collides with that enemy
-    public void Damage(Bullet bullet)
+    public void Damage(BulletData bullet)
     {
         health -= bullet.damage;
         if (health <= 0)
