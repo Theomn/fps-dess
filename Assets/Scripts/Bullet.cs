@@ -15,15 +15,18 @@ public class Bullet : MonoBehaviour
 
     private Rigidbody rb;
     private float lifetimeTimer;
+    private TrailRenderer trail;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        trail = GetComponent<TrailRenderer>();
     }
 
     public void Initialize()
     {
         lifetimeTimer = lifetime;
+        trail?.Clear();
     }
 
 
