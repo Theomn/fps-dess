@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool tracksPlayer;
     [SerializeField] private float trackingSpeed;
     [SerializeField] private float trackingRange;
+    private float trackingAngle;
+    
 
     [Header("Fire Behaviour")]
     [SerializeField] private bool firesBullets;
@@ -22,12 +24,12 @@ public class Enemy : MonoBehaviour
 
 
     private float health;
-    private float distanceToPlayer;
+    protected float distanceToPlayer;
     private Transform player;
     private float fireRateTimer;
 
 
-    private void Start()
+    protected void Start()
     {
         // Retrieve the only instance of PlayerController in the scene automatically
         player = PlayerController.Instance.transform;
@@ -35,7 +37,7 @@ public class Enemy : MonoBehaviour
         health = maxHealth;
     }
 
-    void Update()
+    protected void Update()
     {
         //calcul de la distance entre enemi et le joueur
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
@@ -55,20 +57,25 @@ public class Enemy : MonoBehaviour
     /// <summary>
     /// Turns toward the player when within tracking range
     /// </summary>
-    void TrackingBehaviour()
+    protected void TrackingBehaviour()
     {
         if (distanceToPlayer <= trackingRange)
         {
+          
             var step = trackingSpeed * Time.deltaTime;
             var targetRotation = Quaternion.LookRotation(player.position - transform.position);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
+
+
         }
     }
+
+   
 
     /// <summary>
     /// Fires in front of itself when within fire range
     /// </summary>
-    void FireBehaviour()
+    protected void FireBehaviour()
     {
         if (distanceToPlayer <= fireRange)
         {
@@ -86,7 +93,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Destroy()
+    protected void Destroy()
     {
         Destroy(gameObject);
     }
