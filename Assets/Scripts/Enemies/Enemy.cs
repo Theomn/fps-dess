@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool tracksPlayer;
     [SerializeField] private float trackingSpeed;
     [SerializeField] private float trackingRange;
-    private float trackingAngle;
     
 
     [Header("Fire Behaviour")]
@@ -27,6 +26,7 @@ public class Enemy : MonoBehaviour
     protected float distanceToPlayer;
     private Transform player;
     private float fireRateTimer;
+    protected bool targetAcquired;
 
 
     protected void Start()
@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
         player = PlayerController.Instance.transform;
 
         health = maxHealth;
+        targetAcquired = true;
     }
 
     protected void Update()
@@ -61,12 +62,10 @@ public class Enemy : MonoBehaviour
     {
         if (distanceToPlayer <= trackingRange)
         {
-          
             var step = trackingSpeed * Time.deltaTime;
             var targetRotation = Quaternion.LookRotation(player.position - transform.position);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
-
-
+            targetAcquired = Quaternion.Angle(transform.rotation, targetRotation) < 10f;
         }
     }
 
@@ -77,7 +76,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     protected void FireBehaviour()
     {
-        if (distanceToPlayer <= fireRange)
+        if (distanceToPlayer <= fireRange && targetAcquired)
         {
             gun.Fire();
         }
