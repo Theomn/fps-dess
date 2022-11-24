@@ -5,12 +5,21 @@ using Lean.Pool;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private bool damagesPlayer;
+    [SerializeField] private bool damagesEnemies;
     [SerializeField] private float speed;
-    [SerializeField] private float damage;
+    [SerializeField] public float damage { get; private set; }
     [SerializeField] private int pierceCount;
     [SerializeField] private float lifetime;
+    [SerializeField] private GameObject endEvent;
 
+    private Rigidbody rb;
     private float lifetimeTimer;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     public void Initialize()
     {
@@ -35,5 +44,10 @@ public class Bullet : MonoBehaviour
     private void Despawn()
     {
         LeanPool.Despawn(this);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // future usine a gaz
     }
 }

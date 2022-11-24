@@ -14,6 +14,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float energyCost;
 
     [SerializeField] private Transform nozzle;
+    [SerializeField] private bool fireAtCrosshair;
     [SerializeField] private GameObject bulletPrefab;
 
     private float energy;
@@ -56,11 +57,20 @@ public class Gun : MonoBehaviour
             ready = false;
             fireRateTimer = fireRate;
             energy -= energyCost;
+            Bullet bullet;
 
-            Bullet bullet = LeanPool.Spawn(bulletPrefab).GetComponent<Bullet>();
-            bullet.transform.localPosition = nozzle.position;
-            bullet.transform.LookAt(CameraController.Instance.GetCrosshairTarget());
-            bullet.Initialize();
+            for (int i = 0; i < bulletCount; i++)
+            {
+                bullet = LeanPool.Spawn(bulletPrefab).GetComponent<Bullet>();
+                bullet.transform.localPosition = nozzle.position;
+                if (fireAtCrosshair)
+                {
+                    nozzle.LookAt(CameraController.Instance.GetCrosshairTarget());
+                }
+                bullet.transform.rotation = nozzle.rotation;
+                bullet.transform.eulerAngles += new Vector3(Random.Range(-randomSpread, randomSpread), Random.Range(-randomSpread, randomSpread), 0);
+                bullet.Initialize();
+            }
         }
     }
 }

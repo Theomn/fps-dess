@@ -10,10 +10,12 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
 
     private Vector2 mouse;
     private Vector3 velocity;
+    private LayerMask crosshairLayerMask;
 
     private void Awake()
     {
         base.Awake();
+        crosshairLayerMask = LayerMask.GetMask("Ground", "Enemy");
     }
 
     // Start is called before the first frame update
@@ -39,9 +41,16 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
 
     public Vector3 GetCrosshairTarget()
     {
-        //TODO does not work when looking at horizon
-        var raycast = Physics.Raycast(transform.position, transform.forward, out RaycastHit hit);
-        return hit.point;
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, Mathf.Infinity, crosshairLayerMask))
+        {
+            Debug.Log("hit");
+            return hit.point;
+        }
+        else
+        {
+            Debug.Log("no hit");
+            return transform.position + transform.TransformDirection(Vector3.forward * 100f);
+        }
     }
     
 }
