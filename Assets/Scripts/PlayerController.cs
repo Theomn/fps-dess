@@ -123,4 +123,10 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         // Gravity
         rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
     }
+
+    public void ExplosionForce(float explosionForce, Vector3 explosionPosition)
+    {
+        var direction = (transform.position - explosionPosition).normalized;
+        rb.AddForce(direction * explosionForce, ForceMode.Impulse);
+    }
 }

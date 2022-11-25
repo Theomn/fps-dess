@@ -22,7 +22,7 @@ public struct BulletData
     public float gravity;
 
     [Tooltip("Object that will be spawned when and where the bullet despawns. (Explosions, gas clouds...)")]
-    public GameObject endEvent;
+    public Event endEvent;
 }
 
 public class Bullet : MonoBehaviour
@@ -78,7 +78,9 @@ public class Bullet : MonoBehaviour
     {
         if (data.endEvent)
         {
-            LeanPool.Spawn(data.endEvent);
+            var evt = LeanPool.Spawn(data.endEvent);
+            evt.transform.position = transform.position;
+            evt.Spawn();
         }
         LeanPool.Despawn(this);
     }
