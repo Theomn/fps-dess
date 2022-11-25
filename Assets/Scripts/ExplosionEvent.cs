@@ -15,7 +15,6 @@ public class ExplosionEvent : Event
         {
             if (entity.gameObject.layer == Layer.playerLayer)
             {
-                Debug.Log("player collided");
                 var player = entity.GetComponent<PlayerController>();
                 if (!player)
                 {
@@ -24,12 +23,5 @@ public class ExplosionEvent : Event
                 player.ExplosionForce(explosionForce, transform.position);
             }
         }
-    }
-
-    public override void Despawn()
-    {
-        LeanPool.Despawn(this);
-    }
-
- 
+    } 
 }

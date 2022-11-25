@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : SingletonMonoBehaviour<PlayerController>
 {
-    
     [SerializeField] private float groundAcceleration;
     [SerializeField] private float groundMaxSpeed;
     [SerializeField] private float groundDrag;
@@ -81,11 +80,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     {
         if (state == State.Grounded)
         {
-            //rb.velocity = transform.TransformDirection(input) * groundMaxSpeed;
-            /*if (direction.magnitude == 0)
-            {
-                rb.velocity = new Vector3(0, rb.velocity.y, 0);
-            }*/
             if (rb.velocity.magnitude < groundMaxSpeed)
             {
                 rb.AddRelativeForce(input * groundAcceleration);
@@ -94,7 +88,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         if (state == State.Air)
         {
-            /** Makes it so air strafing is possible but player input can still steer player without breaching max speed */
+            // Makes it so air strafing is possible but player input can still steer player without breaching max speed
             if (Mathf.Abs(transform.InverseTransformDirection(rb.velocity).x) > airMaxSpeed)
             {
                 if (Mathf.Sign(input.x) == Mathf.Sign(transform.InverseTransformDirection(rb.velocity).x))
@@ -112,13 +106,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             }
             rb.AddRelativeForce(input * airAcceleration);
         }
-
-        // Lateral Movement
-        /*movement = Vector3.zero;
-        movement += transform.forward * Input.GetAxis("Vertical") * speed;
-        movement += transform.right * Input.GetAxis("Horizontal") * speed;
-        movement = Vector3.ClampMagnitude(movement, speed);
-        rb.velocity = movement;*/
 
         // Gravity
         rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Lean.Pool;
 
 public abstract class Event : MonoBehaviour
 {
@@ -17,5 +18,8 @@ public abstract class Event : MonoBehaviour
     }
 
     public abstract void Spawn();
-    public abstract void Despawn();
+    protected virtual void Despawn()
+    {
+        LeanPool.Despawn(this);
+    }
 }
