@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     protected float distanceToPlayer;
     private Transform player;
     private float fireRateTimer;
-    [Tooltip("False if tracking behaviour is enabled and the player is further than 10 degress from the enemy.")]
+    [Tooltip("False if tracking behaviour is enabled and the player is further than 15 degress from the enemy.")]
     protected bool targetAcquired;
 
 
@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
             var step = trackingSpeed * Time.deltaTime;
             var targetRotation = Quaternion.LookRotation(player.position - transform.position);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
-            targetAcquired = Quaternion.Angle(transform.rotation, targetRotation) < 10f;
+            targetAcquired = Quaternion.Angle(transform.rotation, targetRotation) < 15f;
         }
     }
 

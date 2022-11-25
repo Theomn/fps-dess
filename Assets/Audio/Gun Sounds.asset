@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79ed05703b133824d9efc26fde5ec9e6, type: 3}
-  m_Name: Sounds
+  m_Script: {fileID: 11500000, guid: ac633aab865778744a5ab8ba1812eac1, type: 3}
+  m_Name: Gun Sounds
   m_EditorClassIdentifier: 
   sounds:
   - name: ShotPH

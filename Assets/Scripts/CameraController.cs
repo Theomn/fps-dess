@@ -12,7 +12,7 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
     private Vector3 velocity;
     private LayerMask crosshairLayerMask;
 
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
         crosshairLayerMask = LayerMask.GetMask("Ground", "Enemy");

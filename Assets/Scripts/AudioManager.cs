@@ -2,40 +2,57 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 
-[Serializable]
-public struct Sound
-{
-    public string name;
-    public AudioClip clip;
-}
 
-[CreateAssetMenu(fileName = "SoundManager", menuName = "ScriptableObjects/SoundManager", order = 1)]
-public class AudioManager : ScriptableObject
+public class AudioManager : SingletonMonoBehaviour<AudioManager>
 {
-    public static AudioManager Instance { get; private set; }
-    public List<Sound> sounds = new List<Sound>();
+    public List<SoundBank> soundBanks;
 
     private Dictionary<string, AudioClip> clips;
 
+    private AudioSource source;
 
-    public AudioManager()
-    {
-        Instance = this;
-    }
 
-    public static void Initialize()
+    protected override void Awake()
     {
-        Instance.clips = new Dictionary<string, AudioClip>();
-        foreach (Sound sound in Instance.sounds)
+        base.Awake();
+        source = GetComponent<AudioSource>();
+        clips = new Dictionary<string, AudioClip>();
+
+        foreach (SoundBank bank in soundBanks)
         {
-            Instance.clips.Add(sound.name, sound.clip);
+            foreach (Sound sound in bank.sounds)
+            {
+                if (!clips.TryAdd(sound.name, sound.clip))
+                {
+                    Debug.LogWarning("Sounds with name \"" + sound.name + "\" already exists in SoundBanks.");
+                }
+            }
         }
-        Debug.Log("AudioManager initialized with " + Instance.clips.Count + " sounds.");
+        Debug.Log("AudioManager initialized with " + clips.Count + " sounds.");
     }
-
 
     public AudioClip GetClip(string name)
     {
-        return clips[name];
+        clips.TryGetValue(name, out var clip);
+        if (!clip)
+        {
+            Debug.LogWarning("Sound with name \"" + name + "\" does not exist in SoundBank.");
+        }
+        return clip;
+    }
+
+    public void PlaySoundAtPosition(string soundName, Vector3 position)
+    {
+        if (string.IsNullOrEmpty(soundName))
+        {
+            return;
+        }
+        var clip = GetClip(soundName);
+        if (!clip)
+        {
+            return;
+        }
+        transform.position = position;
+        source.PlayOneShot(clip);
     }
 }

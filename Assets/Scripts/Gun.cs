@@ -33,27 +33,18 @@ public class Gun : MonoBehaviour
     [Tooltip("id of the sound to play when the gun is fired.")]
     [SerializeField] private string fireSound;
 
-    private AudioManager audioManager;
-    private AudioSource audioSource;
-
     private float energy;
     private bool ready;
     private float fireRateTimer;
+    
 
-    // Start is called before the first frame update
     void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
         energy = maxEnergy;
         ready = true;
     }
+    
 
-    void Start()
-    {
-        audioManager = AudioManager.Instance;
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (energy < maxEnergy)
@@ -84,10 +75,6 @@ public class Gun : MonoBehaviour
             fireRateTimer = fireRate;
             energy -= energyCost;
             Bullet bullet;
-            if (!string.IsNullOrEmpty(fireSound))
-            {
-                audioSource.PlayOneShot(audioManager.GetClip(fireSound));
-            }
 
             for (int i = 0; i < bulletCount; i++)
             {
@@ -101,6 +88,9 @@ public class Gun : MonoBehaviour
                 bullet.transform.eulerAngles += new Vector3(Random.Range(-randomSpread, randomSpread), Random.Range(-randomSpread, randomSpread), 0);
                 bullet.Spawn(bulletData);
             }
+
+            AudioManager.Instance.PlaySoundAtPosition(fireSound, transform.position);
+
         }
     }
 }
