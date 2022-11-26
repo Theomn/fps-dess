@@ -6,13 +6,14 @@ public class FollowEnemy : Enemy
 {
    
     private Transform player;
-    [SerializeField] private float followSpeed;
+    [SerializeField] private float maxSpeed;
+    [SerializeField] private float acceleration;
     [SerializeField] private float followRange;
     [Tooltip("Minimum distance from this enemy to player")]
     [SerializeField] private float hoverRange;
 
     private bool hasTarget;
-    private Vector3 targetPosition;
+    private Vector3 offset;
     private Rigidbody rb;
 
 
@@ -22,9 +23,6 @@ public class FollowEnemy : Enemy
         base.Start();
         player = PlayerController.Instance.transform;
         rb = GetComponent<Rigidbody>();
-
-
-
     }
 
     new void Update()
@@ -39,24 +37,39 @@ public class FollowEnemy : Enemy
         {
             if (!hasTarget)
             {
-                targetPosition = Random.onUnitSphere;
-                targetPosition = new Vector3(targetPosition.x, Mathf.Abs(targetPosition.y), targetPosition.z);
-                targetPosition *= hoverRange;
-                hasTarget = true;
+                AcquireTarget();
             }
 
-            /// transform.position = Vector3.MoveTowards(transform.position,player.position + targetPosition, followSpeed * Time.deltaTime);
-            var moveDirection = ((player.position + targetPosition) - transform.position).normalized * followSpeed * Time.deltaTime;
-            // rb.MovePosition(moveDirection + transform.position);
-            rb.MovePosition(Vector3.MoveTowards(transform.position, player.position + targetPosition, followSpeed * Time.deltaTime));
-            
-            
+            var targetPosition = (player.position + offset);
+            var moveForce = Vector3.ClampMagnitude((targetPosition - transform.position), 1f) * acceleration;
+            if (rb.velocity.magnitude < maxSpeed)
+            {
+                rb.AddForce(moveForce);
+            }
+            if (Vector3.Distance(targetPosition, transform.position) < 0.5f)
+            {
+                AcquireTarget();
+            }
         }
         else
         {
             hasTarget = false;
         }
+    }
 
-        
+    private void AcquireTarget()
+    {
+        offset = Random.onUnitSphere;
+        offset = new Vector3(offset.x, Mathf.Abs(offset.y), offset.z);
+        offset *= hoverRange;
+        hasTarget = true;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == Layer.groundLayer)
+        {
+            AcquireTarget();
+        }
     }
 }
