@@ -20,7 +20,8 @@ public struct BulletData
     public float lifetime;
     [Tooltip("Adds an arc to trajectory.")]
     public float gravity;
-
+    [Tooltip("If true, the bullet will despawn as soon as it touches a ground element.")]
+    public bool destroyOnGroundContact;
     [Tooltip("Object that will be spawned when and where the bullet despawns. (Explosions, gas clouds...)")]
     public Event endEvent;
 }
@@ -128,7 +129,10 @@ public class Bullet : MonoBehaviour
 
         else if (layer == Layer.groundLayer)
         {
-            Despawn();
+            if (data.destroyOnGroundContact)
+            {
+                Despawn();
+            }
         }
     }
 }

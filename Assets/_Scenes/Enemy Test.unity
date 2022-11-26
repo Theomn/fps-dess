@@ -798,6 +798,7 @@ MonoBehaviour:
   fireRate: 0.2
   bulletCount: 1
   randomSpread: 0
+  bulletPrefab: {fileID: 2143104629013085516, guid: 38a9f3dc4e8a84e43aed599742afe278, type: 3}
   bulletData:
     damagesPlayer: 0
     damagesEnemies: 1
@@ -806,13 +807,13 @@ MonoBehaviour:
     maxPierceCount: 1
     lifetime: 5
     gravity: 0
+    destroyOnGroundContact: 1
     endEvent: {fileID: 7826445943607923957, guid: d5106e20ab65b994daf89101e355dd34, type: 3}
   maxEnergy: 100
   energyRechargeRate: 5
   energyCost: 0
   nozzle: {fileID: 867846847}
   fireAtCrosshair: 1
-  bulletPrefab: {fileID: 2143104629013085516, guid: 38a9f3dc4e8a84e43aed599742afe278, type: 3}
   fireSound: ShotPH
 --- !u!4 &563155745
 Transform:
@@ -2251,6 +2252,7 @@ MonoBehaviour:
   fireRate: 0.2
   bulletCount: 1
   randomSpread: 3
+  bulletPrefab: {fileID: 2143104629013085516, guid: 38a9f3dc4e8a84e43aed599742afe278, type: 3}
   bulletData:
     damagesPlayer: 1
     damagesEnemies: 0
@@ -2259,13 +2261,13 @@ MonoBehaviour:
     maxPierceCount: 1
     lifetime: 2
     gravity: 0
+    destroyOnGroundContact: 0
     endEvent: {fileID: 0}
   maxEnergy: 10
   energyRechargeRate: 10
   energyCost: 0
   nozzle: {fileID: 2101279086}
   fireAtCrosshair: 0
-  bulletPrefab: {fileID: 2143104629013085516, guid: 38a9f3dc4e8a84e43aed599742afe278, type: 3}
   fireSound: 
 --- !u!33 &527530100379305542
 MeshFilter:
