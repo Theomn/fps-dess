@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private int bulletCount;
     [Tooltip("How much each bullet deviates from the nozzle direction.")]
     [SerializeField] private float randomSpread;
+    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private BulletData bulletData;
 
     [Header("Energy")]
@@ -29,7 +30,6 @@ public class Gun : MonoBehaviour
     [SerializeField] private bool fireAtCrosshair;
 
     [Header("References")]
-    [SerializeField] private GameObject bulletPrefab;
     [Tooltip("id of the sound to play when the gun is fired.")]
     [SerializeField] private string fireSound;
 
