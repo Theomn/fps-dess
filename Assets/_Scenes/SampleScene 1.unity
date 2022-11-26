@@ -439,7 +439,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388475132}
   m_LocalRotation: {x: -0.08715578, y: 0, z: -0, w: 0.9961947}
-  m_LocalPosition: {x: 1.411, y: 0.387, z: 1.541}
+  m_LocalPosition: {x: 1.37, y: 0.391, z: 1.562}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -564,7 +564,7 @@ MonoBehaviour:
     damagesPlayer: 0
     damagesEnemies: 1
     damage: 1
-    speed: 500
+    speed: 100
     maxPierceCount: 1
     lifetime: 5
     gravity: 0
