@@ -1797,7 +1797,7 @@ GameObject:
   - component: {fileID: 1652151971}
   - component: {fileID: 1652151972}
   m_Layer: 8
-  m_Name: Drone Rotate Fix
+  m_Name: Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1868,7 +1868,7 @@ MonoBehaviour:
   firesBullets: 1
   fireRange: 20
   gun: {fileID: 2101279087}
-  followSpeed: 50
+  followSpeed: 5
   followRange: 10
 --- !u!1 &1693796137
 GameObject:
