@@ -1506,7 +1506,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.457
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1834,7 +1834,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &1652151972
 BoxCollider:
@@ -1868,8 +1868,9 @@ MonoBehaviour:
   firesBullets: 1
   fireRange: 20
   gun: {fileID: 2101279087}
-  followSpeed: 5
-  followRange: 10
+  followSpeed: 3
+  followRange: 100
+  hoverRange: 20
 --- !u!1 &1693796137
 GameObject:
   m_ObjectHideFlags: 0
