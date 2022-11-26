@@ -9,6 +9,7 @@ public class FollowEnemy : Enemy
     [SerializeField] private float followSpeed;
     [SerializeField] private float followRange;
 
+
     new void Start()
     {
         base.Start();
@@ -24,7 +25,7 @@ public class FollowEnemy : Enemy
 
     void FollowPlayer()
     {
-        if(distanceToPlayer <= followRange ) 
+        if(distanceToPlayer <= followRange && targetAcquired == true ) 
         {
             transform.position = Vector3.MoveTowards(transform.position, player.position, followSpeed * Time.deltaTime);
         }
