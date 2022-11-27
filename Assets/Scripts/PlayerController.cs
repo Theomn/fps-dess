@@ -8,7 +8,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 {
     [Header("Stats")]
     [SerializeField] private float maxHealth;
-    [SerializeField] private Gun gun;
 
     [Header("Movement")]
     [SerializeField] private float groundAcceleration;
@@ -72,11 +71,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             {
                 SetGrounded();
             }
-        }
-
-        if (Input.GetButton("Fire1"))
-        {
-            gun.Fire();
         }
     }
 
