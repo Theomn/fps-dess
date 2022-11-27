@@ -77,10 +77,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         if (Input.GetButton("Fire1"))
         {
             gun.Fire();
-            var assembly = Assembly.GetAssembly(typeof(SceneView));
-            var type = assembly.GetType("UnityEditor.LogEntries");
-            var method = type.GetMethod("Clear");
-            method.Invoke(new object(), null);
         }
     }
 

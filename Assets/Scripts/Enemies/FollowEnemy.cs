@@ -26,6 +26,10 @@ public class FollowEnemy : Enemy
     new void Update()
     {
         base.Update();
+    }
+
+    void FixedUpdate()
+    {
         FollowPlayer();
     }
 
@@ -65,7 +69,7 @@ public class FollowEnemy : Enemy
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == Layer.groundLayer)
+        if (collision.gameObject.layer == Layer.groundLayer || collision.gameObject.layer == Layer.enemyLayer)
         {
             AcquireTarget();
         }
