@@ -53,7 +53,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
         if (state == State.Grounded)
         {
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButton("Jump"))
             {
                 SetAirborne();
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
