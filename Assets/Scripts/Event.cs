@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Lean.Pool;
 
-public abstract class Event : MonoBehaviour
+public class Event : MonoBehaviour
 {
     [SerializeField] protected float lifetime;
     protected float lifetimeTimer;
@@ -17,7 +17,11 @@ public abstract class Event : MonoBehaviour
         }
     }
 
-    public abstract void Spawn();
+    public virtual void Spawn()
+    {
+        lifetimeTimer = lifetime;
+    }
+
     protected virtual void Despawn()
     {
         LeanPool.Despawn(this);

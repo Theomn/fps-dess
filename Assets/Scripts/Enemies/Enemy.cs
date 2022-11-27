@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Lean.Pool;
 
 
 public class Enemy : MonoBehaviour
 {
-    //Enemy Health
-    [Header("Health")]
+    [Header("Stats")]
     [SerializeField] private int maxHealth;
+    [SerializeField] private Event endEvent;
 
     [Header("Tracking Behaviour")]
     [Tooltip("If activated, the enemy will turn towards the player when within range.")]
@@ -25,7 +26,7 @@ public class Enemy : MonoBehaviour
 
     private float health;
     protected float distanceToPlayer;
-    private Transform player;
+    protected Transform player;
     private float fireRateTimer;
     [Tooltip("False if tracking behaviour is enabled and the player is further than 15 degress from the enemy.")]
     protected bool facingPlayer;
@@ -85,17 +86,29 @@ public class Enemy : MonoBehaviour
     }
 
     // Called by a bullet when it collides with that enemy
-    public void Damage(BulletData bullet)
+    public void Damage(float damage)
     {
-        health -= bullet.damage;
+        health -= damage;
         if (health <= 0)
         {
             Destroy();
         }
     }
 
+    public virtual void ExplosionForce(float explosionForce, Vector3 explosionPosition)
+    {
+
+    }
+
     protected void Destroy()
     {
+        GetComponent<Collider>().enabled = false;
+        if (endEvent)
+        {
+            var evt = LeanPool.Spawn(endEvent);
+            evt.transform.position = transform.position;
+            evt.Spawn();
+        }
         Destroy(gameObject);
     }
 }

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class FollowEnemy : Enemy
 {
-   
-    private Transform player;
+    [Header("Follow Behaviour")]
     [SerializeField] private float maxSpeed;
     [SerializeField] private float acceleration;
     [SerializeField] private float followRange;
@@ -21,7 +20,6 @@ public class FollowEnemy : Enemy
     new void Start()
     {
         base.Start();
-        player = PlayerController.Instance.transform;
         rb = GetComponent<Rigidbody>();
     }
 

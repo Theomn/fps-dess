@@ -5,13 +5,15 @@ using Lean.Pool;
 
 public class ExplosionEvent : Event
 {
-    [SerializeField] private float explosionForce;
-    [SerializeField] private float explosionRadius;
+    [SerializeField] private float radius;
+    [SerializeField] private float damageToPlayer;
+    [SerializeField] private float damageToEnemies;
+    [SerializeField] private float force;
 
     public override void Spawn()
     {
-        lifetimeTimer = lifetime;
-        foreach(Collider entity in Physics.OverlapSphere(transform.position, explosionRadius))
+        base.Spawn();
+        foreach(Collider entity in Physics.OverlapSphere(transform.position, radius))
         {
             if (entity.gameObject.layer == Layer.playerLayer)
             {
@@ -20,7 +22,18 @@ public class ExplosionEvent : Event
                 {
                     return;
                 }
-                player.ExplosionForce(explosionForce, transform.position);
+                player.AddExplosionForce(force, transform.position);
+            }
+
+            if (entity.gameObject.layer == Layer.enemyLayer)
+            {
+                var enemy = entity.GetComponent<Enemy>();
+                if (!enemy)
+                {
+                    return;
+                }
+                enemy.Damage(damageToEnemies);
+                enemy.ExplosionForce(force, transform.position);
             }
         }
     } 

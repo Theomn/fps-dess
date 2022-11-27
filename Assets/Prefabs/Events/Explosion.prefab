@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7826445943607923956}
   - component: {fileID: 7826445943607923957}
   - component: {fileID: 7826445943607923958}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,8 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 1.2
-  explosionForce: 30
-  explosionRadius: 2.5
+  radius: 2.5
+  damageToPlayer: 0
+  damageToEnemies: 0
+  force: 20
 --- !u!135 &7826445943607923958
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -73,7 +75,7 @@ GameObject:
   - component: {fileID: 7826445944273797796}
   - component: {fileID: 7826445944273797794}
   - component: {fileID: 7826445944273797795}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

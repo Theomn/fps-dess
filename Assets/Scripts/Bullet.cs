@@ -99,7 +99,7 @@ public class Bullet : MonoBehaviour
             }
             if (data.damagesEnemies)
             {
-                enemy.Damage(data);
+                enemy.Damage(data.damage);
                 pierceCount++;
                 if (pierceCount >= data.maxPierceCount)
                 {

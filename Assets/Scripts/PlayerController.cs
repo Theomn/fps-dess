@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using System.Reflection;
 
 public class PlayerController : SingletonMonoBehaviour<PlayerController>
 {
+    [Header("Stats")]
+    [SerializeField] private float maxHealth;
+    [SerializeField] private Gun gun;
+
+    [Header("Movement")]
     [SerializeField] private float groundAcceleration;
     [SerializeField] private float groundMaxSpeed;
     [SerializeField] private float groundDrag;
@@ -13,19 +20,19 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private float jumpForce;
     [SerializeField] private float gravity;
     [SerializeField] private GroundCheck groundCheck;
-    [SerializeField] private Gun gun;
 
 
     private enum State
     {
         Grounded,
-        Air
+        Airborne
     }
 
     private State state;
     private Rigidbody rb;
     private Vector3 input = Vector2.zero;
     private float jumpTimer;
+    private float health;
 
     protected override void Awake()
     {
@@ -35,7 +42,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     private void Start()
     {
-        state = State.Air;
+        health = maxHealth;
+        state = State.Airborne;
     }
 
 
@@ -47,32 +55,32 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             if (Input.GetButtonDown("Jump"))
             {
-                state = State.Air;
-                rb.drag = airDrag;
-                jumpTimer = 0.5f;
+                SetAirborne();
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
             }
             
             if (!groundCheck.IsGrounded())
             {
-                state = State.Air;
-                rb.drag = airDrag;
+                SetAirborne();
             }
         }
 
-        if (state == State.Air)
+        if (state == State.Airborne)
         {
             jumpTimer -= Time.deltaTime;
             if (jumpTimer <= 0 && groundCheck.IsGrounded())
             {
-                state = State.Grounded;
-                rb.drag = groundDrag;
+                SetGrounded();
             }
         }
 
         if (Input.GetButton("Fire1"))
         {
             gun.Fire();
+            var assembly = Assembly.GetAssembly(typeof(SceneView));
+            var type = assembly.GetType("UnityEditor.LogEntries");
+            var method = type.GetMethod("Clear");
+            method.Invoke(new object(), null);
         }
     }
 
@@ -86,7 +94,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             }
         }
 
-        if (state == State.Air)
+        if (state == State.Airborne)
         {
             // Makes it so air strafing is possible but player input can still steer player without breaching max speed
             if (Mathf.Abs(transform.InverseTransformDirection(rb.velocity).x) > airMaxSpeed)
@@ -111,9 +119,39 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
     }
 
-    public void ExplosionForce(float explosionForce, Vector3 explosionPosition)
+    public void Damage(float damage)
+    {
+        health -= damage;
+    }
+
+    public void AddExplosionForce(float explosionForce, Vector3 explosionPosition)
     {
         var direction = (transform.position - explosionPosition).normalized;
         rb.AddForce(direction * explosionForce, ForceMode.Impulse);
+    }
+
+    /// <summary>
+    /// Adds an Impulse force to the player.
+    /// </summary>
+    /// <param name="force"></param>
+    public void AddForce(Vector3 force)
+    {
+        SetAirborne();
+        bool hor = force.x != 0 || force.z != 0;
+        rb.velocity = new Vector3(hor ? force.x : rb.velocity.x, force.y, hor ? force.z : rb.velocity.z);
+    }
+    
+
+    private void SetAirborne()
+    {
+        state = State.Airborne;
+        rb.drag = airDrag;
+        jumpTimer = 0.2f;
+    }
+
+    private void SetGrounded()
+    {
+        state = State.Grounded;
+        rb.drag = groundDrag;
     }
 }
