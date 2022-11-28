@@ -1,4 +1,3 @@
-using System.Collections;
 using System;
 using UnityEngine;
 using Lean.Pool;
@@ -6,52 +5,37 @@ using Lean.Pool;
 [Serializable]
 public struct BulletData
 {
+    [Header("Main Data")]
     [Tooltip("If false, ignores objects on the Player layer.")]
     public bool damagesPlayer;
     [Tooltip("If false, ignores object on the Enemy layer.")]
     public bool damagesEnemies;
     [Tooltip("Damage dealt per bullet.")]
     public float damage;
-    [Tooltip("Speed at which the bullet travels.")]
-    public float speed;
-    [Tooltip("How many entities the bullet will go through before despawning. Does not pierce objects on Ground layer.")]
-    public int maxPierceCount;
-    [Tooltip("Time in second before bullet despawns without colliding with anything.")]
+    [Tooltip("Time in second before bullet despawns.")]
     public float lifetime;
-    [Tooltip("Adds an arc to trajectory.")]
-    public float gravity;
-    [Tooltip("If true, the bullet will despawn as soon as it touches a ground element.")]
-    public bool destroyOnGroundContact;
     [Tooltip("Object that will be spawned when and where the bullet despawns. (Explosions, gas clouds...)")]
     public Event endEvent;
+    [Header("Projectile Data")]
+    [Tooltip("Speed at which the bullet travels.")]
+    public float speed;
+    [Tooltip("Adds an arc to trajectory.")]
+    public float gravity;
+    [Tooltip("How many entities the bullet will go through before despawning. Does not pierce objects on Ground layer.")]
+    public int maxPierceCount;
+    [Tooltip("If true, the bullet will despawn as soon as it touches a ground element.")]
+    public bool destroyOnGroundContact;
+    [Header("Raycast Data")]
+    public float maxRange;
 }
 
-public class Bullet : MonoBehaviour
+public abstract class Bullet : MonoBehaviour
 {
-    private BulletData data;
+    protected BulletData data;
+    protected float lifetimeTimer;
 
-    private Rigidbody rb;
-    private TrailRenderer trail;
 
-    private float lifetimeTimer;
-    private int pierceCount;
-
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-        trail = GetComponent<TrailRenderer>();
-    }
-
-    // Called when the gun spawns the bullet
-    public void Spawn(BulletData data)
-    {
-        this.data = data;
-        pierceCount = 0;
-        lifetimeTimer = data.lifetime;
-        trail?.Clear();
-    }
-    
-    void Update()
+    protected virtual void Update()
     {
         if (lifetimeTimer > 0f)
         {
@@ -63,76 +47,56 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    // Called when the gun spawns the bullet
+    public virtual void Spawn(BulletData data)
     {
-        // Travel forward
-        rb.MovePosition(Vector3.MoveTowards(transform.localPosition, transform.localPosition + transform.forward * data.speed * Time.fixedDeltaTime, float.MaxValue));
-
-        // Apply gravity
-        if (data.gravity != 0)
-        {
-            rb.AddForce(Vector3.down * data.gravity * 10 * Time.fixedDeltaTime, ForceMode.Acceleration);
-        }
+        this.data = data;
+        lifetimeTimer = data.lifetime;
     }
 
-    private void Despawn()
+    protected virtual void Despawn()
     {
-        if (data.endEvent)
-        {
-            var evt = LeanPool.Spawn(data.endEvent);
-            evt.transform.position = transform.position;
-            evt.Spawn();
-        }
         LeanPool.Despawn(this);
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected int Deliver(Collider other)
     {
         var layer = other.gameObject.layer;
-        if(layer == Layer.enemyLayer)
+        if (layer == Layer.enemy)
         {
             var enemy = other.GetComponent<Enemy>();
             if (!enemy)
             {
                 Debug.LogWarning("Bullet collided with an object on the Enemy layer but with no Enemy component");
-                return;
+                return 0;
             }
             if (data.damagesEnemies)
             {
                 enemy.Damage(data.damage);
-                pierceCount++;
-                if (pierceCount >= data.maxPierceCount)
-                {
-                    Despawn();
-                }
+                return layer;
             }
         }
 
-        else if (layer == Layer.playerLayer)
+        else if (layer == Layer.player)
         {
             var player = other.GetComponent<PlayerController>();
             if (!player)
             {
                 Debug.LogWarning("Bullet collided with an object on the Player layer but with no PlayerController component");
-                return;
+                return 0;
             }
             if (data.damagesPlayer)
             {
-                // TODO
-                pierceCount++;
-                if (pierceCount >= data.maxPierceCount)
-                {
-                    Despawn();
-                }
+                player.Damage(data.damage);
+                return layer;
             }
         }
 
-        else if (layer == Layer.groundLayer)
+        else if (layer == Layer.ground)
         {
-            if (data.destroyOnGroundContact)
-            {
-                Despawn();
-            }
+            return layer;
         }
+
+        return 0;
     }
 }

@@ -46,7 +46,7 @@ public class FollowEnemy : Enemy
             var moveForce = Vector3.ClampMagnitude((targetPosition - transform.position), 1f) * acceleration;
             if (rb.velocity.magnitude < maxSpeed)
             {
-                rb.AddForce(moveForce);
+                rb.AddForce(moveForce, ForceMode.Acceleration);
             }
             if (Vector3.Distance(targetPosition, transform.position) < 0.5f)
             {
@@ -69,7 +69,7 @@ public class FollowEnemy : Enemy
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == Layer.groundLayer || collision.gameObject.layer == Layer.enemyLayer)
+        if (collision.gameObject.layer == Layer.ground || collision.gameObject.layer == Layer.enemy)
         {
             AcquireTarget();
         }

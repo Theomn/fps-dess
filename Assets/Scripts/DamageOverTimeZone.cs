@@ -10,7 +10,7 @@ public class DamageOverTimeZone : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         var layer = other.gameObject.layer;
-        if (layer == Layer.playerLayer)
+        if (layer == Layer.player)
         {
             var player = other.GetComponent<PlayerController>();
             if (!player)
@@ -19,7 +19,7 @@ public class DamageOverTimeZone : MonoBehaviour
             }
             player.Damage(playerDamagePerSecond * Time.fixedDeltaTime);
         }
-        else if (layer == Layer.enemyLayer)
+        else if (layer == Layer.enemy)
         {
             var enemy = other.GetComponent<Enemy>();
             if (!enemy)

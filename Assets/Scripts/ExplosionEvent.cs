@@ -15,7 +15,7 @@ public class ExplosionEvent : Event
         base.Spawn();
         foreach(Collider entity in Physics.OverlapSphere(transform.position, radius))
         {
-            if (entity.gameObject.layer == Layer.playerLayer)
+            if (entity.gameObject.layer == Layer.player)
             {
                 var player = entity.GetComponent<PlayerController>();
                 if (!player)
@@ -25,7 +25,7 @@ public class ExplosionEvent : Event
                 player.AddExplosionForce(force, transform.position);
             }
 
-            if (entity.gameObject.layer == Layer.enemyLayer)
+            if (entity.gameObject.layer == Layer.enemy)
             {
                 var enemy = entity.GetComponent<Enemy>();
                 if (!enemy)

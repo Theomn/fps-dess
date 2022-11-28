@@ -9,7 +9,7 @@ public class BumpZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == Layer.playerLayer)
+        if (other.gameObject.layer == Layer.player)
         {
             var player = other.GetComponent<PlayerController>();
             if (!player)
