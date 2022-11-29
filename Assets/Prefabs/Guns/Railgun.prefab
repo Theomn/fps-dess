@@ -179,11 +179,13 @@ MonoBehaviour:
   maxEnergy: 100
   energyRechargeRate: 5
   energyCost: 0
-  nozzle: {fileID: 7054606395141524224}
+  nozzles:
+  - {fileID: 7054606395141524224}
   fireAtCrosshair: 1
-  nozzleFlash: {fileID: 7054606394448057917}
-  nozzleFlashSize: 0.4
-  nozzleFlashDuration: 0.2
+  nozzleFlashes:
+  - {fileID: 7054606394448057917}
+  nozzleFlashSize: 0.6
+  nozzleFlashDuration: 0.3
   fireSound: ShotPH
 --- !u!1 &7054606395141524225
 GameObject:

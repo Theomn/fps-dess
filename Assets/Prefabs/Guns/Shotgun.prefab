@@ -64,7 +64,8 @@ MonoBehaviour:
   maxEnergy: 100
   energyRechargeRate: 50
   energyCost: 0
-  nozzle: {fileID: 657279537700548987}
+  nozzles:
+  - {fileID: 657279537700548987}
   fireAtCrosshair: 1
   nozzleFlash: {fileID: 0}
   nozzleFlashSize: 0
