@@ -1,4 +1,4 @@
-using System;
+
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -7,7 +7,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 {
     public List<SoundBank> soundBanks;
 
-    private Dictionary<string, AudioClip> clips;
+    private Dictionary<string, Sound> clips;
 
     private AudioSource source;
 
@@ -16,13 +16,13 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     {
         base.Awake();
         source = GetComponent<AudioSource>();
-        clips = new Dictionary<string, AudioClip>();
+        clips = new Dictionary<string, Sound>();
 
         foreach (SoundBank bank in soundBanks)
         {
             foreach (Sound sound in bank.sounds)
             {
-                if (!clips.TryAdd(sound.name, sound.clip))
+                if (!clips.TryAdd(sound.name, sound))
                 {
                     Debug.LogWarning("Sounds with name \"" + sound.name + "\" already exists in SoundBanks.");
                 }
@@ -33,12 +33,11 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 
     public AudioClip GetClip(string name)
     {
-        clips.TryGetValue(name, out var clip);
-        if (!clip)
+        if (!clips.TryGetValue(name, out var sound))
         {
             Debug.LogWarning("Sound with name \"" + name + "\" does not exist in SoundBank.");
         }
-        return clip;
+        return sound.clip;
     }
 
     public void PlaySoundAtPosition(string soundName, Vector3 position)
@@ -47,12 +46,16 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         {
             return;
         }
-        var clip = GetClip(soundName);
-        if (!clip)
+        if (!clips.TryGetValue(soundName, out var sound))
         {
+            Debug.LogWarning("Sound with name \"" + name + "\" does not exist in SoundBank.");
             return;
         }
         transform.position = position;
-        source.PlayOneShot(clip);
+        source.volume = sound.volume;
+        source.pitch = Random.Range(-sound.pitchRandom, sound.pitchRandom) + 1f;
+        
+
+        source.PlayOneShot(sound.clip);
     }
 }

@@ -9,10 +9,13 @@ public struct Sound
 {
     public string name;
     public AudioClip clip;
+    [Range(0f, 1f)] public float volume;
+    [Range(0f, 0.1f)]public float pitchRandom;
 }
 
 [CreateAssetMenu(fileName = "SoundBank", menuName = "Scriptable Objects/Sound Bank", order = 1)]
 public class SoundBank : ScriptableObject
 {
     public List<Sound> sounds;
+
 }
