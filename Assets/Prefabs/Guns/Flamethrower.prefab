@@ -299,4 +299,4 @@ MonoBehaviour:
   nozzleFlash: {fileID: 0}
   nozzleFlashSize: 0.4
   nozzleFlashDuration: 0.2
-  fireSound: ShotPH
+  fireSound: FlameThrower

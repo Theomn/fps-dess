@@ -21,3 +21,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 0449c6b757380e149968cf8b21b8e8d2, type: 3}
     volume: 0.547
     pitchRandom: 0.04
+  - name: FlameThrower
+    clip: {fileID: 8300000, guid: f89124420d06e9448baf27660e88f762, type: 3}
+    volume: 0.547
+    pitchRandom: 0.0325
