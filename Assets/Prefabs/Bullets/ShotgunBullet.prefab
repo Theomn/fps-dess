@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8685403030757105082}
   - component: {fileID: 8685403030757105083}
   - component: {fileID: -5065524526229474431}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ShotgunBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8d247bd1127aa46a8be4f7316ec02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despawnOffset: 2
+  despawnOffset: 1
   raycastLayerMask:
     serializedVersion: 2
     m_Bits: 320
