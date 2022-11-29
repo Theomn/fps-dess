@@ -20,6 +20,9 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private float gravity;
     [SerializeField] private GroundCheck groundCheck;
 
+    [Header("References")]
+    [SerializeField] private Transform eyes;
+
 
     private enum State
     {
@@ -109,6 +112,19 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
     }
 
+    private void SetAirborne()
+    {
+        state = State.Airborne;
+        rb.drag = airDrag;
+        jumpTimer = 0.2f;
+    }
+
+    private void SetGrounded()
+    {
+        state = State.Grounded;
+        rb.drag = groundDrag;
+    }
+
     public void Damage(float damage)
     {
         health -= damage;
@@ -130,18 +146,9 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         bool hor = force.x != 0 || force.z != 0;
         rb.velocity = new Vector3(hor ? force.x : rb.velocity.x, force.y, hor ? force.z : rb.velocity.z);
     }
-    
 
-    private void SetAirborne()
+    public Transform GetEyes()
     {
-        state = State.Airborne;
-        rb.drag = airDrag;
-        jumpTimer = 0.2f;
-    }
-
-    private void SetGrounded()
-    {
-        state = State.Grounded;
-        rb.drag = groundDrag;
+        return eyes;
     }
 }

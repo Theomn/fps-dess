@@ -21,6 +21,7 @@ public class RaycastBullet : Bullet
 
     protected override void Update()
     {
+        base.Update();
         if (moveNextFrame)
         {
             transform.position = positions[1];
@@ -48,6 +49,8 @@ public class RaycastBullet : Bullet
         {
             positions[1] = transform.position + transform.TransformDirection(Vector3.forward * data.maxRange);
         }
+        FlagForDespawn();
+
         line.SetPositions(positions);
         line.startWidth = initialWidth;
         moveNextFrame = true;

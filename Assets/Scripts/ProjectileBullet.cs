@@ -3,6 +3,7 @@ using Lean.Pool;
 
 public class ProjectileBullet : Bullet
 {
+    [SerializeField] private GameObject visual;
     private Rigidbody rb;
     private int pierceCount;
     protected TrailRenderer trail;
@@ -22,10 +23,15 @@ public class ProjectileBullet : Bullet
 
         pierceCount = 0;
         GetComponent<Collider>().enabled = true;
+        visual.SetActive(true);
     }
 
     protected virtual void FixedUpdate()
     {
+        if (flaggedForDespawn)
+        {
+            return;
+        }
         // Travel forward
         rb.MovePosition(Vector3.MoveTowards(transform.localPosition, transform.localPosition + transform.forward * data.speed * Time.fixedDeltaTime, float.MaxValue));
 
@@ -40,6 +46,8 @@ public class ProjectileBullet : Bullet
     {
         base.FlagForDespawn();
         GetComponent<Collider>().enabled = false;
+        visual.SetActive(false);
+
         //Make sure the bullet is exactly on the contact point
         Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, Layer.ground + Layer.enemy + Layer.player);
         if (hit.collider)

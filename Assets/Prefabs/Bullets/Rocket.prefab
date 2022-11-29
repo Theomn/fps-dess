@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   despawnOffset: 5
+  visual: {fileID: 8618613756606737603}
 --- !u!54 &7297008730676258165
 Rigidbody:
   m_ObjectHideFlags: 0

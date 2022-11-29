@@ -5,12 +5,14 @@ using UnityEngine;
 public class CameraController : SingletonMonoBehaviour<CameraController>
 {
     [SerializeField] private float sensitivity;
-    [SerializeField] private Transform player;
-    [SerializeField] private Transform playerEyes;
 
     private Vector2 mouse;
     private Vector3 velocity;
     private LayerMask crosshairLayerMask;
+    private Transform player;
+    private Transform playerEyes;
+
+
 
     protected override void Awake()
     {
@@ -22,6 +24,8 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        player = PlayerController.Instance.transform;
+        playerEyes = PlayerController.Instance.GetEyes();
     }
 
     // Update is called once per frame
