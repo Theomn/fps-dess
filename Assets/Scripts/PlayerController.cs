@@ -46,6 +46,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     {
         health = maxHealth;
         state = State.Airborne;
+        HUDController.Instance.SetMaxHealth(maxHealth);
+        
     }
 
 
@@ -128,6 +130,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     public void Damage(float damage)
     {
         health -= damage;
+        HUDController.Instance.SetHealth(health);
     }
 
     public void AddExplosionForce(float explosionForce, Vector3 explosionPosition)

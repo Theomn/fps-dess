@@ -246,7 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.1
   bulletCount: 1
-  randomSpread: 1
+  randomSpread: 5
   bulletPrefab: {fileID: 8685403030757105085, guid: 321c7eed0f16c014a996247e33728557, type: 3}
   bulletData:
     damagesPlayer: 0
@@ -258,13 +258,15 @@ MonoBehaviour:
     maxPierceCount: 1
     lifetime: 1
     destroyOnGroundContact: 1
-    maxRange: 60
+    maxRange: 40
   maxEnergy: 100
   energyRechargeRate: 5
   energyCost: 0
-  nozzle: {fileID: 6646345596567364694}
+  nozzles:
+  - {fileID: 6646345596567364694}
   fireAtCrosshair: 1
-  nozzleFlash: {fileID: 6646345595969321323}
+  nozzleFlashes:
+  - {fileID: 6646345595969321323}
   nozzleFlashSize: 0.4
   nozzleFlashDuration: 0.15
   fireSound: MachineGun
