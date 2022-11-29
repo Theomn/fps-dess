@@ -15,5 +15,9 @@ MonoBehaviour:
   sounds:
   - name: ShotPH
     clip: {fileID: 8300000, guid: 0205410f56a527b4daec250bafa31e98, type: 3}
+    volume: 0.5
+    pitchRandom: 0
   - name: MachineGun
     clip: {fileID: 8300000, guid: 0449c6b757380e149968cf8b21b8e8d2, type: 3}
+    volume: 0.547
+    pitchRandom: 0.04
