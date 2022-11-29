@@ -12,8 +12,6 @@ public struct BulletData
     public bool damagesEnemies;
     [Tooltip("Damage dealt per bullet.")]
     public float damage;
-    [Tooltip("Time in second before bullet despawns.")]
-    public float lifetime;
     [Tooltip("Object that will be spawned when and where the bullet despawns. (Explosions, gas clouds...)")]
     public Event endEvent;
     [Header("Projectile Data")]
@@ -23,6 +21,8 @@ public struct BulletData
     public float gravity;
     [Tooltip("How many entities the bullet will go through before despawning. Does not pierce objects on Ground layer.")]
     public int maxPierceCount;
+    [Tooltip("Time in second before bullet despawns.")]
+    public float lifetime;
     [Tooltip("If true, the bullet will despawn as soon as it touches a ground element.")]
     public bool destroyOnGroundContact;
     [Header("Raycast Data")]
@@ -31,18 +31,28 @@ public struct BulletData
 
 public abstract class Bullet : MonoBehaviour
 {
+    [SerializeField] protected float despawnOffset;
     protected BulletData data;
     protected float lifetimeTimer;
-
+    protected bool flaggedForDespawn;
+    protected float despawnTimer;
 
     protected virtual void Update()
     {
-        if (lifetimeTimer > 0f)
+        if (flaggedForDespawn)
+        {
+            despawnTimer -= Time.deltaTime;
+            if (despawnTimer <= 0)
+            {
+                Despawn();
+            }
+        }
+        else if (lifetimeTimer > 0f)
         {
             lifetimeTimer -= Time.deltaTime;
             if (lifetimeTimer <= 0)
             {
-                Despawn();
+                FlagForDespawn();
             }
         }
     }
@@ -51,7 +61,14 @@ public abstract class Bullet : MonoBehaviour
     public virtual void Spawn(BulletData data)
     {
         this.data = data;
+        flaggedForDespawn = false;
         lifetimeTimer = data.lifetime;
+    }
+
+    protected virtual void FlagForDespawn()
+    {
+        flaggedForDespawn = true;
+        despawnTimer = despawnOffset;
     }
 
     protected virtual void Despawn()

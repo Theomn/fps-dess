@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec8b7b0ec219ec49bc3e0fb0d29e575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  despawnOffset: 5
 --- !u!54 &7297008730676258165
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -99,7 +100,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: beb2d9079328ffa4fa117f7979a850a6, type: 2}
+  - {fileID: 2100000, guid: 34e8d5bb52ffe5942a580bf7f7206ee2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

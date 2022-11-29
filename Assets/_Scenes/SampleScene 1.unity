@@ -218,6 +218,89 @@ Transform:
   m_Father: {fileID: 1934166520}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &207673217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 207673218}
+  - component: {fileID: 207673221}
+  - component: {fileID: 207673220}
+  m_Layer: 11
+  m_Name: NozzleFlash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &207673218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207673217}
+  m_LocalRotation: {x: -0.030102003, y: -0.005267797, z: -0.00076614117, w: 0.9995327}
+  m_LocalPosition: {x: 0.06, y: 0, z: 0.12}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 867846847}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &207673220
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207673217}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 34e8d5bb52ffe5942a580bf7f7206ee2, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &207673221
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207673217}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &242426046
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,13 +652,13 @@ GameObject:
   m_Component:
   - component: {fileID: 388475133}
   - component: {fileID: 388475135}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &388475133
 Transform:
   m_ObjectHideFlags: 0
@@ -613,11 +696,11 @@ MonoBehaviour:
     damagesPlayer: 0
     damagesEnemies: 1
     damage: 2
-    lifetime: 1
     endEvent: {fileID: 0}
     speed: 50
     gravity: 0
     maxPierceCount: 1
+    lifetime: 1
     destroyOnGroundContact: 1
     maxRange: 200
   maxEnergy: 100
@@ -625,6 +708,9 @@ MonoBehaviour:
   energyCost: 0
   nozzle: {fileID: 867846847}
   fireAtCrosshair: 1
+  nozzleFlash: {fileID: 207673218}
+  nozzleFlashSize: 0.3
+  nozzleFlashDuration: 0.2
   fireSound: ShotPH
 --- !u!1 &413350066
 GameObject:
@@ -919,11 +1005,11 @@ MonoBehaviour:
     damagesPlayer: 0
     damagesEnemies: 1
     damage: 1
-    lifetime: 5
     endEvent: {fileID: 7826445943607923957, guid: d5106e20ab65b994daf89101e355dd34, type: 3}
     speed: 10
     gravity: 50
     maxPierceCount: 1
+    lifetime: 5
     destroyOnGroundContact: 1
     maxRange: 0
   maxEnergy: 100
@@ -931,6 +1017,9 @@ MonoBehaviour:
   energyCost: 0
   nozzle: {fileID: 867846847}
   fireAtCrosshair: 1
+  nozzleFlash: {fileID: 0}
+  nozzleFlashSize: 0
+  nozzleFlashDuration: 0
   fireSound: ShotPH
 --- !u!4 &563155745
 Transform:
@@ -1513,7 +1602,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 867846847}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Nozzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1529,9 +1618,10 @@ Transform:
   m_GameObject: {fileID: 867846846}
   m_LocalRotation: {x: 0.030102003, y: 0.0052677966, z: 0.00076614117, w: 0.99953264}
   m_LocalPosition: {x: -1.1617572, y: -0.33980668, z: -1.0846946}
-  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 207673218}
   m_Father: {fileID: 388475133}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2208,6 +2298,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 388475133}
     m_Modifications:
+    - target: {fileID: 1038202262540530, guid: 119551172e2002344983c075ab97ef79, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439148281649736, guid: 119551172e2002344983c075ab97ef79, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462590004240832, guid: 119551172e2002344983c075ab97ef79, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1516607273765548, guid: 119551172e2002344983c075ab97ef79, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671029925390012, guid: 119551172e2002344983c075ab97ef79, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777336020457016, guid: 119551172e2002344983c075ab97ef79, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787989994309776, guid: 119551172e2002344983c075ab97ef79, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891939013567316, guid: 119551172e2002344983c075ab97ef79, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4826450088584990, guid: 119551172e2002344983c075ab97ef79, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2396,11 +2518,11 @@ MonoBehaviour:
     damagesPlayer: 1
     damagesEnemies: 0
     damage: 0
-    lifetime: 2
     endEvent: {fileID: 0}
     speed: 20
     gravity: 0
     maxPierceCount: 1
+    lifetime: 2
     destroyOnGroundContact: 0
     maxRange: 0
   maxEnergy: 10
@@ -2408,6 +2530,9 @@ MonoBehaviour:
   energyCost: 0
   nozzle: {fileID: 1546200200}
   fireAtCrosshair: 0
+  nozzleFlash: {fileID: 0}
+  nozzleFlashSize: 0
+  nozzleFlashDuration: 0
   fireSound: 
 --- !u!1 &1578965041
 GameObject:
@@ -3159,7 +3284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2015061594}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Guns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3234,16 +3359,16 @@ MonoBehaviour:
   fireRate: 0.8
   bulletCount: 15
   randomSpread: 10
-  bulletPrefab: {fileID: 8685403030757105085, guid: 0a2bf845678df1d46873fd814728f546, type: 3}
+  bulletPrefab: {fileID: 8685403030757105085, guid: 321c7eed0f16c014a996247e33728557, type: 3}
   bulletData:
     damagesPlayer: 0
     damagesEnemies: 1
     damage: 5
-    lifetime: 1
-    endEvent: {fileID: 0}
+    endEvent: {fileID: 6693604710445968655, guid: 0024a9bd3300c964a96c4287fec28363, type: 3}
     speed: 0
     gravity: 0
     maxPierceCount: 0
+    lifetime: 1
     destroyOnGroundContact: 0
     maxRange: 20
   maxEnergy: 100
@@ -3251,6 +3376,9 @@ MonoBehaviour:
   energyCost: 0
   nozzle: {fileID: 1009271546}
   fireAtCrosshair: 1
+  nozzleFlash: {fileID: 0}
+  nozzleFlashSize: 0
+  nozzleFlashDuration: 0
   fireSound: 
 --- !u!1 &2074540467
 GameObject:
@@ -3411,11 +3539,11 @@ MonoBehaviour:
     damagesPlayer: 1
     damagesEnemies: 0
     damage: 0
-    lifetime: 2
     endEvent: {fileID: 0}
     speed: 20
     gravity: 0
     maxPierceCount: 1
+    lifetime: 2
     destroyOnGroundContact: 0
     maxRange: 0
   maxEnergy: 10
@@ -3423,6 +3551,9 @@ MonoBehaviour:
   energyCost: 0
   nozzle: {fileID: 2101279086}
   fireAtCrosshair: 0
+  nozzleFlash: {fileID: 0}
+  nozzleFlashSize: 0
+  nozzleFlashDuration: 0
   fireSound: 
 --- !u!1 &2126714283
 GameObject:
@@ -3637,11 +3768,11 @@ MonoBehaviour:
     damagesPlayer: 0
     damagesEnemies: 1
     damage: 5
-    lifetime: 5
     endEvent: {fileID: 7826445943607923957, guid: d5106e20ab65b994daf89101e355dd34, type: 3}
     speed: 40
     gravity: 0
     maxPierceCount: 1
+    lifetime: 5
     destroyOnGroundContact: 1
     maxRange: 0
   maxEnergy: 100
@@ -3649,6 +3780,9 @@ MonoBehaviour:
   energyCost: 0
   nozzle: {fileID: 2126714284}
   fireAtCrosshair: 1
+  nozzleFlash: {fileID: 0}
+  nozzleFlashSize: 0
+  nozzleFlashDuration: 0
   fireSound: 
 --- !u!23 &2090966566869895612
 MeshRenderer:
@@ -3962,7 +4096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4513460404574936500}
   - component: {fileID: 4513460404574936501}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4,22 +4,26 @@ using Lean.Pool;
 public class ProjectileBullet : Bullet
 {
     private Rigidbody rb;
-    private TrailRenderer trail;
     private int pierceCount;
+    protected TrailRenderer trail;
 
-    protected virtual void Awake()
+
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
         trail = GetComponent<TrailRenderer>();
+
     }
 
     public override void Spawn(BulletData data)
     {
         base.Spawn(data);
-        pierceCount = 0;
         trail?.Clear();
+
+        pierceCount = 0;
+        GetComponent<Collider>().enabled = true;
     }
-    
+
     protected virtual void FixedUpdate()
     {
         // Travel forward
@@ -32,8 +36,10 @@ public class ProjectileBullet : Bullet
         }
     }
 
-    protected override void Despawn()
+    protected override void FlagForDespawn()
     {
+        base.FlagForDespawn();
+        GetComponent<Collider>().enabled = false;
         //Make sure the bullet is exactly on the contact point
         Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, Layer.ground + Layer.enemy + Layer.player);
         if (hit.collider)
@@ -46,7 +52,6 @@ public class ProjectileBullet : Bullet
             evt.transform.position = transform.position;
             evt.Spawn();
         }
-        base.Despawn();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -57,14 +62,14 @@ public class ProjectileBullet : Bullet
             pierceCount++;
             if (pierceCount >= data.maxPierceCount)
             {
-                Despawn();
+                FlagForDespawn();
             }
         }
         else if (layer == Layer.ground)
         {
             if (data.destroyOnGroundContact)
             {
-                Despawn();
+                FlagForDespawn();
             }
         }
     }

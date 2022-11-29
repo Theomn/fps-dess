@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Lean.Pool;
+using DG.Tweening;
 
 public class Gun : MonoBehaviour
 {
@@ -28,6 +29,10 @@ public class Gun : MonoBehaviour
     [Tooltip("If true, the nozzle will rotate where the crosshair collides with the world everytime the gun is fired. " +
         "Set to false for guns equipped on enemies.")]
     [SerializeField] private bool fireAtCrosshair;
+    [Tooltip("Sphere that flashs at the tip of the nozzle when gun is fired.")]
+    [SerializeField] private Transform nozzleFlash;
+    [SerializeField] private float nozzleFlashSize;
+    [SerializeField] private float nozzleFlashDuration;
 
     [Header("References")]
     [Tooltip("id of the sound to play when the gun is fired.")]
@@ -89,6 +94,11 @@ public class Gun : MonoBehaviour
                 bullet.Spawn(bulletData);
             }
 
+            if (nozzleFlash)
+            {
+                nozzleFlash.localScale = Vector3.zero;
+                nozzleFlash.DOPunchScale(Vector3.one * nozzleFlashSize, nozzleFlashDuration, 0, 0).SetEase(Ease.OutCubic);
+            }
             AudioManager.Instance.PlaySoundAtPosition(fireSound, transform.position);
 
         }
