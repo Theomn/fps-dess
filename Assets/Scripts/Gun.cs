@@ -25,12 +25,12 @@ public class Gun : MonoBehaviour
 
     [Header("Barrel")]
     [Tooltip("Position and direction where bullets spawn.")]
-    [SerializeField] private Transform nozzle;
+    [SerializeField] private List<Transform> nozzles;
     [Tooltip("If true, the nozzle will rotate where the crosshair collides with the world everytime the gun is fired. " +
         "Set to false for guns equipped on enemies.")]
     [SerializeField] private bool fireAtCrosshair;
-    [Tooltip("Sphere that flashs at the tip of the nozzle when gun is fired.")]
-    [SerializeField] private Transform nozzleFlash;
+    [Tooltip("Spheres that flashs at the tip of the nozzle when gun is fired.")]
+    [SerializeField] private List<Transform> nozzleFlashes;
     [SerializeField] private float nozzleFlashSize;
     [SerializeField] private float nozzleFlashDuration;
 
@@ -41,12 +41,19 @@ public class Gun : MonoBehaviour
     private float energy;
     private bool ready;
     private float fireRateTimer;
+    private int nozzleId;
+    private Transform currentNozzle;
+    private Transform currentNozzleFlash;
     
 
     void Awake()
     {
         energy = maxEnergy;
         ready = true;
+        if (nozzleFlashes.Count > 0 && (nozzles.Count != nozzleFlashes.Count))
+        {
+            Debug.LogWarning("Gun does not contain as many nozzle flashes as there are nozzles", this);
+        }
     }
     
 
@@ -83,24 +90,39 @@ public class Gun : MonoBehaviour
 
             for (int i = 0; i < bulletCount; i++)
             {
+                NextNozzle();
                 bullet = LeanPool.Spawn(bulletPrefab).GetComponent<Bullet>();
-                bullet.transform.localPosition = nozzle.position;
+                bullet.transform.localPosition = currentNozzle.position;
                 if (fireAtCrosshair)
                 {
-                    nozzle.LookAt(CameraController.Instance.GetCrosshairTarget());
+                    currentNozzle.LookAt(CameraController.Instance.GetCrosshairTarget());
                 }
-                bullet.transform.rotation = nozzle.rotation;
+                bullet.transform.rotation = currentNozzle.rotation;
                 bullet.transform.eulerAngles += new Vector3(Random.Range(-randomSpread, randomSpread), Random.Range(-randomSpread, randomSpread), 0);
                 bullet.Spawn(bulletData);
             }
 
-            if (nozzleFlash)
+            if (currentNozzleFlash)
             {
-                nozzleFlash.localScale = Vector3.zero;
-                nozzleFlash.DOPunchScale(Vector3.one * nozzleFlashSize, nozzleFlashDuration, 0, 0).SetEase(Ease.OutCubic);
+                currentNozzleFlash.localScale = Vector3.zero;
+                currentNozzleFlash.DOPunchScale(Vector3.one * nozzleFlashSize, nozzleFlashDuration, 0, 0).SetEase(Ease.OutCubic);
             }
             AudioManager.Instance.PlaySoundAtPosition(fireSound, transform.position);
 
+        }
+    }
+
+    private void NextNozzle()
+    {
+        nozzleId++;
+        if (nozzleId >= nozzles.Count)
+        {
+            nozzleId = 0;
+        }
+        currentNozzle = nozzles[nozzleId];
+        if (nozzleFlashes.Count > 0)
+        {
+            currentNozzleFlash = nozzleFlashes[nozzleId];
         }
     }
 }
