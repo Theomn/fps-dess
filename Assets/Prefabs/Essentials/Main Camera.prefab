@@ -366,22 +366,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6646345596091024918, guid: 12c6f6d5f2e037d48927178a10c2f382, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 8685403030757105085, guid: 321c7eed0f16c014a996247e33728557, type: 3}
-    - target: {fileID: 6646345596091024918, guid: 12c6f6d5f2e037d48927178a10c2f382, type: 3}
-      propertyPath: randomSpread
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6646345596091024918, guid: 12c6f6d5f2e037d48927178a10c2f382, type: 3}
-      propertyPath: nozzleFlashSize
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6646345596091024918, guid: 12c6f6d5f2e037d48927178a10c2f382, type: 3}
-      propertyPath: nozzleFlashDuration
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12c6f6d5f2e037d48927178a10c2f382, type: 3}
 --- !u!114 &9132395769430408233 stripped

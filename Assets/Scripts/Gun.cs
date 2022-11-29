@@ -24,11 +24,13 @@ public class Gun : MonoBehaviour
     [SerializeField] private float energyCost;
 
     [Header("Barrel")]
-    [Tooltip("Position and direction where bullets spawn.")]
-    [SerializeField] private List<Transform> nozzles;
     [Tooltip("If true, the nozzle will rotate where the crosshair collides with the world everytime the gun is fired. " +
         "Set to false for guns equipped on enemies.")]
     [SerializeField] private bool fireAtCrosshair;
+    [Tooltip("Position and direction where bullets spawn.")]
+    [SerializeField] private List<Transform> nozzles;
+    [Tooltip("Set to false to set flash transforms separately from nozzles")]
+    [SerializeField] private bool nozzlesAreFlashes;
     [Tooltip("Spheres that flashs at the tip of the nozzle when gun is fired.")]
     [SerializeField] private List<Transform> nozzleFlashes;
     [SerializeField] private float nozzleFlashSize;
@@ -120,7 +122,11 @@ public class Gun : MonoBehaviour
             nozzleId = 0;
         }
         currentNozzle = nozzles[nozzleId];
-        if (nozzleFlashes.Count > 0)
+        if (nozzlesAreFlashes)
+        {
+            currentNozzleFlash = nozzles[nozzleId];
+        }
+        else if (nozzleFlashes.Count > 0)
         {
             currentNozzleFlash = nozzleFlashes[nozzleId];
         }

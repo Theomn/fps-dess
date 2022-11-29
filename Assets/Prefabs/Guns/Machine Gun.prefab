@@ -268,7 +268,7 @@ MonoBehaviour:
   nozzleFlashes:
   - {fileID: 6646345595969321323}
   nozzleFlashSize: 0.4
-  nozzleFlashDuration: 0.15
+  nozzleFlashDuration: 0.1
   fireSound: MachineGun
 --- !u!1 &6646345596567364695
 GameObject:
