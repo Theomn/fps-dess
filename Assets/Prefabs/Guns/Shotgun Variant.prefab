@@ -69,7 +69,7 @@ MonoBehaviour:
   nozzleFlash: {fileID: 7789695173240596417}
   nozzleFlashSize: 0.4
   nozzleFlashDuration: 0.2
-  fireSound: 
+  fireSound: ShotGun
 --- !u!1 &657279537700548984
 GameObject:
   m_ObjectHideFlags: 0
