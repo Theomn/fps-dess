@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6431877847194675768}
   - component: {fileID: 6431877847194675770}
   - component: {fileID: 6431877847194675769}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Nozzle 01
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -26,12 +26,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6431877847194675775}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01, y: -0.618, z: 1.167}
+  m_LocalPosition: {x: -0.010000229, y: -0.61800003, z: 1.1669998}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6431877848924915114}
-  m_RootOrder: 1
+  m_Father: {fileID: 1965987404238925174}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6431877847194675770
 MeshFilter:
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 34e8d5bb52ffe5942a580bf7f7206ee2, type: 2}
+  - {fileID: 2100000, guid: d87888d3ac1f10147a6bf645e5c2c58e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6431877847670404700}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6431877847741143982}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6431877848924915114}
-  m_Layer: 0
+  - component: {fileID: 5276340728769474642}
+  - component: {fileID: 5463183794404363576}
+  m_Layer: 8
   m_Name: Drone Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,14 +174,131 @@ Transform:
   m_GameObject: {fileID: 6431877848924915113}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 19.436165, y: 11.728132, z: 14.525253}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6431877847741143982}
-  - {fileID: 6431877847194675768}
+  - {fileID: 1965987404238925174}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5276340728769474642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6431877848924915113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f227e902c85f864aa0ddde8b0efbee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  endEvent: {fileID: 0}
+  tracksPlayer: 1
+  trackingSpeed: 100
+  trackingRange: 50
+  firesBullets: 1
+  fireRange: 20
+  gun: {fileID: 5490577198234099266}
+  colliders:
+  - {fileID: 1934216060695923269}
+  - {fileID: 8516835070532346614}
+  maxSpeed: 3
+  acceleration: 10
+  followRange: 50
+  hoverRange: 12
+--- !u!54 &5463183794404363576
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6431877848924915113}
+  serializedVersion: 2
+  m_Mass: 10
+  m_Drag: 2
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!1 &6999277707547822530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1965987404238925174}
+  - component: {fileID: 5490577198234099266}
+  m_Layer: 8
+  m_Name: Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1965987404238925174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6999277707547822530}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6431877847194675768}
+  m_Father: {fileID: 6431877848924915114}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5490577198234099266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6999277707547822530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ba43b923b5f3b468ced0af3fe5605d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 0.5
+  bulletCount: 1
+  randomSpread: 2
+  bulletPrefab: {fileID: 7908677262566707853, guid: b8dcb9a88d39151498036c36ab23047e, type: 3}
+  bulletData:
+    damagesPlayer: 1
+    damagesEnemies: 0
+    damage: 5
+    endEvent: {fileID: 0}
+    speed: 30
+    gravity: 0
+    maxPierceCount: 1
+    lifetime: 2
+    destroyOnGroundContact: 1
+    maxRange: 0
+  maxEnergy: 100
+  energyRechargeRate: 10
+  energyCost: 0
+  fireAtCrosshair: 0
+  nozzles:
+  - {fileID: 6431877847194675768}
+  rotationRecoil: 0
+  positionRecoil: 0
+  recoilDuration: 0
+  nozzlesAreFlashes: 1
+  nozzleFlashes: []
+  nozzleFlashSize: 1
+  nozzleFlashDuration: 0.2
+  fireSound: 
 --- !u!1001 &6431877847352569822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -255,8 +374,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: craft_speederD
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cb3c7ced62c1df642b528d1a3a1976be, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb3c7ced62c1df642b528d1a3a1976be, type: 3}
+--- !u!1 &6162040307399152271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cb3c7ced62c1df642b528d1a3a1976be, type: 3}
+  m_PrefabInstance: {fileID: 6431877847352569822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1934216060695923269
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6162040307399152271}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4420684004710436906, guid: cb3c7ced62c1df642b528d1a3a1976be, type: 3}
 --- !u!4 &6829752464872966197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cb3c7ced62c1df642b528d1a3a1976be, type: 3}
@@ -337,8 +479,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: blasterM (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 629fa8daefd3310498916c463cf18f14, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 629fa8daefd3310498916c463cf18f14, type: 3}
+--- !u!1 &6162040305901699712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 629fa8daefd3310498916c463cf18f14, type: 3}
+  m_PrefabInstance: {fileID: 6431877848002478033}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &8516835070532346614
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6162040305901699712}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5477091039408234402, guid: 629fa8daefd3310498916c463cf18f14, type: 3}
 --- !u!4 &6829752464231192634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 629fa8daefd3310498916c463cf18f14, type: 3}

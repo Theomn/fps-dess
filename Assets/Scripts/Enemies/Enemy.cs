@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float fireRange;
     [SerializeField] private Gun gun;
 
+    [Header("References")]
+    [SerializeField] List<Collider> colliders;
 
     private float health;
     protected float distanceToPlayer;
@@ -102,7 +104,10 @@ public class Enemy : MonoBehaviour
 
     protected void Destroy()
     {
-        GetComponent<Collider>().enabled = false;
+        foreach(Collider coll in colliders)
+        {
+            coll.enabled = false;
+        }
         if (endEvent)
         {
             var evt = LeanPool.Spawn(endEvent);

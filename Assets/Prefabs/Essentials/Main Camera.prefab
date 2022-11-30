@@ -56,7 +56,7 @@ MonoBehaviour:
   - {fileID: 6124825282124772109}
   - {fileID: 7927741026861499410}
   swaySensitivity: 10
-  swayMaxAmount: 10
+  swayMaxAmount: 5
   swaySmooth: 4
 --- !u!1 &6843905640687837511
 GameObject:

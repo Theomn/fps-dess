@@ -29,7 +29,7 @@ public class ExplosionEvent : Event
 
             if (entity.gameObject.layer == Layer.enemy)
             {
-                var enemy = entity.GetComponent<Enemy>();
+                var enemy = entity.GetComponentInParent<Enemy>();
                 if (!enemy)
                 {
                     return;

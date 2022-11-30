@@ -81,7 +81,7 @@ public abstract class Bullet : MonoBehaviour
         var layer = other.gameObject.layer;
         if (layer == Layer.enemy)
         {
-            var enemy = other.GetComponent<Enemy>();
+            var enemy = other.GetComponentInParent<Enemy>();
             if (!enemy)
             {
                 Debug.LogWarning("Bullet collided with an object on the Enemy layer but with no Enemy component");

@@ -123,6 +123,255 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &152929927
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 312395113}
+    m_Modifications:
+    - target: {fileID: 5463183794404363576, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915113, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_Name
+      value: Drone Yellow (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.409996
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -75.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+--- !u!1001 &267281158
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 312395113}
+    m_Modifications:
+    - target: {fileID: 5463183794404363576, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915113, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_Name
+      value: Drone Yellow (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 32.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -88.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+--- !u!4 &312395113 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 824472052607755689, guid: 01740b1d74933fe4d8b9a94668142668, type: 3}
+  m_PrefabInstance: {fileID: 6305408586161239370}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &332263560
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 312395113}
+    m_Modifications:
+    - target: {fileID: 5463183794404363576, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915113, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_Name
+      value: Drone Yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.461466
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.669999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -88.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+--- !u!1001 &388588291
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 312395113}
+    m_Modifications:
+    - target: {fileID: 5463183794404363576, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915113, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_Name
+      value: Drone Yellow (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 28.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.869999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -88.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
 --- !u!1 &563891442
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &563891443
 AudioSource:
   m_ObjectHideFlags: 0
@@ -258,22 +507,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3682293854688291015, guid: 97a69b3e369f10c4a863af8b2ca21889, type: 3}
-      propertyPath: fireRate
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5490941737197163588, guid: 97a69b3e369f10c4a863af8b2ca21889, type: 3}
-      propertyPath: swaySmooth
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5490941737197163588, guid: 97a69b3e369f10c4a863af8b2ca21889, type: 3}
-      propertyPath: swayMaxAmount
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 5490941737197163588, guid: 97a69b3e369f10c4a863af8b2ca21889, type: 3}
-      propertyPath: swaySensitivity
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6843905640687837506, guid: 97a69b3e369f10c4a863af8b2ca21889, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -494,6 +727,128 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c4aee1680894d94da2530ba46a2a3df, type: 3}
+--- !u!1001 &1092604584
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 312395113}
+    m_Modifications:
+    - target: {fileID: 5463183794404363576, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915113, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_Name
+      value: Drone Yellow (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 32.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -75.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+--- !u!1001 &1243755641
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 312395113}
+    m_Modifications:
+    - target: {fileID: 5463183794404363576, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915113, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_Name
+      value: Drone Yellow (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -75.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
 --- !u!1001 &1299947966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -551,6 +906,311 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
+--- !u!1001 &1533397933
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 312395113}
+    m_Modifications:
+    - target: {fileID: 5463183794404363576, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915113, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_Name
+      value: Drone Yellow (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 28.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.669999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -88.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+--- !u!1001 &1622283511
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 312395113}
+    m_Modifications:
+    - target: {fileID: 5463183794404363576, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915113, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_Name
+      value: Drone Yellow (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 32.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14.949998
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -88.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+--- !u!1001 &1919281782
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 312395113}
+    m_Modifications:
+    - target: {fileID: 5463183794404363576, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915113, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_Name
+      value: Drone Yellow (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.869999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -88.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+--- !u!1001 &1972843249
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 312395113}
+    m_Modifications:
+    - target: {fileID: 5463183794404363576, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915113, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_Name
+      value: Drone Yellow (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -75.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+--- !u!1001 &2037915891
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 312395113}
+    m_Modifications:
+    - target: {fileID: 5463183794404363576, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915113, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_Name
+      value: Drone Yellow (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 32.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.409996
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -75.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6431877848924915114, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49766ea0f71b1e04195e3b7b23d8defc, type: 3}
 --- !u!1001 &6305408586161239370
 PrefabInstance:
   m_ObjectHideFlags: 0

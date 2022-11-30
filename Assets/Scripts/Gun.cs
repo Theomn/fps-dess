@@ -123,11 +123,14 @@ public class Gun : MonoBehaviour
                 currentNozzleFlash.DOPunchScale(Vector3.one * nozzleFlashSize, nozzleFlashDuration, 0, 0).SetEase(Ease.OutCubic);
             }
             AudioManager.Instance.PlaySoundAtPosition(fireSound, transform.position);
-            transform.DORewind();
-            transform.localRotation = initialRotation;
-            transform.DOPunchRotation(Vector3.left * rotationRecoil, recoilDuration, 0, 0);
-            transform.localPosition = initialPosition;
-            transform.DOPunchPosition(Vector3.back * positionRecoil, recoilDuration, 0, 0);
+            if (recoilDuration > 0)
+            {
+                transform.DORewind();
+                transform.localRotation = initialRotation;
+                transform.DOPunchRotation(Vector3.left * rotationRecoil, recoilDuration, 0, 0);
+                transform.localPosition = initialPosition;
+                transform.DOPunchPosition(Vector3.back * positionRecoil, recoilDuration, 0, 0);
+            }
         }
     }
 
