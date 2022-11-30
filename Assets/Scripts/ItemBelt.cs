@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemBelt : MonoBehaviour
+public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
 {
     [SerializeField] private List<Gun> guns;
+
+    [Header("Weapon Sway")]
+    [SerializeField] private float swaySensitivity;
+    [SerializeField] private float swayMaxAmount;
+    [SerializeField] private float swaySmooth;
+
     private Gun equippedGun;
     private int equippedGunId;
+    private Vector3 initialRotation;
 
     void Start()
     {
@@ -42,7 +49,7 @@ public class ItemBelt : MonoBehaviour
             EquipGun(equippedGunId - 1);
         }
 
-       
+        SwayGun();
     }
 
     private void EquipGun(int id)
@@ -59,5 +66,15 @@ public class ItemBelt : MonoBehaviour
         equippedGun = guns[id];
         equippedGunId = id;
         equippedGun.gameObject.SetActive(true);
+    }
+
+    private void SwayGun()
+    {
+        float dx = Input.GetAxisRaw("Mouse X") * swaySensitivity;
+        float dy = Input.GetAxisRaw("Mouse Y") * swaySensitivity;
+        dx = Mathf.Clamp(dx, -swayMaxAmount, swayMaxAmount);
+        dy = Mathf.Clamp(dy, -swayMaxAmount, swayMaxAmount);
+        var target = Quaternion.Euler(-dy, dx, 0);
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, target, swaySmooth * Time.deltaTime);
     }
 }

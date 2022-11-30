@@ -55,6 +55,9 @@ MonoBehaviour:
   - {fileID: 4982533109533348929}
   - {fileID: 6124825282124772109}
   - {fileID: 7927741026861499410}
+  swaySensitivity: 10
+  swayMaxAmount: 10
+  swaySmooth: 4
 --- !u!1 &6843905640687837511
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +599,10 @@ PrefabInstance:
     - target: {fileID: 657279536669008275, guid: e8c19506a21a6084cb43c6360fc9b244, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 657279536669008277, guid: e8c19506a21a6084cb43c6360fc9b244, type: 3}
+      propertyPath: fireRate
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8c19506a21a6084cb43c6360fc9b244, type: 3}

@@ -40,7 +40,5 @@ public class ExplosionEvent : Event
         }
         visual.localScale = Vector3.one * radius * 1.5f;
         visual.DOScale(Vector3.zero, duration).SetEase(Ease.OutCubic);
-        //transform.DOPunchScale(Vector3.one * radius, radius/10f, 0, 0).SetEase(Ease.InCubic);
-
     }
 }
