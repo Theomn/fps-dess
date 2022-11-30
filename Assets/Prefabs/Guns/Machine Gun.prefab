@@ -141,7 +141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6646345595969321320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -0.02, z: 0.3}
+  m_LocalPosition: {x: 0.04, y: -0.04, z: 0.35}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -262,9 +262,13 @@ MonoBehaviour:
   maxEnergy: 100
   energyRechargeRate: 5
   energyCost: 0
+  fireAtCrosshair: 1
   nozzles:
   - {fileID: 6646345596567364694}
-  fireAtCrosshair: 1
+  rotationRecoil: 5
+  positionRecoil: 0.1
+  recoilDuration: 0.1
+  nozzlesAreFlashes: 0
   nozzleFlashes:
   - {fileID: 6646345595969321323}
   nozzleFlashSize: 0.4

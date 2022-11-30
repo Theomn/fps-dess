@@ -29,6 +29,15 @@ public class Gun : MonoBehaviour
     [SerializeField] private bool fireAtCrosshair;
     [Tooltip("Position and direction where bullets spawn.")]
     [SerializeField] private List<Transform> nozzles;
+
+    [Space(10f)]
+    [Header("Juice")]
+    [Header("Recoil")]
+    [SerializeField] private float rotationRecoil;
+    [SerializeField] private float positionRecoil;
+    [SerializeField] private float recoilDuration;
+
+    [Header("Nozzle Flash")]
     [Tooltip("Set to false to set flash transforms separately from nozzles")]
     [SerializeField] private bool nozzlesAreFlashes;
     [Tooltip("Spheres that flashs at the tip of the nozzle when gun is fired.")]
@@ -36,7 +45,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float nozzleFlashSize;
     [SerializeField] private float nozzleFlashDuration;
 
-    [Header("References")]
+    [Header("Sound")]
     [Tooltip("id of the sound to play when the gun is fired.")]
     [SerializeField] private string fireSound;
 
@@ -46,6 +55,8 @@ public class Gun : MonoBehaviour
     private int nozzleId;
     private Transform currentNozzle;
     private Transform currentNozzleFlash;
+    private Quaternion initialRotation;
+    private Vector3 initialPosition;
     
 
     void Awake()
@@ -56,6 +67,8 @@ public class Gun : MonoBehaviour
         {
             Debug.LogWarning("Gun does not contain as many nozzle flashes as there are nozzles", this);
         }
+        initialRotation = transform.localRotation;
+        initialPosition = transform.localPosition;
     }
     
 
@@ -110,7 +123,11 @@ public class Gun : MonoBehaviour
                 currentNozzleFlash.DOPunchScale(Vector3.one * nozzleFlashSize, nozzleFlashDuration, 0, 0).SetEase(Ease.OutCubic);
             }
             AudioManager.Instance.PlaySoundAtPosition(fireSound, transform.position);
-
+            transform.DORewind();
+            transform.localRotation = initialRotation;
+            transform.DOPunchRotation(Vector3.left * rotationRecoil, recoilDuration, 0, 0);
+            transform.localPosition = initialPosition;
+            transform.DOPunchPosition(Vector3.back * positionRecoil, recoilDuration, 0, 0);
         }
     }
 

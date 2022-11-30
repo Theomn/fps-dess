@@ -13,7 +13,6 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
 
     private Gun equippedGun;
     private int equippedGunId;
-    private Vector3 initialRotation;
 
     void Start()
     {
