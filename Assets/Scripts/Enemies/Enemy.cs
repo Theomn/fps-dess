@@ -91,6 +91,7 @@ public class Enemy : MonoBehaviour
     // Called by a bullet when it collides with that enemy
     public void Damage(float damage)
     {
+        Debug.Log(damage, this);
         health -= damage;
         if (health <= 0)
         {
@@ -115,7 +116,7 @@ public class Enemy : MonoBehaviour
         }
         flaggedForDestroy = true;
         destroyTimer = destroyTime;
-        deathFX.SetActive(true);
+        deathFX?.SetActive(true);
     }
 
     protected void Destroy()
@@ -126,7 +127,7 @@ public class Enemy : MonoBehaviour
             evt.transform.position = transform.position;
             evt.Spawn();
         }
-        deathFX.SetActive(false);
+        deathFX?.SetActive(false);
         gameObject.SetActive(false);
     }
 }

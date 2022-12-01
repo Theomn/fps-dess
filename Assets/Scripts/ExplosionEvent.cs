@@ -12,6 +12,8 @@ public class ExplosionEvent : Event
     [SerializeField] private float force;
     [SerializeField] Transform visual;
 
+    private List<Enemy> damagedEnemies = new List<Enemy>();
+
     public override void Spawn()
     {
         base.Spawn();
@@ -20,24 +22,25 @@ public class ExplosionEvent : Event
             if (entity.gameObject.layer == Layer.player)
             {
                 var player = entity.GetComponent<PlayerController>();
-                if (!player)
+                if (player)
                 {
-                    return;
+                    player.AddExplosionForce(force, transform.position);
+                    player.Damage(damageToPlayer);
                 }
-                player.AddExplosionForce(force, transform.position);
             }
 
             if (entity.gameObject.layer == Layer.enemy)
             {
                 var enemy = entity.GetComponentInParent<Enemy>();
-                if (!enemy)
+                if (enemy && !damagedEnemies.Contains(enemy))
                 {
-                    return;
+                    damagedEnemies.Add(enemy);
+                    enemy.Damage(damageToEnemies);
+                    enemy.ExplosionForce(force, transform.position);
                 }
-                enemy.Damage(damageToEnemies);
-                enemy.ExplosionForce(force, transform.position);
             }
         }
+        damagedEnemies.Clear();
         visual.localScale = Vector3.one * radius * 1.5f;
         visual.DOScale(Vector3.zero, duration).SetEase(Ease.OutCubic);
     }

@@ -4917,11 +4917,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 3
-  radius: 2
+  radius: 3
   duration: 0.5
   damageToPlayer: 0
   damageToEnemies: 0
-  force: 5
+  force: 20
   visual: {fileID: 7826445944273797796}
 --- !u!1 &7826445944273797797
 GameObject:
