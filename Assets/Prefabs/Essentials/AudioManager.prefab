@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundBanks:
   - {fileID: 11400000, guid: 73083ffe70aeeed45bc109c76c3f6362, type: 2}
+  - {fileID: 11400000, guid: 237b1f861e75c734ea4e5670bd395156, type: 2}
 --- !u!82 &923696299255966614
 AudioSource:
   m_ObjectHideFlags: 0
