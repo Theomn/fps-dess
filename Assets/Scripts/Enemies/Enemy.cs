@@ -11,80 +11,64 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] private Event endEvent;
 
-    [Header("Tracking Behaviour")]
-    [Tooltip("If activated, the enemy will turn towards the player when within range.")]
-    [SerializeField] private bool tracksPlayer;
-    [SerializeField] private float trackingSpeed;
-    [SerializeField] private float trackingRange;
+    [Header("Misc")]
+    [Tooltip("How long it takes to destroy the enemy once it's killed.")]
+    [SerializeField] private float destroyTime;
     
-    [Header("Fire Behaviour")]
-    [Tooltip("If activated, the enemy is able to shoot the equipped gun.")]
-    [SerializeField] private bool firesBullets;
-    [SerializeField] private float fireRange;
-    [SerializeField] private Gun gun;
-
-    [Header("References")]
-    [SerializeField] List<Collider> colliders;
 
     private float health;
     protected float distanceToPlayer;
     protected Transform player;
-    private float fireRateTimer;
-    [Tooltip("False if tracking behaviour is enabled and the player is further than 15 degress from the enemy.")]
-    protected bool facingPlayer;
+    private Collider[] colliders;
+    protected bool flaggedForDestroy;
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
+    private float destroyTimer;
 
+
+    protected void Awake()
+    {
+        colliders = GetComponentsInChildren<Collider>();
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
+    }
 
     protected void Start()
     {
         // Retrieve the only instance of PlayerController in the scene automatically
         player = PlayerController.Instance.transform;
 
+        Reset();
+
+    }
+
+    public virtual void Reset()
+    {
         health = maxHealth;
-        facingPlayer = true;
+        flaggedForDestroy = false;
+        transform.position = initialPosition;
+        transform.rotation = initialRotation;
+        gameObject.SetActive(true);
     }
 
     protected void Update()
     {
+        if (flaggedForDestroy)
+        {
+            destroyTimer -= Time.deltaTime;
+            if (destroyTimer <= 0)
+            {
+                Destroy();
+            }
+        }
+
         //calcul de la distance entre enemi et le joueur
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-        if (tracksPlayer)
-        {
-            TrackingBehaviour();
-        }
-
-        if (firesBullets)
-        {
-            FireBehaviour();
-        }
-
     }
 
-    /// <summary>
-    /// Turns toward the player when within tracking range
-    /// </summary>
-    protected void TrackingBehaviour()
+    public float GetDistanceToPlayer()
     {
-        if (distanceToPlayer <= trackingRange)
-        {
-            var step = trackingSpeed * Time.deltaTime;
-            var targetRotation = Quaternion.LookRotation(player.position - transform.position);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
-            facingPlayer = Quaternion.Angle(transform.rotation, targetRotation) < 15f;
-        }
-    }
-
-   
-
-    /// <summary>
-    /// Fires in front of itself when within fire range
-    /// </summary>
-    protected void FireBehaviour()
-    {
-        if (distanceToPlayer <= fireRange && facingPlayer)
-        {
-            gun.Fire();
-        }
+        return distanceToPlayer;
     }
 
     // Called by a bullet when it collides with that enemy
@@ -102,18 +86,24 @@ public class Enemy : MonoBehaviour
 
     }
 
-    protected void Destroy()
+    protected void FlagForDestroy()
     {
-        foreach(Collider coll in colliders)
+        foreach (Collider coll in colliders)
         {
             coll.enabled = false;
         }
+        flaggedForDestroy = true;
+        destroyTimer = destroyTime;
+    }
+
+    protected void Destroy()
+    {
         if (endEvent)
         {
             var evt = LeanPool.Spawn(endEvent);
             evt.transform.position = transform.position;
             evt.Spawn();
         }
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

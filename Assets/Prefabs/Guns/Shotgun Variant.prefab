@@ -54,7 +54,7 @@ MonoBehaviour:
     damagesPlayer: 0
     damagesEnemies: 1
     damage: 2
-    endEvent: {fileID: 6693604710445968655, guid: 13200ebaa90884a46be1edd370c4e039, type: 3}
+    endEvent: {fileID: 6693604710445968655, guid: f3410d25a2248f54ea14c96e0ba16df4, type: 3}
     speed: 0
     gravity: 0
     maxPierceCount: 0
@@ -67,9 +67,9 @@ MonoBehaviour:
   fireAtCrosshair: 1
   nozzles:
   - {fileID: 657279537700548987}
-  rotationRecoil: 16
-  positionRecoil: 0.3
-  recoilDuration: 0.25
+  rotationRecoil: 20
+  positionRecoil: 0.4
+  recoilDuration: 0.35
   nozzlesAreFlashes: 0
   nozzleFlashes:
   - {fileID: 7789695173240596417}

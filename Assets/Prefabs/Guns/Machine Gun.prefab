@@ -252,7 +252,7 @@ MonoBehaviour:
     damagesPlayer: 0
     damagesEnemies: 1
     damage: 2
-    endEvent: {fileID: 6693604710445968655, guid: 0024a9bd3300c964a96c4287fec28363, type: 3}
+    endEvent: {fileID: 6693604710445968655, guid: f3410d25a2248f54ea14c96e0ba16df4, type: 3}
     speed: 50
     gravity: 0
     maxPierceCount: 1

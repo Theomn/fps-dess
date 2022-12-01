@@ -182,9 +182,9 @@ MonoBehaviour:
   fireAtCrosshair: 1
   nozzles:
   - {fileID: 7054606395141524224}
-  rotationRecoil: 15
+  rotationRecoil: 20
   positionRecoil: 0.5
-  recoilDuration: 0.3
+  recoilDuration: 0.5
   nozzlesAreFlashes: 0
   nozzleFlashes:
   - {fileID: 7054606394448057917}

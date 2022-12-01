@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowEnemy : Enemy
+public class FollowBehaviour : EnemyBehaviour
 {
-    [Header("Follow Behaviour")]
     [SerializeField] private float maxSpeed;
     [SerializeField] private float acceleration;
     [SerializeField] private float followRange;
+    [Tooltip("If true, will only move when roughly facing player. Needs a TrackingBehaviour component on the same object.")]
+    [SerializeField] private bool followWhenFacingPlayer;
     [Tooltip("Minimum distance from this enemy to player")]
     [SerializeField] private float hoverRange;
 
@@ -15,27 +16,16 @@ public class FollowEnemy : Enemy
     private Vector3 offset;
     private Rigidbody rb;
 
-
-
-    new void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         rb = GetComponent<Rigidbody>();
-    }
-
-    new void Update()
-    {
-        base.Update();
     }
 
     void FixedUpdate()
     {
-        FollowPlayer();
-    }
-
-    void FollowPlayer()
-    {
-        if(distanceToPlayer <= followRange)// && facingPlayer) 
+        bool canFollow = followWhenFacingPlayer ? isFacingPlayer : true;
+        if (distanceToPlayer <= followRange && canFollow) 
         {
             if (!hasTarget)
             {
