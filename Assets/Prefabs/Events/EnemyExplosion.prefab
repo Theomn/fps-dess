@@ -4881,7 +4881,7 @@ GameObject:
   - component: {fileID: 7826445943607923956}
   - component: {fileID: 7826445943607923957}
   m_Layer: 10
-  m_Name: Explosion
+  m_Name: EnemyExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4917,11 +4917,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 3
-  radius: 8
+  radius: 2
   duration: 0.5
   damageToPlayer: 0
-  damageToEnemies: 10
-  force: 20
+  damageToEnemies: 0
+  force: 5
   visual: {fileID: 7826445944273797796}
 --- !u!1 &7826445944273797797
 GameObject:

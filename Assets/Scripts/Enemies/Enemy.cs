@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     protected float distanceToPlayer;
     protected Transform player;
     private Collider[] colliders;
+    private EnemyBehaviour[] behaviours;
     protected bool flaggedForDestroy;
     private Vector3 initialPosition;
     private Quaternion initialRotation;
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour
     protected void Awake()
     {
         colliders = GetComponentsInChildren<Collider>();
+        behaviours = GetComponentsInChildren<EnemyBehaviour>();
         initialPosition = transform.position;
         initialRotation = transform.rotation;
     }
@@ -48,6 +50,14 @@ public class Enemy : MonoBehaviour
         flaggedForDestroy = false;
         transform.position = initialPosition;
         transform.rotation = initialRotation;
+        foreach (Collider coll in colliders)
+        {
+            coll.enabled = true;
+        }
+        foreach(EnemyBehaviour behaviour in behaviours)
+        {
+            behaviour.enabled = true;
+        }
         gameObject.SetActive(true);
     }
 
@@ -60,6 +70,7 @@ public class Enemy : MonoBehaviour
             {
                 Destroy();
             }
+            return;
         }
 
         //calcul de la distance entre enemi et le joueur
@@ -77,7 +88,7 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Destroy();
+            FlagForDestroy();
         }
     }
 
@@ -91,6 +102,10 @@ public class Enemy : MonoBehaviour
         foreach (Collider coll in colliders)
         {
             coll.enabled = false;
+        }
+        foreach (EnemyBehaviour behaviour in behaviours)
+        {
+            behaviour.enabled = false;
         }
         flaggedForDestroy = true;
         destroyTimer = destroyTime;
