@@ -14,18 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: ShotPH
-    clip: {fileID: 8300000, guid: 0205410f56a527b4daec250bafa31e98, type: 3}
+    clips:
+    - {fileID: 8300000, guid: 0205410f56a527b4daec250bafa31e98, type: 3}
     volume: 0.5
     pitchRandom: 0
   - name: MachineGun
-    clip: {fileID: 8300000, guid: 0449c6b757380e149968cf8b21b8e8d2, type: 3}
+    clips:
+    - {fileID: 8300000, guid: 0449c6b757380e149968cf8b21b8e8d2, type: 3}
     volume: 0.547
     pitchRandom: 0.04
   - name: FlameThrower
-    clip: {fileID: 8300000, guid: f89124420d06e9448baf27660e88f762, type: 3}
+    clips:
+    - {fileID: 8300000, guid: f89124420d06e9448baf27660e88f762, type: 3}
     volume: 0.547
     pitchRandom: 0.0325
   - name: ShotGun
-    clip: {fileID: 8300000, guid: 2f8e0174e2d059b4b9e1fe2fbffb68e9, type: 3}
+    clips:
+    - {fileID: 8300000, guid: 632a83178fbca744f94e8b59bbd38166, type: 3}
     volume: 0.756
     pitchRandom: 0.0308

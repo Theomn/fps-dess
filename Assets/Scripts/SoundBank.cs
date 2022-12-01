@@ -8,9 +8,9 @@ using UnityEngine;
 public struct Sound
 {
     public string name;
-    public AudioClip clip;
+    public List<AudioClip> clips;
     [Range(0f, 1f)] public float volume;
-    [Range(0f, 0.1f)]public float pitchRandom;
+    [Range(0f, 0.1f)] public float pitchRandom;
 }
 
 [CreateAssetMenu(fileName = "SoundBank", menuName = "Scriptable Objects/Sound Bank", order = 1)]

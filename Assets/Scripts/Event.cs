@@ -5,6 +5,7 @@ using Lean.Pool;
 
 public class Event : MonoBehaviour
 {
+    [Tooltip("How long the object will stay alive before being destroyed")]
     [SerializeField] protected float lifetime;
     protected float lifetimeTimer;
 

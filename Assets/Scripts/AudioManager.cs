@@ -37,7 +37,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         {
             Debug.LogWarning("Sound with name \"" + name + "\" does not exist in SoundBank.");
         }
-        return sound.clip;
+        return sound.clips[Random.Range(0, sound.clips.Count)];
     }
 
     public void PlaySoundAtPosition(string soundName, Vector3 position)
@@ -56,6 +56,6 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         source.pitch = Random.Range(-sound.pitchRandom, sound.pitchRandom) + 1f;
         
 
-        source.PlayOneShot(sound.clip);
+        source.PlayOneShot(sound.clips[Random.Range(0, sound.clips.Count)]);
     }
 }

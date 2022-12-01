@@ -127,7 +127,10 @@ public class Enemy : MonoBehaviour
             evt.transform.position = transform.position;
             evt.Spawn();
         }
-        deathFX?.SetActive(false);
+        if (deathFX)
+        {
+            deathFX.SetActive(false);
+        }
         gameObject.SetActive(false);
     }
 }

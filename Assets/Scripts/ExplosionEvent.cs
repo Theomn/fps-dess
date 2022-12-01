@@ -5,12 +5,16 @@ using DG.Tweening;
 
 public class ExplosionEvent : Event
 {
+    [Header("Explosion Stats")]
     [SerializeField] private float radius;
-    [SerializeField] private float duration;
     [SerializeField] private float damageToPlayer;
     [SerializeField] private float damageToEnemies;
     [SerializeField] private float force;
+
+    [Header("VFX")]
     [SerializeField] Transform visual;
+    [SerializeField] private float duration;
+
 
     private List<Enemy> damagedEnemies = new List<Enemy>();
 
@@ -41,7 +45,7 @@ public class ExplosionEvent : Event
             }
         }
         damagedEnemies.Clear();
-        visual.localScale = Vector3.one * radius * 1.5f;
+        visual.localScale = Vector3.one * radius * 2f;
         visual.DOScale(Vector3.zero, duration).SetEase(Ease.OutCubic);
     }
 }
