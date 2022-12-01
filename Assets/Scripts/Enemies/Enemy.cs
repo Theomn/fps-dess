@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     [Header("Misc")]
     [Tooltip("How long it takes to destroy the enemy once it's killed.")]
     [SerializeField] private float destroyTime;
+    [SerializeField] private GameObject deathFX;
     
 
     private float health;
@@ -27,7 +28,7 @@ public class Enemy : MonoBehaviour
     private float destroyTimer;
 
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         colliders = GetComponentsInChildren<Collider>();
         behaviours = GetComponentsInChildren<EnemyBehaviour>();
@@ -35,7 +36,7 @@ public class Enemy : MonoBehaviour
         initialRotation = transform.rotation;
     }
 
-    protected void Start()
+    protected virtual void Start()
     {
         // Retrieve the only instance of PlayerController in the scene automatically
         player = PlayerController.Instance.transform;
@@ -52,7 +53,7 @@ public class Enemy : MonoBehaviour
         transform.rotation = initialRotation;
         foreach (Collider coll in colliders)
         {
-            coll.enabled = true;
+            coll.gameObject.layer = LayerMask.NameToLayer("Enemy");
         }
         foreach(EnemyBehaviour behaviour in behaviours)
         {
@@ -61,7 +62,7 @@ public class Enemy : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         if (flaggedForDestroy)
         {
@@ -75,6 +76,11 @@ public class Enemy : MonoBehaviour
 
         //calcul de la distance entre enemi et le joueur
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
+    }
+
+    protected virtual void FixedUpdate()
+    {
+
     }
 
     public float GetDistanceToPlayer()
@@ -97,11 +103,11 @@ public class Enemy : MonoBehaviour
 
     }
 
-    protected void FlagForDestroy()
+    protected virtual void FlagForDestroy()
     {
         foreach (Collider coll in colliders)
         {
-            coll.enabled = false;
+            coll.gameObject.layer = LayerMask.NameToLayer("Default");
         }
         foreach (EnemyBehaviour behaviour in behaviours)
         {
@@ -109,6 +115,7 @@ public class Enemy : MonoBehaviour
         }
         flaggedForDestroy = true;
         destroyTimer = destroyTime;
+        deathFX.SetActive(true);
     }
 
     protected void Destroy()
@@ -119,6 +126,7 @@ public class Enemy : MonoBehaviour
             evt.transform.position = transform.position;
             evt.Spawn();
         }
+        deathFX.SetActive(false);
         gameObject.SetActive(false);
     }
 }
