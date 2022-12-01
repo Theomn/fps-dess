@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Gun Sounds
   m_EditorClassIdentifier: 
   sounds:
-  - name: ShotPH
+  - name: Sniper
     clips:
-    - {fileID: 8300000, guid: 0205410f56a527b4daec250bafa31e98, type: 3}
+    - {fileID: 8300000, guid: 9a780092c4b02444891ce1999b877fab, type: 3}
     volume: 0.5
     pitchRandom: 0
   - name: MachineGun
