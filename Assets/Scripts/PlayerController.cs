@@ -24,7 +24,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [SerializeField] private Transform eyes;
 
 
-    private enum State
+    public enum State
     {
         Grounded,
         Airborne
@@ -153,5 +153,10 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     public Transform GetEyes()
     {
         return eyes;
+    }
+
+    public State GetState()
+    {
+        return state;
     }
 }
