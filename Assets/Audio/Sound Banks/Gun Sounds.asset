@@ -16,12 +16,12 @@ MonoBehaviour:
   - name: Sniper
     clips:
     - {fileID: 8300000, guid: 9a780092c4b02444891ce1999b877fab, type: 3}
-    volume: 0.5
-    pitchRandom: 0
+    volume: 0.809
+    pitchRandom: 0.015
   - name: MachineGun
     clips:
     - {fileID: 8300000, guid: 0449c6b757380e149968cf8b21b8e8d2, type: 3}
-    volume: 0.547
+    volume: 0.539
     pitchRandom: 0.04
   - name: FlameThrower
     clips:
@@ -31,5 +31,5 @@ MonoBehaviour:
   - name: ShotGun
     clips:
     - {fileID: 8300000, guid: 632a83178fbca744f94e8b59bbd38166, type: 3}
-    volume: 0.756
+    volume: 0.622
     pitchRandom: 0.0308
