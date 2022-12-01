@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8281855838772831202}
   - component: {fileID: 8281855838772831203}
+  - component: {fileID: 2812217889078517292}
   - component: {fileID: 8281855838772831201}
   - component: {fileID: 8281855838772831200}
   m_Layer: 7
@@ -92,6 +93,21 @@ MonoBehaviour:
   gravity: 40
   groundCheck: {fileID: 8281855840079757790}
   eyes: {fileID: 8281855840426283587}
+--- !u!114 &2812217889078517292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8281855838772831204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2fc9a5bb470f5f44bd621d19f1bccab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstepInterval: 0.4
+  speedThreshold: 10
+  footstepSoundId: MachineGun
 --- !u!54 &8281855838772831201
 Rigidbody:
   m_ObjectHideFlags: 0
