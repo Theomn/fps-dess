@@ -31,6 +31,7 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
         if (Input.GetButton("Fire1"))
         {
             equippedGun.Fire();
+            cam.ResetZoom();
         }
 
         if (Input.GetButtonDown("Fire2") && equippedGun.CanZoom())
