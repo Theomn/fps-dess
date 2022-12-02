@@ -173,13 +173,15 @@ MonoBehaviour:
     speed: 40
     gravity: 0
     maxPierceCount: 1
-    lifetime: 5
+    lifetime: 20
     destroyOnGroundContact: 1
     maxRange: 0
   maxEnergy: 100
   energyRechargeRate: 10
   energyCost: 0
   fireAtCrosshair: 1
+  fireAtPlayer: 0
+  canZoom: 0
   nozzles:
   - {fileID: 6051711496045058498}
   rotationRecoil: 25

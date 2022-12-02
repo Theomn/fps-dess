@@ -278,23 +278,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.2
   bulletCount: 1
-  randomSpread: 2
+  randomSpread: 2.5
   bulletPrefab: {fileID: 7908677262566707853, guid: 520c21135961e3144a2b5a2d55445daa, type: 3}
   bulletData:
     damagesPlayer: 0
     damagesEnemies: 1
     damage: 5
     endEvent: {fileID: 6693604710445968655, guid: 41a5525ba5432df4d813e68079290c30, type: 3}
-    speed: 20
+    speed: 15
     gravity: 0
-    maxPierceCount: 3
-    lifetime: 3
+    maxPierceCount: 2
+    lifetime: 7
     destroyOnGroundContact: 1
     maxRange: 200
   maxEnergy: 100
   energyRechargeRate: 5
   energyCost: 0
   fireAtCrosshair: 1
+  fireAtPlayer: 0
   canZoom: 0
   nozzles:
   - {fileID: 3440547139956444382}

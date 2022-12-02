@@ -241,8 +241,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 150
-      minScalar: 50
+      scalar: 200
+      minScalar: 100
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -357,7 +357,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5
+      scalar: 5
       minScalar: 1.5
       maxCurve:
         serializedVersion: 2
@@ -820,7 +820,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 10
       mode: 0
       spread: 0
       speed:
@@ -4881,7 +4881,7 @@ GameObject:
   - component: {fileID: 7826445943607923956}
   - component: {fileID: 7826445943607923957}
   m_Layer: 10
-  m_Name: Explosion_EnemyDeath
+  m_Name: Expl_Death_Big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4917,12 +4917,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 3
-  radius: 3
-  duration: 0.5
+  radius: 15
   damageToPlayer: 0
   damageToEnemies: 0
-  force: 20
+  force: 30
   visual: {fileID: 7826445944273797796}
+  duration: 1
 --- !u!1 &7826445944273797797
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class FlyingEnemy : Enemy
 {
     private float deathTorqueIntensity = 50f;
     private float deathGravityIntensity = 30f;
-    private float deathPunchIntensity = 200f;
+    private float deathPunchIntensity = 20f;
     private Rigidbody rb;
     private float initialDrag;
     private float initialAngularDrag;
@@ -40,10 +40,10 @@ public class FlyingEnemy : Enemy
         base.FlagForDestroy();
         rb.angularDrag = 0f;
         rb.drag = 0.5f;
-        rb.AddTorque(new Vector3(r(), r(), r()), ForceMode.Impulse);
+        rb.AddTorque(new Vector3(r(), r(), r()), ForceMode.VelocityChange);
         var punch = Random.onUnitSphere * deathPunchIntensity;
         punch = new Vector3(punch.x, Mathf.Abs(punch.y), punch.z);
-        rb.AddForce(punch, ForceMode.Impulse);
+        rb.AddForce(punch, ForceMode.VelocityChange);
     }
 
     public override void ExplosionForce(float explosionForce, Vector3 explosionPosition)

@@ -161,25 +161,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ba43b923b5f3b468ced0af3fe5605d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1.2
+  fireRate: 2
   bulletCount: 1
   randomSpread: 0
   bulletPrefab: {fileID: 8685403030757105085, guid: 3a6738f15870ffd4895be46171713f75, type: 3}
   bulletData:
     damagesPlayer: 0
     damagesEnemies: 1
-    damage: 10
+    damage: 40
     endEvent: {fileID: 6693604710445968655, guid: 41a5525ba5432df4d813e68079290c30, type: 3}
     speed: 50
     gravity: 0
     maxPierceCount: 1
     lifetime: 1
     destroyOnGroundContact: 1
-    maxRange: 200
+    maxRange: 500
   maxEnergy: 100
   energyRechargeRate: 5
   energyCost: 0
   fireAtCrosshair: 1
+  fireAtPlayer: 0
   canZoom: 1
   nozzles:
   - {fileID: 7054606395141524224}

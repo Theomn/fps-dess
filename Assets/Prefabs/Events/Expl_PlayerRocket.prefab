@@ -241,8 +241,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 200
-      minScalar: 100
+      scalar: 150
+      minScalar: 50
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -295,7 +295,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.7921569, b: 0, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -357,7 +357,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4
+      scalar: 1.5
       minScalar: 1.5
       maxCurve:
         serializedVersion: 2
@@ -1049,7 +1049,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 100
+        scalar: 80
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -4881,7 +4881,7 @@ GameObject:
   - component: {fileID: 7826445943607923956}
   - component: {fileID: 7826445943607923957}
   m_Layer: 10
-  m_Name: Explosion_Barrel
+  m_Name: Expl_PlayerRocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4917,12 +4917,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 3
-  radius: 20
-  damageToPlayer: 30
-  damageToEnemies: 30
-  force: 35
+  radius: 8
+  damageToPlayer: 0
+  damageToEnemies: 18
+  force: 20
   visual: {fileID: 7826445944273797796}
-  duration: 1.5
+  duration: 0.5
 --- !u!1 &7826445944273797797
 GameObject:
   m_ObjectHideFlags: 0
@@ -4984,7 +4984,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d87888d3ac1f10147a6bf645e5c2c58e, type: 2}
+  - {fileID: 2100000, guid: 34e8d5bb52ffe5942a580bf7f7206ee2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

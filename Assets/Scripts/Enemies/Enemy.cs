@@ -59,6 +59,10 @@ public class Enemy : MonoBehaviour
         {
             behaviour.enabled = true;
         }
+        if (deathFX)
+        {
+            deathFX.SetActive(false);
+        }
         gameObject.SetActive(true);
     }
 

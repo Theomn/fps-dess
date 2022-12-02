@@ -12,7 +12,7 @@ public class ProjectileBullet : Bullet
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        trail = GetComponent<TrailRenderer>();
+        trail = GetComponentInChildren<TrailRenderer>();
 
     }
 

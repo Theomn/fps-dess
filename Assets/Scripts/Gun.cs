@@ -27,6 +27,9 @@ public class Gun : MonoBehaviour
     [Tooltip("If true, the nozzle will rotate where the crosshair collides with the world everytime the gun is fired. " +
         "Set to false for guns equipped on enemies.")]
     [SerializeField] private bool fireAtCrosshair;
+    [Tooltip("If true, the nozzle will rotate towards the player every time the gun is fired. " +
+        "Set to false for guns equipped on player.")]
+    [SerializeField] private bool fireAtPlayer;
     [SerializeField] private bool canZoom;
     [Tooltip("Position and direction where bullets spawn.")]
     [SerializeField] private List<Transform> nozzles;
@@ -112,6 +115,10 @@ public class Gun : MonoBehaviour
                 if (fireAtCrosshair)
                 {
                     currentNozzle.LookAt(CameraController.Instance.GetCrosshairTarget());
+                }
+                else if (fireAtPlayer)
+                {
+                    currentNozzle.LookAt(PlayerController.Instance.transform.position);
                 }
                 bullet.transform.rotation = currentNozzle.rotation;
                 bullet.transform.eulerAngles += new Vector3(Random.Range(-randomSpread, randomSpread), Random.Range(-randomSpread, randomSpread), 0);

@@ -428,7 +428,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6431877847194675775}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.010000229, y: -0.61800003, z: 1.1669998}
+  m_LocalPosition: {x: -0.010000229, y: -0.354, z: 0.833}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -602,13 +602,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2241ae8a7f77f7e4c83d9126a34e114b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  maxHealth: 10
   endEvent: {fileID: 7826445943607923957, guid: 57ae36e1cc765ee4ea07c070fe0af2b5, type: 3}
   destroyTime: 2
   deathFX: {fileID: 826995274007405866}
-  deathTorqueIntensity: 50
-  deathGravityIntensity: 30
-  deathPunchIntensity: 200
 --- !u!114 &970465999503055850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,8 +618,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac31f15f1b74914f959a056ff0a43fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackingSpeed: 100
-  trackingRange: 50
+  trackingSpeed: 200
+  trackingRange: 102
 --- !u!114 &7504825480118706100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,9 +647,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c12d648ae3cb7e45a7da2f363d69249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 3
+  maxSpeed: 5
   acceleration: 10
-  followRange: 50
+  followRange: 100
   followWhenFacingPlayer: 0
   hoverRange: 10
 --- !u!54 &5463183794404363576
@@ -735,6 +732,8 @@ MonoBehaviour:
   energyRechargeRate: 10
   energyCost: 0
   fireAtCrosshair: 0
+  fireAtPlayer: 1
+  canZoom: 0
   nozzles:
   - {fileID: 6431877847194675768}
   rotationRecoil: 0
