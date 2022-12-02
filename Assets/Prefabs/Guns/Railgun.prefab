@@ -180,6 +180,7 @@ MonoBehaviour:
   energyRechargeRate: 5
   energyCost: 0
   fireAtCrosshair: 1
+  canZoom: 1
   nozzles:
   - {fileID: 7054606395141524224}
   rotationRecoil: 20

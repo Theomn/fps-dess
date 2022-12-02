@@ -27,6 +27,7 @@ public class Gun : MonoBehaviour
     [Tooltip("If true, the nozzle will rotate where the crosshair collides with the world everytime the gun is fired. " +
         "Set to false for guns equipped on enemies.")]
     [SerializeField] private bool fireAtCrosshair;
+    [SerializeField] private bool canZoom;
     [Tooltip("Position and direction where bullets spawn.")]
     [SerializeField] private List<Transform> nozzles;
 
@@ -150,5 +151,10 @@ public class Gun : MonoBehaviour
         {
             currentNozzleFlash = nozzleFlashes[nozzleId];
         }
+    }
+
+    public bool CanZoom()
+    {
+        return canZoom;
     }
 }

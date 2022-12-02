@@ -13,9 +13,11 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
 
     private Gun equippedGun;
     private int equippedGunId;
+    private CameraController cam;
 
     void Start()
     {
+        cam = CameraController.Instance;
         foreach(Gun gun in guns)
         {
             gun.gameObject.SetActive(false);
@@ -31,13 +33,13 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
             equippedGun.Fire();
         }
 
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && equippedGun.CanZoom())
         {
-            CameraController.Instance.Zoom(20);
+            cam.Zoom(25);
         }
         if (Input.GetButtonUp("Fire2"))
         {
-            CameraController.Instance.ResetZoom();
+            cam.ResetZoom();
         }
 
         for (int i = 0; i < guns.Count; i++)
@@ -74,6 +76,10 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
         equippedGun = guns[id];
         equippedGunId = id;
         equippedGun.gameObject.SetActive(true);
+        if (!equippedGun.CanZoom())
+        {
+            cam.ResetZoom();
+        }
     }
 
     private void SwayGun()
