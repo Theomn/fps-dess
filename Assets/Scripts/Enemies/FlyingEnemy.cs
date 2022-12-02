@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FlyingEnemy : Enemy
 {
-    [SerializeField] private float deathTorqueIntensity = 50f;
-    [SerializeField] private float deathGravityIntensity = 30f;
-    [SerializeField] private float deathPunchIntensity = 200f;
+    private float deathTorqueIntensity = 50f;
+    private float deathGravityIntensity = 30f;
+    private float deathPunchIntensity = 200f;
     private Rigidbody rb;
     private float initialDrag;
     private float initialAngularDrag;

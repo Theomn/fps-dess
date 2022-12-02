@@ -21,15 +21,6 @@ public class FootstepSound : MonoBehaviour
     
     void Update()
     {
-        //if (!isMoving && rb.velocity.magnitude > speedThreshold)
-        //{
-        //    isMoving = true;
-        //}
-        //if (isMoving && rb.velocity.magnitude < speedThreshold)
-        //{
-        //    isMoving = false;
-        //}
-
         if(rb.velocity.magnitude > speedThreshold && player.GetState() == PlayerController.State.Grounded)
         {
             footstepTimer -= Time.deltaTime;

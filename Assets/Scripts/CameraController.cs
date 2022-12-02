@@ -5,12 +5,17 @@ using UnityEngine;
 public class CameraController : SingletonMonoBehaviour<CameraController>
 {
     [SerializeField] private float sensitivity;
+    [SerializeField] private float zoomSpeed;
+    [SerializeField] private GameObject ViewmodelCamera;
 
     private Vector2 mouse;
     private Vector3 velocity;
     private LayerMask crosshairLayerMask;
     private Transform player;
     private Transform playerEyes;
+    private float initialFOV;
+    private float targetFOV;
+    private Camera cam;
 
 
 
@@ -18,6 +23,9 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
     {
         base.Awake();
         crosshairLayerMask = LayerMask.GetMask("Ground", "Enemy");
+        cam = GetComponent<Camera>();
+        initialFOV = cam.fieldOfView;
+        targetFOV = initialFOV;
     }
 
     // Start is called before the first frame update
@@ -32,6 +40,7 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
     void Update()
     {
         transform.position = Vector3.SmoothDamp(transform.position, playerEyes.position, ref velocity, Time.fixedDeltaTime);
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFOV, zoomSpeed);
     }
 
     void LateUpdate()
@@ -55,4 +64,15 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
         }
     }
     
+    public void Zoom(float targetFOV)
+    {
+        this.targetFOV = targetFOV;
+        ViewmodelCamera.SetActive(false);
+    }
+
+    public void ResetZoom()
+    {
+        targetFOV = initialFOV;
+        ViewmodelCamera.SetActive(true);
+    }
 }

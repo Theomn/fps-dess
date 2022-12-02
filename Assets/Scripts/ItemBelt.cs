@@ -31,6 +31,15 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
             equippedGun.Fire();
         }
 
+        if (Input.GetButtonDown("Fire2"))
+        {
+            CameraController.Instance.Zoom(20);
+        }
+        if (Input.GetButtonUp("Fire2"))
+        {
+            CameraController.Instance.ResetZoom();
+        }
+
         for (int i = 0; i < guns.Count; i++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 +i ))

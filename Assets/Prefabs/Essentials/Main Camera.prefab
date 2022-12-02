@@ -158,6 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 2
+  zoomSpeed: 0.1
+  ViewmodelCamera: {fileID: 6843905640801246683}
 --- !u!1 &6843905640801246683
 GameObject:
   m_ObjectHideFlags: 0
