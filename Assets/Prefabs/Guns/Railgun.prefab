@@ -190,7 +190,7 @@ MonoBehaviour:
   - {fileID: 7054606394448057917}
   nozzleFlashSize: 0.6
   nozzleFlashDuration: 0.3
-  fireSound: ShotPH
+  fireSound: Sniper
 --- !u!1 &7054606395141524225
 GameObject:
   m_ObjectHideFlags: 0
