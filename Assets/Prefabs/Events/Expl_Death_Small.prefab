@@ -4920,7 +4920,7 @@ MonoBehaviour:
   radius: 4
   damageToPlayer: 0
   damageToEnemies: 0
-  force: 20
+  force: 30
   visual: {fileID: 7826445944273797796}
   duration: 0.5
 --- !u!1 &7826445944273797797

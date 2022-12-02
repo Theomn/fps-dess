@@ -43,8 +43,8 @@ GameObject:
   - component: {fileID: 8281855838772831202}
   - component: {fileID: 8281855838772831203}
   - component: {fileID: 2812217889078517292}
-  - component: {fileID: 8281855838772831201}
   - component: {fileID: 8281855838772831200}
+  - component: {fileID: 8281855838772831201}
   - component: {fileID: 853914135}
   m_Layer: 7
   m_Name: Player
@@ -85,12 +85,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   groundAcceleration: 200
-  groundMaxSpeed: 16
+  groundMaxSpeed: 20
   groundDrag: 10
   airAcceleration: 50
-  airMaxSpeed: 10
+  airMaxSpeed: 14
   airDrag: 0
-  jumpForce: 15
+  jumpForce: 16
   gravity: 40
   groundCheck: {fileID: 8281855840079757790}
   eyes: {fileID: 8281855840426283587}
@@ -109,6 +109,20 @@ MonoBehaviour:
   footstepInterval: 0.3
   speedThreshold: 10
   footstepSoundId: Footsteps
+--- !u!136 &8281855838772831200
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8281855838772831204}
+  m_Material: {fileID: 13400000, guid: 4c45f88fbe0631a43a81da1d409a7364, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.7
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &8281855838772831201
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -125,20 +139,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 1
---- !u!136 &8281855838772831200
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8281855838772831204}
-  m_Material: {fileID: 13400000, guid: 4c45f88fbe0631a43a81da1d409a7364, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &853914135
 AudioSource:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8281855840079757777}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.82, z: 0}
+  m_LocalPosition: {x: 0, y: -0.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -406,7 +406,7 @@ GameObject:
   m_Layer: 0
   m_Name: Eyes
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -418,7 +418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8281855840426283588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 2.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

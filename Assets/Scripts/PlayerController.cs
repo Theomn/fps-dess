@@ -135,6 +135,11 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     public void AddExplosionForce(float explosionForce, Vector3 explosionPosition)
     {
+        // Send player off the ground if grounded.
+        if (state == State.Grounded && explosionPosition.y > transform.position.y)
+        {
+            explosionPosition = new Vector3(explosionPosition.x, transform.position.y - 1, explosionPosition.z);
+        }
         var direction = (transform.position - explosionPosition).normalized;
         rb.AddForce(direction * explosionForce, ForceMode.Impulse);
     }
