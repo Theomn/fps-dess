@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 6819504430210434052}
   - component: {fileID: 6533053652263264059}
   m_Layer: 11
-  m_Name: Flamethrower
+  m_Name: Plasma Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -276,28 +276,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ba43b923b5f3b468ced0af3fe5605d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.05
-  bulletCount: 3
-  randomSpread: 10
+  fireRate: 0.2
+  bulletCount: 1
+  randomSpread: 2
   bulletPrefab: {fileID: 7908677262566707853, guid: 520c21135961e3144a2b5a2d55445daa, type: 3}
   bulletData:
     damagesPlayer: 0
     damagesEnemies: 1
-    damage: 1
-    endEvent: {fileID: 0}
+    damage: 5
+    endEvent: {fileID: 6693604710445968655, guid: 41a5525ba5432df4d813e68079290c30, type: 3}
     speed: 20
     gravity: 0
-    maxPierceCount: 1
-    lifetime: 1.5
+    maxPierceCount: 3
+    lifetime: 3
     destroyOnGroundContact: 1
     maxRange: 200
   maxEnergy: 100
   energyRechargeRate: 5
   energyCost: 0
+  fireAtCrosshair: 1
+  canZoom: 0
   nozzles:
   - {fileID: 3440547139956444382}
-  fireAtCrosshair: 1
-  nozzleFlash: {fileID: 0}
+  rotationRecoil: 7
+  positionRecoil: 0.15
+  recoilDuration: 0.15
+  nozzlesAreFlashes: 0
+  nozzleFlashes:
+  - {fileID: 983954193376094646}
   nozzleFlashSize: 0.4
   nozzleFlashDuration: 0.2
   fireSound: FlameThrower
