@@ -29,6 +29,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7115817786657651173}
+  - {fileID: 7054606394448057917}
   m_Father: {fileID: 7054606394527443266}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -57,13 +58,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7054606394448057918}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06, y: -0.1, z: 0.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.06, y: -0.065, z: 1.522}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7054606395141524224}
-  m_RootOrder: 0
+  m_Father: {fileID: 1141329780850937915}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7054606394448057914
 MeshFilter:
@@ -124,7 +125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7054606394527443266}
-  - component: {fileID: 7054606394527443264}
+  - component: {fileID: 2675255223474850435}
   m_Layer: 11
   m_Name: Railgun
   m_TagString: Untagged
@@ -149,7 +150,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7054606394527443264
+--- !u!114 &2675255223474850435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,7 +159,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7054606394527443267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ba43b923b5f3b468ced0af3fe5605d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3798023af51c03f499ec175450a36eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 2
@@ -170,29 +171,25 @@ MonoBehaviour:
     damagesEnemies: 1
     damage: 40
     endEvent: {fileID: 6693604710445968655, guid: 41a5525ba5432df4d813e68079290c30, type: 3}
-    speed: 50
+    speed: 0
     gravity: 0
-    maxPierceCount: 1
-    lifetime: 1
-    destroyOnGroundContact: 1
-    maxRange: 500
-  maxEnergy: 100
-  energyRechargeRate: 5
-  energyCost: 0
-  fireAtCrosshair: 1
-  fireAtPlayer: 0
-  canZoom: 1
-  nozzles:
-  - {fileID: 7054606395141524224}
-  rotationRecoil: 20
-  positionRecoil: 0.5
-  recoilDuration: 0.5
-  nozzlesAreFlashes: 0
-  nozzleFlashes:
-  - {fileID: 7054606394448057917}
+    maxPierceCount: 0
+    lifetime: 0
+    destroyOnGroundContact: 0
+    maxRange: 1000
   nozzleFlashSize: 0.6
   nozzleFlashDuration: 0.3
   fireSound: Sniper
+  maxEnergy: 100
+  energyRechargeRate: 5
+  energyCost: 50
+  nozzle: {fileID: 7054606395141524224}
+  nozzleFlash: {fileID: 7054606394448057917}
+  rotationRecoil: 20
+  positionRecoil: 0.5
+  recoilDuration: 0.5
+  canZoom: 1
+  visual: {fileID: 1483312854251570258}
 --- !u!1 &7054606395141524225
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,8 +217,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.035, z: 1.022}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7054606394448057917}
+  m_Children: []
   m_Father: {fileID: 7054606394527443266}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

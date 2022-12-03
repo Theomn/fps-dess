@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
 {
-    [SerializeField] private List<Gun> guns;
+    [SerializeField] private List<PlayerGun> guns;
 
     [Header("Weapon Sway")]
     [SerializeField] private float swaySensitivity;
     [SerializeField] private float swayMaxAmount;
     [SerializeField] private float swaySmooth;
 
-    private Gun equippedGun;
+    private PlayerGun equippedGun;
     private int equippedGunId;
     private CameraController cam;
+    private HUDController hud;
 
     void Start()
     {
         cam = CameraController.Instance;
-        foreach(Gun gun in guns)
+        hud = HUDController.Instance;
+        foreach(PlayerGun gun in guns)
         {
-            gun.gameObject.SetActive(false);
+            gun.Holster();
         }
         EquipGun(0);
     }
@@ -30,11 +32,13 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
     {
         if (Input.GetButton("Fire1"))
         {
-            equippedGun.Fire();
-            cam.ResetZoom();
+            if (equippedGun.Fire())
+            {
+                cam.ResetZoom();
+            }
         }
 
-        if (Input.GetButtonDown("Fire2") && equippedGun.CanZoom())
+        if (Input.GetButtonDown("Fire2") && equippedGun.canZoom)
         {
             cam.Zoom(25);
         }
@@ -61,6 +65,7 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
         }
 
         SwayGun();
+        hud.SetEnergy(equippedGun.GetEnergy());
     }
 
     private void EquipGun(int id)
@@ -73,14 +78,11 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
         {
             id = guns.Count - 1;
         }
-        equippedGun?.gameObject.SetActive(false);
+        equippedGun?.Holster();
         equippedGun = guns[id];
         equippedGunId = id;
-        equippedGun.gameObject.SetActive(true);
-        if (!equippedGun.CanZoom())
-        {
-            cam.ResetZoom();
-        }
+        equippedGun.Unholster();
+        cam.ResetZoom();
     }
 
     private void SwayGun()

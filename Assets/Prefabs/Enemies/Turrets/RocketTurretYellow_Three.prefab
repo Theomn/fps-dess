@@ -364,7 +364,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5467972537143279410}
-  - component: {fileID: 4504394725504041406}
   - component: {fileID: 3403670106988101668}
   m_Layer: 8
   m_Name: Cannon
@@ -390,20 +389,6 @@ Transform:
   m_Father: {fileID: 7065138421132001977}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4504394725504041406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3529309130110934428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ac31f15f1b74914f959a056ff0a43fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trackingSpeed: 100
-  trackingRange: 100
 --- !u!114 &3403670106988101668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,9 +401,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f78ace87ae42a3742a7b25282266df80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRange: 40
-  firesWhenFacingPlayer: 1
-  gun: {fileID: 8367256530826422961}
+  fireRange: 1000
+  firesWhenFacingPlayer: 0
+  gunD: {fileID: 0}
+  gun: {fileID: 7731447268904661453}
 --- !u!1 &3962102734571990954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,6 +1448,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5467972537143279410}
     m_Modifications:
+    - target: {fileID: 291660817781309381, guid: f5fa2d93b7ea01f4886d185ab9c633e3, type: 3}
+      propertyPath: fireRate
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 291660817781309381, guid: f5fa2d93b7ea01f4886d185ab9c633e3, type: 3}
+      propertyPath: nozzles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 291660817781309381, guid: f5fa2d93b7ea01f4886d185ab9c633e3, type: 3}
+      propertyPath: nozzles.Array.data[0]
+      value: 
+      objectReference: {fileID: 9118143869815424385}
+    - target: {fileID: 291660817781309381, guid: f5fa2d93b7ea01f4886d185ab9c633e3, type: 3}
+      propertyPath: nozzles.Array.data[1]
+      value: 
+      objectReference: {fileID: 8874268462226406801}
+    - target: {fileID: 291660817781309381, guid: f5fa2d93b7ea01f4886d185ab9c633e3, type: 3}
+      propertyPath: nozzles.Array.data[2]
+      value: 
+      objectReference: {fileID: 3591630823439525550}
     - target: {fileID: 397143574538342291, guid: f5fa2d93b7ea01f4886d185ab9c633e3, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1573,15 +1579,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 397143574538342291, guid: f5fa2d93b7ea01f4886d185ab9c633e3, type: 3}
   m_PrefabInstance: {fileID: 8018572979765562888}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8367256530826422961 stripped
+--- !u!114 &7731447268904661453 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1970824975715738809, guid: f5fa2d93b7ea01f4886d185ab9c633e3, type: 3}
+  m_CorrespondingSourceObject: {fileID: 291660817781309381, guid: f5fa2d93b7ea01f4886d185ab9c633e3, type: 3}
   m_PrefabInstance: {fileID: 8018572979765562888}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ba43b923b5f3b468ced0af3fe5605d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b35bbcb8b8a55143aadb6630e27830a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &8874268462226406801 stripped

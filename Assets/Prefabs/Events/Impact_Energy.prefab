@@ -9751,7 +9751,7 @@ GameObject:
   - component: {fileID: 7826445943607923956}
   - component: {fileID: 6693604710445968655}
   m_Layer: 10
-  m_Name: Impact_Railgun
+  m_Name: Impact_Energy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

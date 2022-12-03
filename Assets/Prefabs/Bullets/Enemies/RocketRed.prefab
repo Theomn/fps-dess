@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 4212286867354058143}
   - component: {fileID: 8333984605791558933}
   - component: {fileID: 7297008730676258165}
-  - component: {fileID: 9055177506837595106}
+  - component: {fileID: 4278357085455331412}
   m_Layer: 9
   m_Name: RocketRed
   m_TagString: Untagged
@@ -206,8 +206,8 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!135 &9055177506837595106
-SphereCollider:
+--- !u!136 &4278357085455331412
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -216,9 +216,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0.67}
+  m_Radius: 0.75
+  m_Height: 3.6
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 1.55}
 --- !u!1 &8618613756606737603
 GameObject:
   m_ObjectHideFlags: 0

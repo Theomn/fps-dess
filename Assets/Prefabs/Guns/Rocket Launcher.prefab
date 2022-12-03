@@ -29,6 +29,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9020812339145302899}
+  - {fileID: 7844315323189380513}
   m_Father: {fileID: 4859317733295492770}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -58,12 +59,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2672456820502646545}
   m_LocalRotation: {x: 0.050853264, y: 0.07542802, z: -0.030897327, w: 0.99537426}
-  m_LocalPosition: {x: 0.02, y: -0.17, z: 0.5}
+  m_LocalPosition: {x: 0.02, y: -0.048, z: 1.231}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6051711496045058498}
-  m_RootOrder: 0
+  m_Father: {fileID: 8701932779201658588}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3319574150051623950
 MeshFilter:
@@ -124,7 +125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4859317733295492770}
-  - component: {fileID: 5198300859756565529}
+  - component: {fileID: 6485431007436932146}
   m_Layer: 11
   m_Name: Rocket Launcher
   m_TagString: Untagged
@@ -149,7 +150,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5198300859756565529
+--- !u!114 &6485431007436932146
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,7 +159,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5198300859756565528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ba43b923b5f3b468ced0af3fe5605d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3798023af51c03f499ec175450a36eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 0.8
@@ -168,7 +169,7 @@ MonoBehaviour:
   bulletData:
     damagesPlayer: 0
     damagesEnemies: 1
-    damage: 2
+    damage: 5
     endEvent: {fileID: 7826445943607923957, guid: d5106e20ab65b994daf89101e355dd34, type: 3}
     speed: 40
     gravity: 0
@@ -176,23 +177,19 @@ MonoBehaviour:
     lifetime: 20
     destroyOnGroundContact: 1
     maxRange: 0
-  maxEnergy: 100
-  energyRechargeRate: 10
-  energyCost: 0
-  fireAtCrosshair: 1
-  fireAtPlayer: 0
-  canZoom: 0
-  nozzles:
-  - {fileID: 6051711496045058498}
-  rotationRecoil: 25
-  positionRecoil: 0.6
-  recoilDuration: 0.5
-  nozzlesAreFlashes: 0
-  nozzleFlashes:
-  - {fileID: 7844315323189380513}
   nozzleFlashSize: 1
   nozzleFlashDuration: 0.35
   fireSound: 
+  maxEnergy: 100
+  energyRechargeRate: 10
+  energyCost: 30
+  nozzle: {fileID: 6051711496045058498}
+  nozzleFlash: {fileID: 7844315323189380513}
+  rotationRecoil: 25
+  positionRecoil: 0.6
+  recoilDuration: 0.5
+  canZoom: 0
+  visual: {fileID: 549270176611298217}
 --- !u!1 &5491174358605073697
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,8 +300,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.122, z: 0.731}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7844315323189380513}
+  m_Children: []
   m_Father: {fileID: 4859317733295492770}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

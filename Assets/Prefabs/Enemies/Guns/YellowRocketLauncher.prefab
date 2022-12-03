@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 397143574538342291}
-  - component: {fileID: 1970824975715738809}
+  - component: {fileID: 291660817781309381}
   m_Layer: 8
   m_Name: YellowRocketLauncher
   m_TagString: Untagged
@@ -116,7 +116,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1970824975715738809
+--- !u!114 &291660817781309381
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4981752620372006940}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ba43b923b5f3b468ced0af3fe5605d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b35bbcb8b8a55143aadb6630e27830a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 2
@@ -140,22 +140,12 @@ MonoBehaviour:
     speed: 10
     gravity: 0
     maxPierceCount: 1
-    lifetime: 10
+    lifetime: 20
     destroyOnGroundContact: 1
     maxRange: 0
-  maxEnergy: 100
-  energyRechargeRate: 100
-  energyCost: 0
-  fireAtCrosshair: 0
-  fireAtPlayer: 1
-  canZoom: 0
-  nozzles:
-  - {fileID: 1468188330856035225}
-  rotationRecoil: 0
-  positionRecoil: 0
-  recoilDuration: 0
-  nozzlesAreFlashes: 1
-  nozzleFlashes: []
   nozzleFlashSize: 4
   nozzleFlashDuration: 0.3
   fireSound: 
+  nozzles:
+  - {fileID: 1468188330856035225}
+  fireAtPlayer: 0

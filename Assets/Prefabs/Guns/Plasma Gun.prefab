@@ -108,13 +108,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854397433368958260}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -0.02, z: 0.3}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.03, y: 0.04, z: 0.90000004}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3440547139956444382}
-  m_RootOrder: 0
+  m_Father: {fileID: 6917933719917669036}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8868843055464169574
 MeshFilter:
@@ -193,8 +193,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.06, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 983954193376094646}
+  m_Children: []
   m_Father: {fileID: 6819504430210434052}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -227,6 +226,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 934007000283674243}
+  - {fileID: 983954193376094646}
   m_Father: {fileID: 6819504430210434052}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -239,7 +239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6819504430210434052}
-  - component: {fileID: 6533053652263264059}
+  - component: {fileID: 4116518693203408638}
   m_Layer: 11
   m_Name: Plasma Gun
   m_TagString: Untagged
@@ -264,7 +264,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6533053652263264059
+--- !u!114 &4116518693203408638
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3711386966995803324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ba43b923b5f3b468ced0af3fe5605d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3798023af51c03f499ec175450a36eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 0.2
@@ -285,26 +285,22 @@ MonoBehaviour:
     damagesEnemies: 1
     damage: 5
     endEvent: {fileID: 6693604710445968655, guid: 41a5525ba5432df4d813e68079290c30, type: 3}
-    speed: 15
+    speed: 25
     gravity: 0
     maxPierceCount: 2
     lifetime: 7
     destroyOnGroundContact: 1
-    maxRange: 200
-  maxEnergy: 100
-  energyRechargeRate: 5
-  energyCost: 0
-  fireAtCrosshair: 1
-  fireAtPlayer: 0
-  canZoom: 0
-  nozzles:
-  - {fileID: 3440547139956444382}
-  rotationRecoil: 7
-  positionRecoil: 0.15
-  recoilDuration: 0.15
-  nozzlesAreFlashes: 0
-  nozzleFlashes:
-  - {fileID: 983954193376094646}
+    maxRange: 0
   nozzleFlashSize: 0.4
   nozzleFlashDuration: 0.2
   fireSound: FlameThrower
+  maxEnergy: 100
+  energyRechargeRate: 7
+  energyCost: 6
+  nozzle: {fileID: 3440547139956444382}
+  nozzleFlash: {fileID: 983954193376094646}
+  rotationRecoil: 7
+  positionRecoil: 0.2
+  recoilDuration: 0.2
+  canZoom: 0
+  visual: {fileID: 2495432617024568202}

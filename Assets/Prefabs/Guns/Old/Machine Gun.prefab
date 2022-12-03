@@ -112,7 +112,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 706532148084996098}
-  - {fileID: 6646345595969321323}
   m_Father: {fileID: 6646345596091024916}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -141,13 +140,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6646345595969321320}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 0.0112, z: 0.7494}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.04, y: -0.04, z: 0.35}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3606466703867576173}
-  m_RootOrder: 1
+  m_Father: {fileID: 6646345596567364694}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6646345595969321324
 MeshFilter:
@@ -208,7 +207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6646345596091024916}
-  - component: {fileID: 8071703869690199601}
+  - component: {fileID: 6646345596091024918}
   m_Layer: 11
   m_Name: Machine Gun
   m_TagString: Untagged
@@ -233,7 +232,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8071703869690199601
+--- !u!114 &6646345596091024918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,7 +241,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6646345596091024917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3798023af51c03f499ec175450a36eaf, type: 3}
+  m_Script: {fileID: 11500000, guid: 19ba43b923b5f3b468ced0af3fe5605d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 0.1
@@ -254,25 +253,29 @@ MonoBehaviour:
     damagesEnemies: 1
     damage: 2
     endEvent: {fileID: 6693604710445968655, guid: f3410d25a2248f54ea14c96e0ba16df4, type: 3}
-    speed: 0
+    speed: 50
     gravity: 0
-    maxPierceCount: 0
-    lifetime: 0
-    destroyOnGroundContact: 0
+    maxPierceCount: 1
+    lifetime: 1
+    destroyOnGroundContact: 1
     maxRange: 70
-  nozzleFlashSize: 0.4
-  nozzleFlashDuration: 0.2
-  fireSound: MachineGun
   maxEnergy: 100
-  energyRechargeRate: 10
-  energyCost: 3
-  nozzle: {fileID: 6646345596567364694}
-  nozzleFlash: {fileID: 6646345595969321323}
+  energyRechargeRate: 5
+  energyCost: 0
+  fireAtCrosshair: 1
+  fireAtPlayer: 0
+  canZoom: 0
+  nozzles:
+  - {fileID: 6646345596567364694}
   rotationRecoil: 5
   positionRecoil: 0.1
-  recoilDuration: 0.2
-  canZoom: 0
-  visual: {fileID: 2976780492622441220}
+  recoilDuration: 0.1
+  nozzlesAreFlashes: 0
+  nozzleFlashes:
+  - {fileID: 6646345595969321323}
+  nozzleFlashSize: 0.4
+  nozzleFlashDuration: 0.1
+  fireSound: MachineGun
 --- !u!1 &6646345596567364695
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +303,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.0512, z: 0.3994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6646345595969321323}
   m_Father: {fileID: 6646345596091024916}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

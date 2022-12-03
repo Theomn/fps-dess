@@ -231,7 +231,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRange: 40
   firesWhenFacingPlayer: 1
-  gun: {fileID: 4188614416176350166}
+  gunD: {fileID: 0}
+  gun: {fileID: 2699094023523899562}
 --- !u!1 &8757226081447973389
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +442,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5467972537143279410}
     m_Modifications:
+    - target: {fileID: 291660817781309381, guid: f5fa2d93b7ea01f4886d185ab9c633e3, type: 3}
+      propertyPath: fireAtPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 397143574538342291, guid: f5fa2d93b7ea01f4886d185ab9c633e3, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -500,15 +505,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 397143574538342291, guid: f5fa2d93b7ea01f4886d185ab9c633e3, type: 3}
   m_PrefabInstance: {fileID: 2412016529903495023}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4188614416176350166 stripped
+--- !u!114 &2699094023523899562 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1970824975715738809, guid: f5fa2d93b7ea01f4886d185ab9c633e3, type: 3}
+  m_CorrespondingSourceObject: {fileID: 291660817781309381, guid: f5fa2d93b7ea01f4886d185ab9c633e3, type: 3}
   m_PrefabInstance: {fileID: 2412016529903495023}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ba43b923b5f3b468ced0af3fe5605d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b35bbcb8b8a55143aadb6630e27830a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3532507621589229611
