@@ -376,7 +376,7 @@ MonoBehaviour:
   recoilDuration: 0
   nozzlesAreFlashes: 1
   nozzleFlashes: []
-  nozzleFlashSize: 1.2
+  nozzleFlashSize: 0.8
   nozzleFlashDuration: 0.2
   fireSound: 
 --- !u!1 &9176959285210376080
@@ -679,7 +679,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRange: 25
   firesWhenFacingPlayer: 1
-  gun: {fileID: 5178501743668134934}
+  gun: {fileID: 0}
+  gunD: {fileID: 5178501743668134934}
 --- !u!54 &3291167842212488778
 Rigidbody:
   m_ObjectHideFlags: 0
