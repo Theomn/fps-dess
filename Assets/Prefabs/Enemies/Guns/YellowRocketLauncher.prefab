@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b35bbcb8b8a55143aadb6630e27830a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 2
+  fireRate: 3
   bulletCount: 1
   randomSpread: 0
   bulletPrefab: {fileID: 7908677262566707853, guid: 296def6f48e5bf945b59ec01fd262d35, type: 3}
@@ -139,6 +139,7 @@ MonoBehaviour:
     endEvent: {fileID: 7826445943607923957, guid: d337ccce712c5e649bca37ebf6746814, type: 3}
     speed: 10
     gravity: 0
+    trackingSpeed: 0
     maxPierceCount: 1
     lifetime: 20
     destroyOnGroundContact: 1

@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3176535389394121556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.377}
+  m_LocalPosition: {x: 0, y: 0, z: -0.426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -77,7 +77,7 @@ TrailRenderer:
   m_Time: 0.7
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 2
+    widthMultiplier: 1.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -168,7 +168,7 @@ Transform:
   m_GameObject: {fileID: 7908677262566707853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.454}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 163943569967877582}
@@ -217,9 +217,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.6
-  m_Height: 1.8
+  m_Height: 2
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0.65}
+  m_Center: {x: 0, y: 0, z: 0.53}
 --- !u!1 &8618613756606737603
 GameObject:
   m_ObjectHideFlags: 0
