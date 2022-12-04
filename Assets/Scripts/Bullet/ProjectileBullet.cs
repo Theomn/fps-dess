@@ -63,11 +63,11 @@ public class ProjectileBullet : Bullet
         visual.SetActive(false);
 
         //Make sure the bullet is exactly on the contact point
-        Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, Layer.ground + Layer.enemy + Layer.player);
+        /*Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, Layer.ground + Layer.enemy + Layer.player);
         if (hit.collider)
         {
             transform.position = hit.point;
-        }
+        }*/
         if (data.endEvent)
         {
             var evt = LeanPool.Spawn(data.endEvent);
