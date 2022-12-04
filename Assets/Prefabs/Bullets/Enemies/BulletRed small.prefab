@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2937668233797219028}
   - component: {fileID: 4394552854543275566}
   m_Layer: 9
-  m_Name: BulletRed
+  m_Name: BulletRed small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7908677262566707853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.5, y: 1.5, z: 2}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 163943569967877582}
@@ -130,7 +130,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.49603197
+        value: 0.24603197
         inSlope: 0
         outSlope: 0
         tangentMode: 0
