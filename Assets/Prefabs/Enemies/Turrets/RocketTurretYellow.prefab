@@ -231,8 +231,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRange: 40
   firesWhenFacingPlayer: 1
-  gunD: {fileID: 0}
   gun: {fileID: 2699094023523899562}
+  gunD: {fileID: 0}
 --- !u!1 &8757226081447973389
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +569,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: bacacf86eddea584e83bb0aa3f7928d6, type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6867524174320841699, guid: cb3c7ced62c1df642b528d1a3a1976be, type: 3}
+    - target: {fileID: -7511558181221131132, guid: bacacf86eddea584e83bb0aa3f7928d6, type: 3}
+      propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 4163b2b9b2c0a88459de106d30b98f65, type: 2}
     - target: {fileID: 919132149155446097, guid: bacacf86eddea584e83bb0aa3f7928d6, type: 3}

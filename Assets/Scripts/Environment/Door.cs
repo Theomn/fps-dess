@@ -25,7 +25,7 @@ public class Door : MonoBehaviour, IResettable
         {
             enemy.Register(this);
         }
-        initialY = visual.position.y;
+        initialY = visual.localPosition.y;
         Reset();
     }
 
@@ -53,13 +53,13 @@ public class Door : MonoBehaviour, IResettable
 
     private void Open()
     {
-        visual.DOMoveY(initialY + height, 1f).SetEase(Ease.OutSine);
+        visual.DOLocalMoveY(initialY + height, 1f).SetEase(Ease.OutSine);
         wall.localPosition = new Vector3(wall.localPosition.x, initialY + height, wall.localPosition.z);
     }
 
     private void Close()
     {
-        visual.DOMoveY(initialY, 1f);
+        visual.DOLocalMoveY(initialY, 1f);
         wall.localPosition = new Vector3(wall.localPosition.x, initialY, wall.localPosition.z);
     }
 

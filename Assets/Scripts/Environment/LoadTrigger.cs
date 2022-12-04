@@ -22,6 +22,11 @@ public class LoadTrigger : MonoBehaviour, IResettable
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.layer != Layer.player)
+        {
+            return;
+        }
+
         foreach (GameObject obj in loaded)
         {
             obj.SetActive(true);

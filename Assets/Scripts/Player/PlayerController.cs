@@ -131,7 +131,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         HUDController.Instance.SetHealth(health);
         if (health <= 0)
         {
-            Respawn();
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+            //Respawn();
         }
     }
 
