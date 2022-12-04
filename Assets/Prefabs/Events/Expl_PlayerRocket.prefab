@@ -4917,12 +4917,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 3
-  radius: 8
+  radius: 10
   damageToPlayer: 0
   damageToEnemies: 15
   force: 28
   visual: {fileID: 7826445944273797796}
-  duration: 0.5
+  duration: 0.6
 --- !u!1 &7826445944273797797
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,13 +7,18 @@ public class ProjectileBullet : Bullet
     private Rigidbody rb;
     private int pierceCount;
     protected TrailRenderer trail;
+    protected Transform player;
 
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         trail = GetComponentInChildren<TrailRenderer>();
+    }
 
+    private void Start()
+    {
+        player = PlayerController.Instance.transform;
     }
 
     public override void Spawn(BulletData data)
@@ -32,6 +37,15 @@ public class ProjectileBullet : Bullet
         {
             return;
         }
+
+        // Track player
+        if (data.trackingSpeed > 0)
+        {
+            var step = data.trackingSpeed * Time.deltaTime;
+            var targetRotation = Quaternion.LookRotation(player.position - transform.position);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
+        }
+
         // Travel forward
         rb.MovePosition(Vector3.MoveTowards(transform.localPosition, transform.localPosition + transform.forward * data.speed * Time.fixedDeltaTime, float.MaxValue));
 

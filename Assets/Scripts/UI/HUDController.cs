@@ -74,4 +74,9 @@ public class HUDController : SingletonMonoBehaviour<HUDController>
     {
 
     }
+
+    public void DisplayText(string text, float time)
+    {
+
+    }
 }

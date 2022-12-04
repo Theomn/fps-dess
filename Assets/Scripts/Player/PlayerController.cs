@@ -44,10 +44,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     private void Start()
     {
-        health = maxHealth;
-        state = State.Airborne;
+        Respawn();
         HUDController.Instance.SetMaxHealth(maxHealth);
-        
     }
 
 
@@ -131,6 +129,18 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     {
         health -= damage;
         HUDController.Instance.SetHealth(health);
+        if (health <= 0)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+            //Respawn();
+        }
+    }
+
+    public void Respawn()
+    {
+        transform.position = ProgressionManager.Instance.GetActiveCheckpointPosition();
+        health = maxHealth;
+        state = State.Airborne;
     }
 
     public void AddExplosionForce(float explosionForce, Vector3 explosionPosition)

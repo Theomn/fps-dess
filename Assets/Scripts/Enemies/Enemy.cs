@@ -5,7 +5,7 @@ using UnityEngine;
 using Lean.Pool;
 
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IResettable
 {
     [Header("Stats")]
     [SerializeField] private int maxHealth;
@@ -27,6 +27,8 @@ public class Enemy : MonoBehaviour
     private Quaternion initialRotation;
     private float destroyTimer;
 
+    private Door door;
+
 
     protected virtual void Awake()
     {
@@ -40,7 +42,6 @@ public class Enemy : MonoBehaviour
     {
         // Retrieve the only instance of PlayerController in the scene automatically
         player = PlayerController.Instance.transform;
-
         Reset();
 
     }
@@ -137,12 +138,18 @@ public class Enemy : MonoBehaviour
         {
             deathFX.SetActive(false);
         }
+        door?.DecrementLock();
         gameObject.SetActive(false);
     }
 
-    public void Kill()
+    public void InstantKill()
     {
         health = 0;
         FlagForDestroy();
+    }
+
+    public void Register(Door door)
+    {
+        this.door = door;
     }
 }

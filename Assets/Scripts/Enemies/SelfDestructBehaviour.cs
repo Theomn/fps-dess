@@ -18,7 +18,7 @@ public class SelfDestructBehaviour : EnemyBehaviour
                 var player = entity.GetComponent<PlayerController>();
                 if (player)
                 {
-                    me.Kill();
+                    me.InstantKill();
                 }
             }
         }

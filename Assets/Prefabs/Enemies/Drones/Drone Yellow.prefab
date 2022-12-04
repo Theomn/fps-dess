@@ -634,7 +634,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRange: 20
   firesWhenFacingPlayer: 1
-  gun: {fileID: 5490577198234099266}
+  gun: {fileID: 0}
+  gunD: {fileID: 5490577198234099266}
 --- !u!114 &3226488360254207202
 MonoBehaviour:
   m_ObjectHideFlags: 0

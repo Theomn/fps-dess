@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 2664965201738819836}
   - component: {fileID: 4188614416176350166}
   m_Layer: 8
-  m_Name: YellowRocketLauncher
+  m_Name: RedRocketLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,6 +373,7 @@ MonoBehaviour:
     endEvent: {fileID: 7826445943607923957, guid: 72118fedf18eace4e87877061f8ae23b, type: 3}
     speed: 10
     gravity: 0
+    trackingSpeed: 30
     maxPierceCount: 1
     lifetime: 10
     destroyOnGroundContact: 1
