@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class EnemyDoor : MonoBehaviour, IResettable
+public class Door : MonoBehaviour, IResettable
 {
     [SerializeField] private float height;
     [SerializeField] private List<GameObject> lockEnemies;
-    [SerializeField] private GameObject doorWall;
+    [SerializeField] private Transform wall;
     [SerializeField] private Transform visual;
 
     private List<Enemy> enemies;
@@ -38,7 +38,6 @@ public class EnemyDoor : MonoBehaviour, IResettable
         }
         else
         {
-            Debug.Log("Door locked with " + lockCount + " enemies.");
             Close();
         }
     }
@@ -55,13 +54,13 @@ public class EnemyDoor : MonoBehaviour, IResettable
     private void Open()
     {
         visual.DOMoveY(initialY + height, 1f).SetEase(Ease.OutSine);
-        doorWall.SetActive(false);
+        wall.localPosition = new Vector3(wall.localPosition.x, initialY + height, wall.localPosition.z);
     }
 
     private void Close()
     {
         visual.DOMoveY(initialY, 1f);
-        doorWall.SetActive(true);
+        wall.localPosition = new Vector3(wall.localPosition.x, initialY, wall.localPosition.z);
     }
 
     private void OnTriggerEnter(Collider other)

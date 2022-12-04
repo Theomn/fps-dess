@@ -19,6 +19,8 @@ public struct BulletData
     public float speed;
     [Tooltip("Adds an arc to trajectory.")]
     public float gravity;
+    [Tooltip("Speed at which the projectile turns towards player")]
+    public float trackingSpeed;
     [Tooltip("How many entities the bullet will go through before despawning. Does not pierce objects on Ground layer.")]
     public int maxPierceCount;
     [Tooltip("Time in second before bullet despawns.")]

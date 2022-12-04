@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour, IResettable
     private Quaternion initialRotation;
     private float destroyTimer;
 
-    private EnemyDoor door;
+    private Door door;
 
 
     protected virtual void Awake()
@@ -148,7 +148,7 @@ public class Enemy : MonoBehaviour, IResettable
         FlagForDestroy();
     }
 
-    public void Register(EnemyDoor door)
+    public void Register(Door door)
     {
         this.door = door;
     }
