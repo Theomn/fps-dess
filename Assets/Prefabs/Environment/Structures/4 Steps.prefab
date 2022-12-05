@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584131426643893659}
   m_Layer: 6
-  m_Name: 5 Steps
+  m_Name: 4 Steps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
