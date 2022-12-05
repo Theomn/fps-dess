@@ -203,6 +203,18 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         invincTimer = duration;
     }
 
+    private void Heal(int healpoints)
+    {
+        health += healpoints;
+        HUDController.Instance.SetHealth(health);
+
+        if(health >= maxHealth)
+        {
+            health = maxHealth;
+        }
+    }
+
+
 
 }
 
