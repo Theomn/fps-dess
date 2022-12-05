@@ -9,6 +9,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [Header("Stats")]
     [SerializeField] private float maxHealth;
 
+   
     [Header("Movement")]
     [SerializeField] private float groundAcceleration;
     [SerializeField] private float groundMaxSpeed;
@@ -22,6 +23,10 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     [Header("References")]
     [SerializeField] private Transform eyes;
+
+    private bool isInvincible;
+    private float invincTimer;
+
 
 
     public enum State
@@ -44,10 +49,10 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     private void Start()
     {
+   
         HUDController.Instance.SetMaxHealth(maxHealth);
         Respawn();
     }
-
 
     void Update()
     {
@@ -60,7 +65,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
                 SetAirborne();
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
             }
-            
+
             if (!groundCheck.IsGrounded())
             {
                 SetAirborne();
@@ -73,6 +78,17 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             if (jumpTimer <= 0 && groundCheck.IsGrounded())
             {
                 SetGrounded();
+            }
+        }
+
+        //timer invincible
+
+        if (invincTimer >= 0)
+        {
+            invincTimer -= Time.deltaTime;
+            if (invincTimer <= 0)
+            {
+                isInvincible = false;
             }
         }
     }
@@ -127,6 +143,11 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     public void Damage(float damage)
     {
+        if (isInvincible)
+        {
+            return;
+        }
+
         health -= damage;
         HUDController.Instance.SetHealth(health);
         if (health <= 0)
@@ -134,6 +155,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
             //Respawn();
         }
+
     }
 
     public void Respawn()
@@ -174,4 +196,14 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     {
         return state;
     }
+
+    private void MakeInvincible(float duration)
+    {
+        isInvincible = true;
+        invincTimer = duration;
+    }
+
+
 }
+
+   
