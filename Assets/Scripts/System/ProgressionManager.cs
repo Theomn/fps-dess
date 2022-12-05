@@ -52,6 +52,7 @@ public class ProgressionManager : SingletonMonoBehaviour<ProgressionManager>
         else
         {
             checkpoints = new SerializableList<Checkpoint>();
+            checkpoints.list = new List<Checkpoint>();
         }
         DontDestroyOnLoad(gameObject);
     }
