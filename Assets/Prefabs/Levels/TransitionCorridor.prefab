@@ -142,8 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4948327e7b5d6d4e947c80e31216627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loaded:
-  - {fileID: 0}
+  loaded: []
 --- !u!65 &3323659380040937232
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -183,7 +182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4282732670630505227}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: -24}
+  m_LocalPosition: {x: 0, y: 4, z: -23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -218,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01f36c5385b3f04489077931b1ee3df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 6
+  range: 5
 --- !u!1 &4876640648687923366
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,8 +854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   height: 8
-  lockEnemies:
-  - {fileID: 0}
+  lockEnemies: []
   wall: {fileID: 4876640649425960596}
   visual: {fileID: 4876640650158396398}
 --- !u!65 &4876640650323364769
@@ -1073,8 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4948327e7b5d6d4e947c80e31216627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loaded:
-  - {fileID: 0}
+  loaded: []
 --- !u!65 &6695416827320110267
 BoxCollider:
   m_ObjectHideFlags: 0

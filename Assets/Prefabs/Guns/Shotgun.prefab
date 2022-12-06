@@ -46,17 +46,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3798023af51c03f499ec175450a36eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1.5
+  fireRate: 1
   bulletCount: 15
   randomSpread: 12
   bulletPrefab: {fileID: 8685403030757105085, guid: 321c7eed0f16c014a996247e33728557, type: 3}
   bulletData:
     damagesPlayer: 0
     damagesEnemies: 1
-    damage: 4
+    damage: 3
     endEvent: {fileID: 6693604710445968655, guid: f3410d25a2248f54ea14c96e0ba16df4, type: 3}
     speed: 0
     gravity: 0
+    trackingSpeed: 0
     maxPierceCount: 0
     lifetime: 0
     destroyOnGroundContact: 0
@@ -65,8 +66,8 @@ MonoBehaviour:
   nozzleFlashDuration: 0.3
   fireSound: ShotGun
   maxEnergy: 100
-  energyRechargeRate: 5
-  energyCost: 30
+  energyRechargeRate: 8
+  energyCost: 20
   nozzle: {fileID: 657279537700548987}
   nozzleFlash: {fileID: 7789695173240596417}
   rotationRecoil: 20
