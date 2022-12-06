@@ -9,7 +9,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     [Header("Stats")]
     [SerializeField] private float maxHealth;
 
-   
+
     [Header("Movement")]
     [SerializeField] private float groundAcceleration;
     [SerializeField] private float groundMaxSpeed;
@@ -200,25 +200,22 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         return state;
     }
 
-    private void MakeInvincible(float duration)
+    public void MakeInvincible(float duration)
     {
         isInvincible = true;
         invincTimer = duration;
     }
 
-    private void Heal(int healpoints)
+    public void Heal(float healpoints)
     {
         health += healpoints;
-        HUDController.Instance.SetHealth(health);
 
-        if(health >= maxHealth)
+        if (health > maxHealth)
         {
             health = maxHealth;
         }
+        HUDController.Instance.SetHealth(health);
     }
-
-
-
 }
 
    

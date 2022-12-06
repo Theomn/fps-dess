@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
 {
+    [SerializeField] private float grabRange;
     [SerializeField] private List<PlayerGun> guns;
+
+    [Header("Consummables")]
+    [SerializeField] private PlayerGun medkit;
+    [SerializeField] private PlayerGun shield;
+    [SerializeField] private PlayerGun barrel;
+    [SerializeField] private bool hasMedkit;
+    [SerializeField] private bool hasShield;
+    [SerializeField] private bool hasBarrel;
+    [SerializeField] private bool isHoldingGrabbable;
 
     [Header("Weapon Sway")]
     [SerializeField] private float swaySensitivity;
@@ -30,14 +40,19 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
 
     void Update()
     {
+        // Fire
         if (Input.GetButton("Fire1"))
         {
-            if (equippedGun.Fire())
-            {
-                cam.ResetZoom();
-            }
+            FireGun();
         }
 
+        // Grab barrel
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+
+        }
+
+        // Zoom
         if (Input.GetButtonDown("Fire2") && equippedGun.canZoom)
         {
             cam.Zoom(25);
@@ -47,25 +62,43 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
             cam.ResetZoom();
         }
 
-        for (int i = 0; i < guns.Count; i++)
+        // Change weapon
+        if (!isHoldingGrabbable) // Cannot change weapon if holding item
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1 +i ))
+            for (int i = 0; i < guns.Count; i++)
             {
-                EquipGun(i);
+                if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+                {
+                    EquipGun(i);
+                }
             }
-        }
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
-        {
-            EquipGun(equippedGunId + 1);
-        }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // backwards
-        {
-            EquipGun(equippedGunId - 1);
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+            {
+                EquipGun(equippedGunId + 1);
+            }
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // backwards
+            {
+                EquipGun(equippedGunId - 1);
+            }
         }
 
         SwayGun();
         hud.SetEnergy(equippedGun.GetEnergy());
+    }
+
+    private void FireGun()
+    {
+        if (equippedGun.Fire())
+        {
+            cam.ResetZoom();
+            if (equippedGun.isConsummable)
+            {
+                guns.RemoveAt(equippedGunId);
+                EquipGun(equippedGunId);
+            }
+            isHoldingGrabbable = false;
+        }
     }
 
     private void EquipGun(int id)
@@ -85,6 +118,19 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
         cam.ResetZoom();
     }
 
+    private void Grab()
+    {
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, grabRange, Layer.enemy))
+        {
+            var grabbable = hit.collider.gameObject.GetComponent<Grabbable>();
+            if (grabbable)
+            {
+                grabbable.Grab();
+                isHoldingGrabbable = true;
+            }
+        }
+    }
+
     private void SwayGun()
     {
         float dx = Input.GetAxisRaw("Mouse X") * swaySensitivity;
@@ -93,5 +139,15 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
         dy = Mathf.Clamp(dy, -swayMaxAmount, swayMaxAmount);
         var target = Quaternion.Euler(-dy, dx, 0);
         transform.localRotation = Quaternion.Slerp(transform.localRotation, target, swaySmooth * Time.deltaTime);
+    }
+
+    public bool AddGun(PlayerGun gun)
+    {
+        if (guns.Exists(g => g.id == gun.id))
+            return false;
+
+        guns.Add(gun);
+        EquipGun(guns.Count - 1);
+        return true;
     }
 }

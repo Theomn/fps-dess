@@ -287,6 +287,7 @@ MonoBehaviour:
     endEvent: {fileID: 6693604710445968655, guid: 41a5525ba5432df4d813e68079290c30, type: 3}
     speed: 25
     gravity: 0
+    trackingSpeed: 0
     maxPierceCount: 2
     lifetime: 7
     destroyOnGroundContact: 1
@@ -302,5 +303,7 @@ MonoBehaviour:
   rotationRecoil: 7
   positionRecoil: 0.2
   recoilDuration: 0.2
+  id: 2
   canZoom: 0
+  isConsummable: 0
   visual: {fileID: 2495432617024568202}

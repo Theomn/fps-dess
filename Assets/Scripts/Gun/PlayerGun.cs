@@ -23,7 +23,9 @@ public class PlayerGun : Gun
     [SerializeField] private float recoilDuration;
 
     [Header("Misc")]
+    [SerializeField] public int id;
     [SerializeField] public bool canZoom;
+    [SerializeField] public bool isConsummable;
     [SerializeField] public GameObject visual;
 
     private float energy;

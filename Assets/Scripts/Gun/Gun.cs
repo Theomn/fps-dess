@@ -12,7 +12,7 @@ public abstract class Gun : MonoBehaviour
     [SerializeField] private int bulletCount;
     [Tooltip("How much each bullet deviates from the nozzle direction.")]
     [SerializeField] private float randomSpread;
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] protected GameObject bulletPrefab;
     [SerializeField] private BulletData bulletData;
 
     [Header("Nozzle Flash")]
