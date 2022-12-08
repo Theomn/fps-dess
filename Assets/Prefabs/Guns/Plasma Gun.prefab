@@ -294,7 +294,7 @@ MonoBehaviour:
     maxRange: 0
   nozzleFlashSize: 0.4
   nozzleFlashDuration: 0.2
-  fireSound: FlameThrower
+  fireSound: Railgun
   maxEnergy: 100
   energyRechargeRate: 8
   energyCost: 7
