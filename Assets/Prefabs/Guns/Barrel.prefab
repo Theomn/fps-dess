@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3798023af51c03f499ec175450a36eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.1
+  fireRate: 0.8
   bulletCount: 1
   randomSpread: 0
   bulletPrefab: {fileID: 4642688925920084287, guid: fab3125b406c90f4f886237943085ddf, type: 3}
@@ -218,8 +218,8 @@ MonoBehaviour:
   nozzle: {fileID: 6110854344683670109}
   nozzleFlash: {fileID: 0}
   rotationRecoil: 0
-  positionRecoil: 0
-  recoilDuration: 0
+  positionRecoil: -1
+  recoilDuration: 0.5
   id: 8
   canZoom: 0
   isConsummable: 1

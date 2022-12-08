@@ -48,12 +48,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 1
   bulletCount: 15
-  randomSpread: 12
+  randomSpread: 10
   bulletPrefab: {fileID: 8685403030757105085, guid: 321c7eed0f16c014a996247e33728557, type: 3}
   bulletData:
     damagesPlayer: 0
     damagesEnemies: 1
-    damage: 3
+    damage: 4
     endEvent: {fileID: 6693604710445968655, guid: f3410d25a2248f54ea14c96e0ba16df4, type: 3}
     speed: 0
     gravity: 0

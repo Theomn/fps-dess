@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f78ace87ae42a3742a7b25282266df80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRange: 40
+  fireRange: 100
   firesWhenFacingPlayer: 1
   gun: {fileID: 0}
   gunD: {fileID: 4188614416176350166}
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ba43b923b5f3b468ced0af3fe5605d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 2
+  fireRate: 5
   bulletCount: 1
   randomSpread: 0
   bulletPrefab: {fileID: 7908677262566707853, guid: 207e7012e84d2d34cb62cae3f9111ddb, type: 3}

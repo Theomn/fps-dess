@@ -266,7 +266,7 @@ MonoBehaviour:
   fireSound: MachineGun
   maxEnergy: 100
   energyRechargeRate: 12
-  energyCost: 3.5
+  energyCost: 3
   nozzle: {fileID: 6646345596567364694}
   nozzleFlash: {fileID: 6646345595969321323}
   rotationRecoil: 5

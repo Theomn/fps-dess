@@ -45,10 +45,9 @@ public class ProjectileBullet : Bullet
             var step = data.trackingSpeed * Time.deltaTime;
             var targetRotation = Quaternion.LookRotation(player.position - transform.position);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
+            rb.MovePosition(Vector3.MoveTowards(transform.localPosition, transform.localPosition + transform.forward * data.speed * Time.fixedDeltaTime, float.MaxValue));
         }
-
-        // keeping old code just in case
-        //rb.MovePosition(Vector3.MoveTowards(transform.localPosition, transform.localPosition + transform.forward * data.speed * Time.fixedDeltaTime, float.MaxValue));
+        
 
         // Apply gravity
         if (data.gravity != 0)

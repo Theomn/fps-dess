@@ -296,8 +296,8 @@ MonoBehaviour:
   nozzleFlashDuration: 0.2
   fireSound: FlameThrower
   maxEnergy: 100
-  energyRechargeRate: 7
-  energyCost: 6
+  energyRechargeRate: 8
+  energyCost: 5
   nozzle: {fileID: 3440547139956444382}
   nozzleFlash: {fileID: 983954193376094646}
   rotationRecoil: 7

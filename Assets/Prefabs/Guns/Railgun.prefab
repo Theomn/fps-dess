@@ -183,7 +183,7 @@ MonoBehaviour:
   fireSound: Sniper
   maxEnergy: 100
   energyRechargeRate: 8
-  energyCost: 50
+  energyCost: 45
   nozzle: {fileID: 7054606395141524224}
   nozzleFlash: {fileID: 7054606394448057917}
   rotationRecoil: 20

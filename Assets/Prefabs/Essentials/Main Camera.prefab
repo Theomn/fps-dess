@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 2
   zoomSpeed: 20
-  zoomSensitivityMultiplier: 0.25
+  zoomSensitivityMultiplier: 0.3
   ViewmodelCamera: {fileID: 6843905640801246683}
 --- !u!1 &6843905640801246683
 GameObject:
