@@ -21,7 +21,7 @@ public abstract class EnemyBehaviour : MonoBehaviour
 
     protected virtual void Start()
     {
-        player = PlayerController.Instance.transform;
+        player = PlayerController.instance.transform;
     }
     
     protected virtual void Update()

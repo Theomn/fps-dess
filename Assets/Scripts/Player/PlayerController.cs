@@ -49,7 +49,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     private void Start()
     {
-        HUDController.Instance.SetMaxHealth(maxHealth);
+        HUDController.instance.SetMaxHealth(maxHealth);
         Respawn();
     }
 
@@ -148,7 +148,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         }
 
         health -= damage;
-        HUDController.Instance.SetHealth(health);
+        CameraController.instance.Shake(damage / 30f);
+        HUDController.instance.SetHealth(health);
         if (health <= 0)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
@@ -161,7 +162,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     {
         health = maxHealth;
         SetAirborne();
-        var respawnPosition = ProgressionManager.Instance.GetActiveCheckpointPosition();
+        var respawnPosition = ProgressionManager.instance.GetActiveCheckpointPosition();
         if (respawnPosition != Vector3.zero)
         {
             transform.position = respawnPosition;
@@ -214,7 +215,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         {
             health = maxHealth;
         }
-        HUDController.Instance.SetHealth(health);
+        HUDController.instance.SetHealth(health);
     }
 }
 

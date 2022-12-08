@@ -73,7 +73,7 @@ public abstract class Gun : MonoBehaviour
         ready = false;
         fireRateTimer = fireRate;
         
-        AudioManager.Instance.PlaySoundAtPosition(fireSound, transform.position);
+        AudioManager.instance.PlaySoundAtPosition(fireSound, transform.position);
         return true;
     }
 
