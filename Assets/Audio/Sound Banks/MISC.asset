@@ -24,3 +24,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 5a45a93f968b5a446ac7fa4c7665ddf1, type: 3}
     volume: 0.285
     pitchRandom: 0.0134
+  - name: EnemyHit
+    clips:
+    - {fileID: 8300000, guid: e1038d0dce5317e4cb95e8aecd577458, type: 3}
+    volume: 0.325
+    pitchRandom: 0.0245

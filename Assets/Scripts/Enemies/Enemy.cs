@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour, IResettable
     [Tooltip("How long it takes to destroy the enemy once it's killed.")]
     [SerializeField] private float destroyTime;
     [SerializeField] private GameObject deathFX;
+    [SerializeField] private string hitSound;
     
 
     private float health;
@@ -111,6 +112,10 @@ public class Enemy : MonoBehaviour, IResettable
     public void Damage(float damage)
     {
         health -= damage;
+        //insert dammage sound here
+
+        AudioManager.Instance.PlaySoundAtPosition(hitSound, transform.position);
+
         if (damage > 0)
         {
             ShowHitFlash();

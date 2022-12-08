@@ -298,6 +298,7 @@ MonoBehaviour:
   endEvent: {fileID: 7826445943607923957, guid: 0ebef39ffcdd0a041a1422e6f0ae81dd, type: 3}
   destroyTime: 2
   deathFX: {fileID: 4310522734218016328}
+  hitSound: EnemyHit
 --- !u!1 &2454999798808438185
 GameObject:
   m_ObjectHideFlags: 0
