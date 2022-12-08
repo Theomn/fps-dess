@@ -26,7 +26,7 @@ public class FootstepSound : MonoBehaviour
             footstepTimer -= Time.deltaTime;
             if (footstepTimer <= 0)
             {
-                AudioManager.Instance.PlaySoundAtPosition(footstepSoundId, transform.position);
+                AudioManager.instance.PlaySoundAtPosition(footstepSoundId, transform.position);
                 footstepTimer = footstepInterval;
             }
         }

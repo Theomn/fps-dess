@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec8b7b0ec219ec49bc3e0fb0d29e575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despawnOffset: 5
+  despawnOffset: 1
   visual: {fileID: 8618613756606737603}
 --- !u!54 &7297008730676258165
 Rigidbody:

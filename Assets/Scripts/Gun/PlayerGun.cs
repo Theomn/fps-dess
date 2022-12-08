@@ -85,7 +85,7 @@ public class PlayerGun : Gun
     protected override void ArmNozzle()
     {
         base.ArmNozzle();
-        activeNozzle.LookAt(CameraController.Instance.GetCrosshairTarget());
+        activeNozzle.LookAt(CameraController.instance.GetCrosshairTarget());
     }
 
     public void Holster()
@@ -96,7 +96,7 @@ public class PlayerGun : Gun
     public void Unholster()
     {
         visual.SetActive(true);
-        HUDController.Instance.SetMaxEnergy(maxEnergy);
+        HUDController.instance.SetMaxEnergy(maxEnergy);
     }
 
     public float GetEnergy()

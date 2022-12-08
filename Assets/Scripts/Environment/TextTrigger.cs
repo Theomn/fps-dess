@@ -10,14 +10,14 @@ public class TextTrigger : MonoBehaviour
 
     private void Awake()
     {
-        text = Localization.instance.GetText(key);
+        text = DataAccessor.instance.localization.GetText(key);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == Layer.player)
         {
-            HUDController.Instance.DisplayText(text.english, text.time);
+            HUDController.instance.DisplayText(text.english, text.time);
             gameObject.SetActive(false);
         }
     }

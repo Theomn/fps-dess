@@ -18,7 +18,7 @@ public class ProjectileBullet : Bullet
 
     private void Start()
     {
-        player = PlayerController.Instance.transform;
+        player = PlayerController.instance.transform;
     }
 
     public override void Spawn(BulletData data)
@@ -29,7 +29,10 @@ public class ProjectileBullet : Bullet
         pierceCount = 0;
         GetComponent<Collider>().enabled = true;
         visual.SetActive(true);
-        rb.velocity = transform.forward * data.speed;
+        if (data.trackingSpeed == 0)
+        {
+            rb.velocity = transform.forward * data.speed;
+        }
     }
 
     protected virtual void FixedUpdate()
@@ -61,6 +64,7 @@ public class ProjectileBullet : Bullet
         base.FlagForDespawn();
         GetComponent<Collider>().enabled = false;
         visual.SetActive(false);
+        rb.velocity = Vector3.zero;
 
         //Make sure the bullet is exactly on the contact point
         /*Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, Layer.ground + Layer.enemy + Layer.player);

@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class CameraController : SingletonMonoBehaviour<CameraController>
 {
     [SerializeField] private float sensitivity;
     [SerializeField] private float zoomSpeed;
     [SerializeField] private float zoomSensitivityMultiplier;
-    [SerializeField] private GameObject ViewmodelCamera;
+    [SerializeField] private GameObject mainCamera;
+    [SerializeField] private GameObject viewmodelCamera;
 
     private Vector2 mouse;
     private Vector3 velocity;
@@ -25,7 +27,7 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
     {
         base.Awake();
         crosshairLayerMask = LayerMask.GetMask("Ground", "Enemy");
-        cam = GetComponent<Camera>();
+        cam = mainCamera.GetComponent<Camera>();
         initialFOV = cam.fieldOfView;
         targetFOV = initialFOV;
     }
@@ -34,8 +36,8 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        player = PlayerController.Instance.transform;
-        playerEyes = PlayerController.Instance.GetEyes();
+        player = PlayerController.instance.transform;
+        playerEyes = PlayerController.instance.GetEyes();
     }
 
     // Update is called once per frame
@@ -71,13 +73,20 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
     {
         isZoomed = true;
         this.targetFOV = targetFOV;
-        ViewmodelCamera.SetActive(false);
+        viewmodelCamera.SetActive(false);
     }
 
     public void ResetZoom()
     {
         isZoomed = false;
         targetFOV = initialFOV;
-        ViewmodelCamera.SetActive(true);
+        viewmodelCamera.SetActive(true);
+    }
+
+    public void Shake(float intensity)
+    {
+        mainCamera.transform.DOKill();
+        mainCamera.transform.localPosition = Vector3.zero;
+        mainCamera.transform.DOShakePosition(Mathf.Lerp(0.2f, 0.8f, intensity), Mathf.Lerp(0.2f, 1.2f, intensity));
     }
 }

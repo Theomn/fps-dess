@@ -377,6 +377,7 @@ MonoBehaviour:
     endEvent: {fileID: 0}
     speed: 15
     gravity: 0
+    trackingSpeed: 0
     maxPierceCount: 1
     lifetime: 5
     destroyOnGroundContact: 1
@@ -449,6 +450,7 @@ MonoBehaviour:
     endEvent: {fileID: 0}
     speed: 50
     gravity: 0
+    trackingSpeed: 0
     maxPierceCount: 1
     lifetime: 5
     destroyOnGroundContact: 1
@@ -1060,6 +1062,7 @@ MonoBehaviour:
   endEvent: {fileID: 7826445943607923957, guid: 0ebef39ffcdd0a041a1422e6f0ae81dd, type: 3}
   destroyTime: 1.5
   deathFX: {fileID: 7257903356218897977}
+  hitSound: EnemyHit
 --- !u!1 &5182999864443838675
 GameObject:
   m_ObjectHideFlags: 0

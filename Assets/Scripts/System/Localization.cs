@@ -11,8 +11,8 @@ public struct Text
     public float time;
 }
 
-[CreateAssetMenu(fileName = "LocalizationManager", menuName = "Scriptable Objects/LocalizationManager", order = 2)]
-public class Localization : ScriptableSingleton<Localization>
+[CreateAssetMenu(fileName = "LocalizationManager", menuName = "Scriptable Objects/Localization", order = 2)]
+public class Localization : ScriptableObject
 {
     public List<Text> localization;
 

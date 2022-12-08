@@ -96,6 +96,7 @@ MonoBehaviour:
     endEvent: {fileID: 0}
     speed: 40
     gravity: 0
+    trackingSpeed: 0
     maxPierceCount: 1
     lifetime: 4
     destroyOnGroundContact: 1
@@ -257,6 +258,7 @@ MonoBehaviour:
   endEvent: {fileID: 7826445943607923957, guid: 91296492a84440947887bfc1bca9dbd6, type: 3}
   destroyTime: 2
   deathFX: {fileID: 5297502146790900571}
+  hitSound: EnemyHit
 --- !u!114 &2265221182207844815
 MonoBehaviour:
   m_ObjectHideFlags: 0

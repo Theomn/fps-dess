@@ -810,10 +810,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3436111382952503629, guid: bd522255f912d284a9c1b019ae1cda7d, type: 3}
-      propertyPath: rememberActiveCheckpointOnQuit
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3436111382952503630, guid: bd522255f912d284a9c1b019ae1cda7d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -860,7 +856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3436111382952503631, guid: bd522255f912d284a9c1b019ae1cda7d, type: 3}
       propertyPath: m_Name
-      value: ProgressionManager
+      value: GameManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd522255f912d284a9c1b019ae1cda7d, type: 3}

@@ -272,6 +272,7 @@ MonoBehaviour:
   endEvent: {fileID: 7826445943607923957, guid: 57ae36e1cc765ee4ea07c070fe0af2b5, type: 3}
   destroyTime: 1.5
   deathFX: {fileID: 3891550552198674671}
+  hitSound: EnemyHit
 --- !u!1 &3253203167388527761
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,8 +404,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRange: 1000
   firesWhenFacingPlayer: 0
-  gunD: {fileID: 0}
   gun: {fileID: 7731447268904661453}
+  gunD: {fileID: 0}
 --- !u!1 &3962102734571990954
 GameObject:
   m_ObjectHideFlags: 0

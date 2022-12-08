@@ -16,9 +16,9 @@ public class ConsummableGun : PlayerGun
         }
 
         if(healAmount > 0)
-            PlayerController.Instance.Heal(healAmount);
+            PlayerController.instance.Heal(healAmount);
         if (invincibleTime > 0)
-            PlayerController.Instance.MakeInvincible(invincibleTime);
+            PlayerController.instance.MakeInvincible(invincibleTime);
         return true;
     }
 }

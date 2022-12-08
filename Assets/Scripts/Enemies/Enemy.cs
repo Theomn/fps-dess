@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour, IResettable
     [Tooltip("How long it takes to destroy the enemy once it's killed.")]
     [SerializeField] private float destroyTime;
     [SerializeField] private GameObject deathFX;
+    [SerializeField] private string hitSound;
     
 
     private float health;
@@ -25,6 +26,7 @@ public class Enemy : MonoBehaviour, IResettable
     private MeshRenderer[] regularMeshes;
     private MeshRenderer[] hitFlashMeshes;
     protected bool flaggedForDestroy;
+    private bool soundPlayed;
     private Vector3 initialPosition;
     private Quaternion initialRotation;
     private float destroyTimer;
@@ -38,16 +40,14 @@ public class Enemy : MonoBehaviour, IResettable
         behaviours = GetComponentsInChildren<EnemyBehaviour>();
         initialPosition = transform.position;
         initialRotation = transform.rotation;
-
-        CreateHitFlashMesh();
     }
 
     protected virtual void Start()
     {
         // Retrieve the only instance of PlayerController in the scene automatically
-        player = PlayerController.Instance.transform;
+        player = PlayerController.instance.transform;
+        CreateHitFlashMesh();
         Reset();
-
     }
 
     public virtual void Reset()
@@ -93,6 +93,8 @@ public class Enemy : MonoBehaviour, IResettable
             }
         }
 
+        soundPlayed = false;
+
         //calcul de la distance entre enemi et le joueur
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
     }
@@ -111,14 +113,23 @@ public class Enemy : MonoBehaviour, IResettable
     public void Damage(float damage)
     {
         health -= damage;
+        //insert dammage sound here
+
+
         if (damage > 0)
         {
             ShowHitFlash();
-            hitFlashTimer += Mathf.Lerp(0f, 0.2f, damage / 10);
+            hitFlashTimer += Mathf.Lerp(0f, 0.3f, damage / 20);
             if (hitFlashTimer > 0.2f)
             {
                 hitFlashTimer = 0.2f;
             }
+            if (!soundPlayed)
+            {
+                soundPlayed = true;
+                AudioManager.instance.PlaySoundAtPosition(hitSound, transform.position);
+            }
+
         }
         if (health <= 0)
         {
@@ -133,6 +144,7 @@ public class Enemy : MonoBehaviour, IResettable
 
     protected virtual void FlagForDestroy()
     {
+        door?.DecrementLock();
         foreach (Collider coll in colliders)
         {
             coll.gameObject.layer = LayerMask.NameToLayer("Default");
@@ -161,7 +173,6 @@ public class Enemy : MonoBehaviour, IResettable
         {
             deathFX.SetActive(false);
         }
-        door?.DecrementLock();
         gameObject.SetActive(false);
     }
 
@@ -188,7 +199,7 @@ public class Enemy : MonoBehaviour, IResettable
             var newMats = new Material[newMesh.materials.Length];
             for (int i = 0; i < newMats.Length; i++)
             {
-                newMats[i] = Swatches.instance.GetMaterial("ENEMY_HITFLASH");
+                newMats[i] = DataAccessor.instance.swatches.GetMaterial("ENEMY_HITFLASH");
             }
             newMesh.materials = newMats;
             newMesh.enabled = false;

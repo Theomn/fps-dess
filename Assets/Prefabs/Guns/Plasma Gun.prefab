@@ -276,14 +276,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3798023af51c03f499ec175450a36eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.2
+  fireRate: 0.25
   bulletCount: 1
   randomSpread: 2
   bulletPrefab: {fileID: 7908677262566707853, guid: 520c21135961e3144a2b5a2d55445daa, type: 3}
   bulletData:
     damagesPlayer: 0
     damagesEnemies: 1
-    damage: 5
+    damage: 7
     endEvent: {fileID: 6693604710445968655, guid: 41a5525ba5432df4d813e68079290c30, type: 3}
     speed: 25
     gravity: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
   fireSound: FlameThrower
   maxEnergy: 100
   energyRechargeRate: 8
-  energyCost: 5
+  energyCost: 7
   nozzle: {fileID: 3440547139956444382}
   nozzleFlash: {fileID: 983954193376094646}
   rotationRecoil: 7

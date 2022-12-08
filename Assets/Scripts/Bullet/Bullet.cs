@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using Lean.Pool;
+using System.Collections.Generic;
+
 
 [Serializable]
 public struct BulletData
@@ -38,6 +40,8 @@ public abstract class Bullet : MonoBehaviour
     protected float lifetimeTimer;
     protected bool flaggedForDespawn;
     protected float despawnTimer;
+    protected List<Enemy> damagedEnemies = new List<Enemy>();
+
 
     protected virtual void Update()
     {
@@ -75,6 +79,7 @@ public abstract class Bullet : MonoBehaviour
 
     protected virtual void Despawn()
     {
+        damagedEnemies.Clear();
         LeanPool.Despawn(this);
     }
 
@@ -89,8 +94,9 @@ public abstract class Bullet : MonoBehaviour
                 Debug.LogWarning("Bullet collided with an object on the Enemy layer but with no Enemy component");
                 return 0;
             }
-            if (data.damagesEnemies)
+            if (data.damagesEnemies && !damagedEnemies.Contains(enemy))
             {
+                damagedEnemies.Add(enemy);
                 enemy.Damage(data.damage);
                 return layer;
             }
