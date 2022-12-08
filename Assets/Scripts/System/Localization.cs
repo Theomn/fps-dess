@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 
 public struct Text
 {
-    public string id;
+    public string key;
     public string english;
     public float time;
 }
 
-[CreateAssetMenu(fileName = "Localization", menuName = "Scriptable Objects/Localization", order = 1)]
-public class Localization : ScriptableObject
+[CreateAssetMenu(fileName = "LocalizationManager", menuName = "Scriptable Objects/LocalizationManager", order = 2)]
+public class Localization : ScriptableSingleton<Localization>
 {
     public List<Text> localization;
+
+    public Text GetText(string key)
+    {
+        return localization.Find(t => t.key.Equals(key));
+    }
 }

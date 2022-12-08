@@ -22,11 +22,13 @@ public class Enemy : MonoBehaviour, IResettable
     protected Transform player;
     private Collider[] colliders;
     private EnemyBehaviour[] behaviours;
+    private MeshRenderer[] regularMeshes;
+    private MeshRenderer[] hitFlashMeshes;
     protected bool flaggedForDestroy;
     private Vector3 initialPosition;
     private Quaternion initialRotation;
     private float destroyTimer;
-
+    private float hitFlashTimer;
     private Door door;
 
 
@@ -36,6 +38,8 @@ public class Enemy : MonoBehaviour, IResettable
         behaviours = GetComponentsInChildren<EnemyBehaviour>();
         initialPosition = transform.position;
         initialRotation = transform.rotation;
+
+        CreateHitFlashMesh();
     }
 
     protected virtual void Start()
@@ -79,6 +83,16 @@ public class Enemy : MonoBehaviour, IResettable
             return;
         }
 
+        if (hitFlashTimer > 0)
+        {
+            hitFlashTimer -= Time.deltaTime;
+            if (hitFlashTimer <= 0)
+            {
+                hitFlashTimer = 0;
+                HideHitFlash();
+            }
+        }
+
         //calcul de la distance entre enemi et le joueur
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
     }
@@ -97,6 +111,15 @@ public class Enemy : MonoBehaviour, IResettable
     public void Damage(float damage)
     {
         health -= damage;
+        if (damage > 0)
+        {
+            ShowHitFlash();
+            hitFlashTimer += Mathf.Lerp(0f, 0.2f, damage / 10);
+            if (hitFlashTimer > 0.2f)
+            {
+                hitFlashTimer = 0.2f;
+            }
+        }
         if (health <= 0)
         {
             FlagForDestroy();
@@ -151,5 +174,42 @@ public class Enemy : MonoBehaviour, IResettable
     public void Register(Door door)
     {
         this.door = door;
+    }
+
+    private void CreateHitFlashMesh()
+    {
+        regularMeshes = GetComponentsInChildren<MeshRenderer>();
+        hitFlashMeshes = new MeshRenderer[regularMeshes.Length];
+        for (int m = 0; m < regularMeshes.Length; m++)
+        {
+            var newMesh = Instantiate(regularMeshes[m], regularMeshes[m].transform, true);
+            hitFlashMeshes[m] = newMesh;
+            Destroy(newMesh.GetComponent<Collider>());
+            var newMats = new Material[newMesh.materials.Length];
+            for (int i = 0; i < newMats.Length; i++)
+            {
+                newMats[i] = Swatches.instance.GetMaterial("ENEMY_HITFLASH");
+            }
+            newMesh.materials = newMats;
+            newMesh.enabled = false;
+        }
+    }
+
+    private void ShowHitFlash()
+    {
+        for (int m = 0; m < regularMeshes.Length; m++)
+        {
+            regularMeshes[m].enabled = false;
+            hitFlashMeshes[m].enabled = true;
+        }
+    }
+
+    private void HideHitFlash()
+    {
+        for (int m = 0; m < regularMeshes.Length; m++)
+        {
+            regularMeshes[m].enabled = true;
+            hitFlashMeshes[m].enabled = false;
+        }
     }
 }
