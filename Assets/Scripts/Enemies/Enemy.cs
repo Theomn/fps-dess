@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour, IResettable
     private MeshRenderer[] regularMeshes;
     private MeshRenderer[] hitFlashMeshes;
     protected bool flaggedForDestroy;
+    private bool soundPlayed;
     private Vector3 initialPosition;
     private Quaternion initialRotation;
     private float destroyTimer;
@@ -94,6 +95,8 @@ public class Enemy : MonoBehaviour, IResettable
             }
         }
 
+        soundPlayed = false;
+
         //calcul de la distance entre enemi et le joueur
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
     }
@@ -123,7 +126,11 @@ public class Enemy : MonoBehaviour, IResettable
             {
                 hitFlashTimer = 0.2f;
             }
-            AudioManager.instance.PlaySoundAtPosition(hitSound, transform.position);
+            if (!soundPlayed)
+            {
+                soundPlayed = true;
+                AudioManager.instance.PlaySoundAtPosition(hitSound, transform.position);
+            }
 
         }
         if (health <= 0)
