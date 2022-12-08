@@ -11,8 +11,8 @@ public struct MaterialSwatch
     public Material material;
 }
 
-[CreateAssetMenu(fileName = "SwatchManager", menuName = "Scriptable Objects/SwatchManager", order = 1)]
-public class Swatches : ScriptableSingleton<Swatches>
+[CreateAssetMenu(fileName = "SwatchManager", menuName = "Scriptable Objects/Swatches", order = 1)]
+public class Swatches : ScriptableObject
 {
     public List<MaterialSwatch> materialSwatches;
 
