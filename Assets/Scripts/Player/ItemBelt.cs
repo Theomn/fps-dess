@@ -1,6 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
+[Serializable] public struct ConsummablePair
+{
+    public Consummable key;
+    public PlayerGun gun;
+}
+
+public enum Consummable
+{
+    Medkit,
+    Shield,
+    Barrel
+}
 
 public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
 {
@@ -8,13 +22,7 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
     [SerializeField] private List<PlayerGun> guns;
 
     [Header("Consummables")]
-    [SerializeField] private PlayerGun medkit;
-    [SerializeField] private PlayerGun shield;
-    [SerializeField] private PlayerGun barrel;
-    [SerializeField] private bool hasMedkit;
-    [SerializeField] private bool hasShield;
-    [SerializeField] private bool hasBarrel;
-    [SerializeField] private bool isHoldingGrabbable;
+    [SerializeField] private List<ConsummablePair> consummables;
 
     [Header("Weapon Sway")]
     [SerializeField] private float swaySensitivity;
@@ -25,6 +33,8 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
     private int equippedGunId;
     private CameraController cam;
     private HUDController hud;
+    private bool isHoldingGrabbable;
+    private bool lockFire;
 
     void Start()
     {
@@ -41,15 +51,23 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
     void Update()
     {
         // Fire
-        if (Input.GetButton("Fire1"))
+        if (!lockFire && Input.GetButton("Fire1"))
         {
             FireGun();
         }
 
-        // Grab barrel
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetButtonUp("Fire1"))
         {
+            lockFire = false;
+        }
 
+        // Grab barrel
+        if (!isHoldingGrabbable) // Cannot grab if holding item
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Grab();
+            }
         }
 
         // Zoom
@@ -94,6 +112,7 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
             cam.ResetZoom();
             if (equippedGun.isConsummable)
             {
+                lockFire = true;
                 guns.RemoveAt(equippedGunId);
                 EquipGun(equippedGunId);
             }
@@ -120,9 +139,10 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
 
     private void Grab()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, grabRange, Layer.enemy))
+        Debug.DrawLine(transform.position, transform.position + transform.forward * grabRange, Color.red, 3f);
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, grabRange, LayerMask.GetMask("Enemy")))
         {
-            var grabbable = hit.collider.gameObject.GetComponent<Grabbable>();
+            var grabbable = hit.collider.gameObject.GetComponentInParent<Grabbable>();
             if (grabbable)
             {
                 grabbable.Grab();
@@ -141,13 +161,17 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
         transform.localRotation = Quaternion.Slerp(transform.localRotation, target, swaySmooth * Time.deltaTime);
     }
 
-    public bool AddGun(PlayerGun gun)
+    public bool AddConsummable(Consummable consummableType)
     {
-        if (guns.Exists(g => g.id == gun.id))
+        var consummable = consummables.Find(c => c.key == consummableType).gun;
+
+        // Do not equip consummable if player already has it
+        if (guns.Exists(g => g.id == consummable.id))
             return false;
 
-        guns.Add(gun);
-        EquipGun(guns.Count - 1);
+        guns.Add(consummable);
+        if (!isHoldingGrabbable)
+            EquipGun(guns.Count - 1);
         return true;
     }
 }

@@ -29,6 +29,7 @@ public class ProjectileBullet : Bullet
         pierceCount = 0;
         GetComponent<Collider>().enabled = true;
         visual.SetActive(true);
+        rb.velocity = transform.forward * data.speed;
     }
 
     protected virtual void FixedUpdate()
@@ -46,13 +47,13 @@ public class ProjectileBullet : Bullet
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
         }
 
-        // Travel forward
-        rb.MovePosition(Vector3.MoveTowards(transform.localPosition, transform.localPosition + transform.forward * data.speed * Time.fixedDeltaTime, float.MaxValue));
+        // keeping old code just in case
+        //rb.MovePosition(Vector3.MoveTowards(transform.localPosition, transform.localPosition + transform.forward * data.speed * Time.fixedDeltaTime, float.MaxValue));
 
         // Apply gravity
         if (data.gravity != 0)
         {
-            rb.AddForce(Vector3.down * data.gravity * 10 * Time.fixedDeltaTime, ForceMode.Acceleration);
+            rb.AddForce(Vector3.down * data.gravity * 50 * Time.fixedDeltaTime, ForceMode.Acceleration);
         }
     }
 

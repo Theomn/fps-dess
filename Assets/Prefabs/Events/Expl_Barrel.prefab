@@ -4918,7 +4918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 3
   radius: 20
-  damageToPlayer: 30
+  damageToPlayer: 20
   damageToEnemies: 50
   force: 60
   visual: {fileID: 7826445944273797796}

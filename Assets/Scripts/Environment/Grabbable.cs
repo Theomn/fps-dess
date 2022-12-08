@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Grabbable : MonoBehaviour
 {
-    [SerializeField] private PlayerGun grabbedGun;
+    [SerializeField] private Consummable consummable;
 
     public void Grab()
     {
-        ItemBelt.Instance.AddGun(grabbedGun);
+        ItemBelt.Instance.AddConsummable(consummable);
         gameObject.SetActive(false);
     }
 }
