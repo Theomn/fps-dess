@@ -10,7 +10,7 @@ public class TextTrigger : MonoBehaviour
 
     private void Awake()
     {
-        text = Localization.instance.GetText(key);
+        text = DataAccessor.instance.localization.GetText(key);
     }
 
     private void OnTriggerEnter(Collider other)

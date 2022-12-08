@@ -40,16 +40,14 @@ public class Enemy : MonoBehaviour, IResettable
         behaviours = GetComponentsInChildren<EnemyBehaviour>();
         initialPosition = transform.position;
         initialRotation = transform.rotation;
-
-        CreateHitFlashMesh();
     }
 
     protected virtual void Start()
     {
         // Retrieve the only instance of PlayerController in the scene automatically
         player = PlayerController.instance.transform;
+        CreateHitFlashMesh();
         Reset();
-
     }
 
     public virtual void Reset()
@@ -146,6 +144,7 @@ public class Enemy : MonoBehaviour, IResettable
 
     protected virtual void FlagForDestroy()
     {
+        door?.DecrementLock();
         foreach (Collider coll in colliders)
         {
             coll.gameObject.layer = LayerMask.NameToLayer("Default");
@@ -174,7 +173,6 @@ public class Enemy : MonoBehaviour, IResettable
         {
             deathFX.SetActive(false);
         }
-        door?.DecrementLock();
         gameObject.SetActive(false);
     }
 
@@ -201,7 +199,7 @@ public class Enemy : MonoBehaviour, IResettable
             var newMats = new Material[newMesh.materials.Length];
             for (int i = 0; i < newMats.Length; i++)
             {
-                newMats[i] = Swatches.instance.GetMaterial("ENEMY_HITFLASH");
+                newMats[i] = DataAccessor.instance.swatches.GetMaterial("ENEMY_HITFLASH");
             }
             newMesh.materials = newMats;
             newMesh.enabled = false;

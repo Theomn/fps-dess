@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3436111382952503630}
   - component: {fileID: 3436111382952503629}
+  - component: {fileID: 750157789022733451}
   m_Layer: 0
-  m_Name: ProgressionManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3436111382952503631}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -45,3 +46,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rememberActiveCheckpointOnQuit: 0
+--- !u!114 &750157789022733451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3436111382952503631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2738a3a1760714996e17570cd5b28e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swatches: {fileID: 11400000, guid: 071461da73210bd4c8a4cd9214df6897, type: 2}
+  localization: {fileID: 0}
