@@ -16,7 +16,7 @@ public class Pickup : MonoBehaviour
     {
         if (other.gameObject.layer == Layer.player)
         {
-            bool didNotHaveGun = ItemBelt.Instance.AddConsummable(consummable);
+            bool didNotHaveGun = ItemBelt.instance.AddConsummable(consummable);
             if (didNotHaveGun)
             {
                 gameObject.SetActive(false);

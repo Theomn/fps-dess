@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour, IResettable
     protected virtual void Start()
     {
         // Retrieve the only instance of PlayerController in the scene automatically
-        player = PlayerController.Instance.transform;
+        player = PlayerController.instance.transform;
         Reset();
 
     }
@@ -119,7 +119,7 @@ public class Enemy : MonoBehaviour, IResettable
         if (damage > 0)
         {
             ShowHitFlash();
-            hitFlashTimer += Mathf.Lerp(0f, 0.2f, damage / 10);
+            hitFlashTimer += Mathf.Lerp(0f, 0.3f, damage / 20);
             if (hitFlashTimer > 0.2f)
             {
                 hitFlashTimer = 0.2f;

@@ -38,8 +38,8 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
 
     void Start()
     {
-        cam = CameraController.Instance;
-        hud = HUDController.Instance;
+        cam = CameraController.instance;
+        hud = HUDController.instance;
         foreach(PlayerGun gun in guns)
         {
             gun.Holster();

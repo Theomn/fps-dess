@@ -114,11 +114,11 @@ public class GunDeprecated : MonoBehaviour
                 bullet.transform.localPosition = currentNozzle.position;
                 if (fireAtCrosshair)
                 {
-                    currentNozzle.LookAt(CameraController.Instance.GetCrosshairTarget());
+                    currentNozzle.LookAt(CameraController.instance.GetCrosshairTarget());
                 }
                 else if (fireAtPlayer)
                 {
-                    currentNozzle.LookAt(PlayerController.Instance.transform.position);
+                    currentNozzle.LookAt(PlayerController.instance.transform.position);
                 }
                 bullet.transform.rotation = currentNozzle.rotation;
                 bullet.transform.eulerAngles += new Vector3(Random.Range(-randomSpread, randomSpread), Random.Range(-randomSpread, randomSpread), 0);
@@ -130,7 +130,7 @@ public class GunDeprecated : MonoBehaviour
                 currentNozzleFlash.localScale = Vector3.zero;
                 currentNozzleFlash.DOPunchScale(Vector3.one * nozzleFlashSize, nozzleFlashDuration, 0, 0).SetEase(Ease.OutCubic);
             }
-            AudioManager.Instance.PlaySoundAtPosition(fireSound, transform.position);
+            AudioManager.instance.PlaySoundAtPosition(fireSound, transform.position);
             if (recoilDuration > 0)
             {
                 transform.DORewind();

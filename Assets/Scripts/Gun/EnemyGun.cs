@@ -26,7 +26,7 @@ public class EnemyGun : Gun
 
         if (fireAtPlayer)
         {
-            activeNozzle.LookAt(PlayerController.Instance.transform.position);
+            activeNozzle.LookAt(PlayerController.instance.transform.position);
         }
     }
 }

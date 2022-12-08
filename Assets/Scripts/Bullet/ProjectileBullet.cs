@@ -18,7 +18,7 @@ public class ProjectileBullet : Bullet
 
     private void Start()
     {
-        player = PlayerController.Instance.transform;
+        player = PlayerController.instance.transform;
     }
 
     public override void Spawn(BulletData data)
@@ -29,7 +29,10 @@ public class ProjectileBullet : Bullet
         pierceCount = 0;
         GetComponent<Collider>().enabled = true;
         visual.SetActive(true);
-        rb.velocity = transform.forward * data.speed;
+        if (data.trackingSpeed == 0)
+        {
+            rb.velocity = transform.forward * data.speed;
+        }
     }
 
     protected virtual void FixedUpdate()

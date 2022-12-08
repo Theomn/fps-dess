@@ -32,11 +32,11 @@ public class HUDController : SingletonMonoBehaviour<HUDController>
         /// touche T permet de mettre 10 de damage au player
         if (Input.GetKeyDown(KeyCode.T))
         { 
-            PlayerController.Instance.Damage(10);
+            PlayerController.instance.Damage(10);
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
-            PlayerController.Instance.Heal(10);
+            PlayerController.instance.Heal(10);
         }
     }
 

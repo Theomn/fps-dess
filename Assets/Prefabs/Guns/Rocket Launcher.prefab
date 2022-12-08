@@ -183,7 +183,7 @@ MonoBehaviour:
   fireSound: Rocket
   maxEnergy: 100
   energyRechargeRate: 10
-  energyCost: 30
+  energyCost: 25
   nozzle: {fileID: 6051711496045058498}
   nozzleFlash: {fileID: 7844315323189380513}
   rotationRecoil: 25

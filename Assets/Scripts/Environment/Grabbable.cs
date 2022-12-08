@@ -8,7 +8,7 @@ public class Grabbable : MonoBehaviour
 
     public void Grab()
     {
-        ItemBelt.Instance.AddConsummable(consummable);
+        ItemBelt.instance.AddConsummable(consummable);
         gameObject.SetActive(false);
     }
 }

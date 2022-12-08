@@ -8,14 +8,14 @@ public class CheckpointTrigger : MonoBehaviour
 
     void Start()
     {
-        ProgressionManager.Instance.Register(id, transform.position);
+        ProgressionManager.instance.Register(id, transform.position);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == Layer.player)
         {
-            ProgressionManager.Instance.ActivateCheckpoint(id);
+            ProgressionManager.instance.ActivateCheckpoint(id);
         }
     }
 }
