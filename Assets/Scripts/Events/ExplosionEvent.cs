@@ -11,11 +11,13 @@ public class ExplosionEvent : Event
     [SerializeField] private float damageToEnemies;
     [SerializeField] private float force;
 
-    [Header("VFX")]
+    [Header("FX")]
     [SerializeField] Transform visual;
     [SerializeField] private float duration;
+    [SerializeField] private string explosionSound;
 
 
+    
     private List<Enemy> damagedEnemies = new List<Enemy>();
 
     public override void Spawn()
@@ -43,6 +45,7 @@ public class ExplosionEvent : Event
                     enemy.ExplosionForce(force, transform.position);
                 }
             }
+            AudioManager.instance.PlaySoundAtPosition(explosionSound, transform.position);
         }
         damagedEnemies.Clear();
         visual.localScale = Vector3.one * radius * 2f;

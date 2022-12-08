@@ -4923,6 +4923,7 @@ MonoBehaviour:
   force: 50
   visual: {fileID: 7826445944273797796}
   duration: 1.25
+  explosionSound: Explosion
 --- !u!1 &7826445944273797797
 GameObject:
   m_ObjectHideFlags: 0

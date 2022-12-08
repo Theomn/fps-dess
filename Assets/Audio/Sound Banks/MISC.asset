@@ -29,3 +29,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: e1038d0dce5317e4cb95e8aecd577458, type: 3}
     volume: 0.304
     pitchRandom: 0.0403
+  - name: Explosion
+    clips:
+    - {fileID: 8300000, guid: 3437eec623d87714bba461582c47fa2a, type: 3}
+    volume: 0.557
+    pitchRandom: 0.0609
