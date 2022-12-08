@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class TextTrigger : MonoBehaviour
 {
-    [SerializeField] private string textId;
-    [SerializeField] private Localization localizationFile;
+    [SerializeField] private string key;
 
     private Text text;
 
     private void Awake()
     {
-        text = localizationFile.localization.Find(text => text.id.Equals(textId));
+        text = Localization.instance.GetText(key);
     }
 
     private void OnTriggerEnter(Collider other)
