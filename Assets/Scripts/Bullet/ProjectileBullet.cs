@@ -64,6 +64,7 @@ public class ProjectileBullet : Bullet
         base.FlagForDespawn();
         GetComponent<Collider>().enabled = false;
         visual.SetActive(false);
+        rb.velocity = Vector3.zero;
 
         //Make sure the bullet is exactly on the contact point
         /*Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, Layer.ground + Layer.enemy + Layer.player);
