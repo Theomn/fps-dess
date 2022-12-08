@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2241ae8a7f77f7e4c83d9126a34e114b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 16
   endEvent: {fileID: 7826445943607923957, guid: 57ae36e1cc765ee4ea07c070fe0af2b5, type: 3}
   destroyTime: 2
   deathFX: {fileID: 826995274007405866}
@@ -721,10 +721,11 @@ MonoBehaviour:
   bulletData:
     damagesPlayer: 1
     damagesEnemies: 0
-    damage: 5
+    damage: 2
     endEvent: {fileID: 0}
     speed: 30
     gravity: 0
+    trackingSpeed: 0
     maxPierceCount: 1
     lifetime: 2
     destroyOnGroundContact: 1

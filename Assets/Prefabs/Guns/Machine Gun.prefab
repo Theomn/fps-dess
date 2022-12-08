@@ -256,6 +256,7 @@ MonoBehaviour:
     endEvent: {fileID: 6693604710445968655, guid: f3410d25a2248f54ea14c96e0ba16df4, type: 3}
     speed: 0
     gravity: 0
+    trackingSpeed: 0
     maxPierceCount: 0
     lifetime: 0
     destroyOnGroundContact: 0
@@ -264,14 +265,16 @@ MonoBehaviour:
   nozzleFlashDuration: 0.2
   fireSound: MachineGun
   maxEnergy: 100
-  energyRechargeRate: 10
+  energyRechargeRate: 12
   energyCost: 3
   nozzle: {fileID: 6646345596567364694}
   nozzleFlash: {fileID: 6646345595969321323}
   rotationRecoil: 5
   positionRecoil: 0.1
   recoilDuration: 0.2
+  id: 1
   canZoom: 0
+  isConsummable: 0
   visual: {fileID: 2976780492622441220}
 --- !u!1 &6646345596567364695
 GameObject:

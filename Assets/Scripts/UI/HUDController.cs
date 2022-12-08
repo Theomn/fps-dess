@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 
 public class HUDController : SingletonMonoBehaviour<HUDController>
 {
     public Slider healthBarSlider;
     public Slider energyBarSlider;
+
+    public Image hitFlashOverlay;
+    public Image invulnerabilityOverlay;
 
 
     protected override void Awake()
@@ -30,6 +34,10 @@ public class HUDController : SingletonMonoBehaviour<HUDController>
         { 
             PlayerController.Instance.Damage(10);
         }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            PlayerController.Instance.Heal(10);
+        }
     }
 
     /// <summary>
@@ -45,6 +53,19 @@ public class HUDController : SingletonMonoBehaviour<HUDController>
 
     public void SetHealth(float health)
     {
+        var diff = health - healthBarSlider.value;
+        // if player took damage
+        if (diff < 0)
+        {
+            diff = -diff;
+            hitFlashOverlay.DOKill();
+            hitFlashOverlay.color = new Color(hitFlashOverlay.color.r, hitFlashOverlay.color.g, hitFlashOverlay.color.b, Mathf.Lerp(0.2f, 1, diff / 30));
+            hitFlashOverlay.DOFade(0, Mathf.Lerp(1.5f, 2.5f, diff/30));
+        }
+        else if (diff > 0)
+        {
+            // if player healed
+        }
         healthBarSlider.value = health;
 
     }
@@ -64,6 +85,11 @@ public class HUDController : SingletonMonoBehaviour<HUDController>
     public void SetEnergy(float energy)
     {
         energyBarSlider.value = energy;
+    }
+
+    public void InvincibleOverlay(float duration)
+    {
+
     }
 
     /// <summary>

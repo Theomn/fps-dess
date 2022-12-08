@@ -173,6 +173,7 @@ MonoBehaviour:
     endEvent: {fileID: 6693604710445968655, guid: 41a5525ba5432df4d813e68079290c30, type: 3}
     speed: 0
     gravity: 0
+    trackingSpeed: 0
     maxPierceCount: 0
     lifetime: 0
     destroyOnGroundContact: 0
@@ -181,14 +182,16 @@ MonoBehaviour:
   nozzleFlashDuration: 0.3
   fireSound: Sniper
   maxEnergy: 100
-  energyRechargeRate: 5
-  energyCost: 50
+  energyRechargeRate: 8
+  energyCost: 45
   nozzle: {fileID: 7054606395141524224}
   nozzleFlash: {fileID: 7054606394448057917}
   rotationRecoil: 20
   positionRecoil: 0.5
   recoilDuration: 0.5
+  id: 5
   canZoom: 1
+  isConsummable: 0
   visual: {fileID: 1483312854251570258}
 --- !u!1 &7054606395141524225
 GameObject:

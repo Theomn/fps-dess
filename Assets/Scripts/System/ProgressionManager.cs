@@ -5,12 +5,6 @@ using UnityEngine;
 
 
 [Serializable]
-public class SerializableList<T>
-{
-    public List<T> list;
-}
-
-[Serializable]
 public class Checkpoint
 {
     public int id;
