@@ -180,7 +180,7 @@ MonoBehaviour:
     maxRange: 0
   nozzleFlashSize: 1
   nozzleFlashDuration: 0.35
-  fireSound: 
+  fireSound: Rocket
   maxEnergy: 100
   energyRechargeRate: 10
   energyCost: 30

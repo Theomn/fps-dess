@@ -33,3 +33,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 632a83178fbca744f94e8b59bbd38166, type: 3}
     volume: 0.622
     pitchRandom: 0.0308
+  - name: Rocket
+    clips:
+    - {fileID: 8300000, guid: 238acf47dc7cc08428e46f93971b893a, type: 3}
+    volume: 0.622
+    pitchRandom: 0
