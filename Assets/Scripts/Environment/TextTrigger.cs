@@ -8,7 +8,7 @@ public class TextTrigger : MonoBehaviour
 
     private Text text;
 
-    private void Awake()
+    private void Start()
     {
         text = DataAccessor.instance.localization.GetText(key);
     }
