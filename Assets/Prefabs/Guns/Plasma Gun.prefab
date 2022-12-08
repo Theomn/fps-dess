@@ -283,7 +283,7 @@ MonoBehaviour:
   bulletData:
     damagesPlayer: 0
     damagesEnemies: 1
-    damage: 6
+    damage: 7
     endEvent: {fileID: 6693604710445968655, guid: 41a5525ba5432df4d813e68079290c30, type: 3}
     speed: 25
     gravity: 0

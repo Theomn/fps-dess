@@ -114,7 +114,6 @@ public class Enemy : MonoBehaviour, IResettable
         health -= damage;
         //insert dammage sound here
 
-        AudioManager.instance.PlaySoundAtPosition(hitSound, transform.position);
 
         if (damage > 0)
         {
@@ -124,6 +123,8 @@ public class Enemy : MonoBehaviour, IResettable
             {
                 hitFlashTimer = 0.2f;
             }
+            AudioManager.instance.PlaySoundAtPosition(hitSound, transform.position);
+
         }
         if (health <= 0)
         {
