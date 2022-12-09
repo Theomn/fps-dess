@@ -205,6 +205,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     {
         isInvincible = true;
         invincTimer = duration;
+        HUDController.instance.InvincibleOverlay(duration);
     }
 
     public void Heal(float healpoints)

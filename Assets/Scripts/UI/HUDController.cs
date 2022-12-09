@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 
 public class HUDController : SingletonMonoBehaviour<HUDController>
@@ -11,7 +12,15 @@ public class HUDController : SingletonMonoBehaviour<HUDController>
     public Slider energyBarSlider;
 
     public Image hitFlashOverlay;
+    public Image healOverlay;
     public Image invulnerabilityOverlay;
+
+    private bool isDisplaying = false;
+    private bool isDispInvul = false;
+
+    private float timeRemaining;
+    private float invulRemaining;
+    public TextMeshProUGUI textMesh;
 
 
     protected override void Awake()
@@ -23,7 +32,7 @@ public class HUDController : SingletonMonoBehaviour<HUDController>
     // Start is called before the first frame update
     void Start()
     {
-        
+        textMesh.color = Color.clear;
     }
 
     // Update is called once per frame
@@ -37,6 +46,39 @@ public class HUDController : SingletonMonoBehaviour<HUDController>
         if (Input.GetKeyDown(KeyCode.H))
         {
             PlayerController.instance.Heal(10);
+        }
+
+        // Check if text is currently being displayed
+        if (isDisplaying)
+        {
+            // Decrement time remaining by delta time
+            timeRemaining -= Time.deltaTime;
+
+            // Check if time remaining is less than or equal to 0
+            if (timeRemaining <= 0)
+            {
+                // Hide the text
+                textMesh.DOFade(0, 1.5f);
+
+                // Set isDisplaying flag to false
+                isDisplaying = false;
+            }
+        }
+
+        if (isDispInvul)
+        {
+            // Decrement time remaining by delta time
+            invulRemaining -= Time.deltaTime;
+
+            // Check if time remaining is less than or equal to 0
+            if (invulRemaining <= 0)
+            {
+                // Hide the text
+                invulnerabilityOverlay.DOFade(0, 1.5f);
+
+                // Set isDisplaying flag to false
+                isDispInvul = false;
+            }
         }
     }
 
@@ -65,6 +107,10 @@ public class HUDController : SingletonMonoBehaviour<HUDController>
         else if (diff > 0)
         {
             // if player healed
+            healOverlay.DOKill();
+            healOverlay.color = new Color(healOverlay.color.r, healOverlay.color.g, healOverlay.color.b, Mathf.Lerp(0.2f, 1, diff / 30));
+            healOverlay.DOFade(0,1f);
+
         }
         healthBarSlider.value = health;
 
@@ -89,6 +135,10 @@ public class HUDController : SingletonMonoBehaviour<HUDController>
 
     public void InvincibleOverlay(float duration)
     {
+        invulnerabilityOverlay.color = Color.white;
+
+        isDispInvul = true;
+        invulRemaining = duration;
 
     }
 
@@ -101,8 +151,18 @@ public class HUDController : SingletonMonoBehaviour<HUDController>
 
     }
 
-    public void DisplayText(string text, float time)
+    public void DisplayText(string text, float duration)
     {
+       
+        // Show the text
+        textMesh.color = Color.white;
 
+        textMesh.text = text;
+
+        // Set isDisplaying flag to true
+        isDisplaying = true;
+
+        // Reset time remaining to display time
+        timeRemaining = duration;
     }
 }

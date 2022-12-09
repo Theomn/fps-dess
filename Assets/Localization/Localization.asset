@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localization:
   - key: TEST
-    english: Coucou
-    time: 5
+    english: Attention a droite :)
+    time: 4
