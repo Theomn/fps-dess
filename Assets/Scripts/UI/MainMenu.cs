@@ -5,18 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject settingsPanel;
 
-    public string levelToload;
-    
-
+        
     public void StartGame()
     {
-        SceneManager.LoadScene(levelToload);
+        SceneManager.LoadScene("Game");
     }
 
     public void SettingsButton()
     {
+        settingsPanel.gameObject.SetActive(true);
+    }
 
+    public void CloseSettingsPanel()
+    {
+        settingsPanel.gameObject.SetActive(false);
     }
 
     public void QuitGame()
