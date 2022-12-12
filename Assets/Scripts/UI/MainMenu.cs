@@ -6,12 +6,9 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    public string levelToload;
-    
-
     public void StartGame()
     {
-        SceneManager.LoadScene(levelToload);
+        SceneManager.LoadScene("Game");
     }
 
     public void SettingsButton()
