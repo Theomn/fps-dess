@@ -11,12 +11,12 @@ public class GameOverMenu : MonoBehaviour
 
     public void RestartGame()
     {
-
+        SceneManager.LoadScene("Game");
     }
 
     public void SettingsButton()
     {
-
+        SceneManager.LoadScene("Settings");
     }
 
     public void QuitGame()
