@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour, IResettable
     private Quaternion initialRotation;
     private float destroyTimer;
     private float hitFlashTimer;
-    private Door door;
+    private List<Door> doors;
 
 
     protected virtual void Awake()
@@ -144,7 +144,13 @@ public class Enemy : MonoBehaviour, IResettable
 
     protected virtual void FlagForDestroy()
     {
-        door?.DecrementLock();
+        if (doors != null)
+        {
+            foreach (Door door in doors)
+            {
+                door.DecrementLock();
+            }
+        }
         foreach (Collider coll in colliders)
         {
             coll.gameObject.layer = LayerMask.NameToLayer("Default");
@@ -184,7 +190,11 @@ public class Enemy : MonoBehaviour, IResettable
 
     public void Register(Door door)
     {
-        this.door = door;
+        if (doors == null)
+        {
+            doors = new List<Door>();
+        }
+        doors.Add(door);
     }
 
     private void CreateHitFlashMesh()

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class Door : MonoBehaviour, IResettable
 {
@@ -17,15 +18,15 @@ public class Door : MonoBehaviour, IResettable
     private void Awake()
     {
         enemies = new List<Enemy>();
-        foreach(GameObject enemyObject in lockEnemies)
-        {
-            enemies.AddRange(enemyObject.GetComponentsInChildren<Enemy>());
-        }
-        foreach (Enemy enemy in enemies)
-        {
-            enemy.Register(this);
-        }
         initialY = visual.localPosition.y;
+    }
+
+    private void Start()
+    {
+        foreach (GameObject obj in lockEnemies)
+        {
+            RegisterAllEnemiesInChildren(obj.transform, this);
+        }
         Reset();
     }
 
@@ -39,6 +40,24 @@ public class Door : MonoBehaviour, IResettable
         else
         {
             Close();
+        }
+    }
+
+    private void RegisterAllEnemiesInChildren(Transform obj, Door door)
+    {
+        var enemy = obj.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            enemies.Add(enemy);
+            if (enemy == null)
+            {
+                Debug.Log("oops");
+            }
+            enemy.Register(door);
+        }
+        foreach (Transform child in obj)
+        {
+            RegisterAllEnemiesInChildren(child, door);
         }
     }
 
