@@ -20,6 +20,7 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
     private float targetFOV;
     private bool isZoomed;
     private Camera cam;
+    private bool flaggedForDeath;
 
 
 
@@ -38,6 +39,7 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
         Cursor.lockState = CursorLockMode.Locked;
         player = PlayerController.instance.transform;
         playerEyes = PlayerController.instance.GetEyes();
+        flaggedForDeath = false;
     }
 
     // Update is called once per frame
@@ -49,6 +51,10 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
 
     void LateUpdate()
     {
+        if (flaggedForDeath)
+        {
+            return;
+        }
         var sens = sensitivity * (isZoomed ? zoomSensitivityMultiplier : 1);
         mouse.x += Input.GetAxis("Mouse X") * sens;
         mouse.y -= Input.GetAxis("Mouse Y") * sens;
@@ -68,9 +74,21 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
             return transform.position + transform.TransformDirection(Vector3.forward * 100f);
         }
     }
-    
+
+    public void DeathAnimation()
+    {
+        flaggedForDeath = true;
+        transform.DORotate(Vector3.forward * 90, 1.2f).SetEase(Ease.OutBounce);
+        ResetZoom();
+    }
+
     public void Zoom(float targetFOV)
     {
+        if (flaggedForDeath)
+        {
+            return;
+        }
+
         isZoomed = true;
         this.targetFOV = targetFOV;
         viewmodelCamera.SetActive(false);

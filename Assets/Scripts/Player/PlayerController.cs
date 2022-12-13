@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using System.Reflection;
+using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class PlayerController : SingletonMonoBehaviour<PlayerController>
 {
@@ -26,6 +27,8 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     private bool isInvincible;
     private float invincTimer;
+    private bool flaggedForDeath;
+    private float deathTimer;
 
 
 
@@ -55,6 +58,18 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     void Update()
     {
+        if (flaggedForDeath)
+        {
+            input = Vector3.zero;
+            deathTimer -= Time.deltaTime;
+            if (deathTimer <= 0)
+            {
+                SceneManager.LoadScene("GameOver Menu");
+                Cursor.lockState = CursorLockMode.None;
+            }
+            return;
+        }
+
         input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
         if (state == State.Grounded)
@@ -81,7 +96,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         }
 
         //timer invincible
-
         if (invincTimer >= 0)
         {
             invincTimer -= Time.deltaTime;
@@ -94,6 +108,15 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     void FixedUpdate()
     {
+        // Gravity
+        rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
+
+        if (flaggedForDeath)
+        {
+            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            return;
+        }
+
         if (state == State.Grounded)
         {
             if (rb.velocity.magnitude < groundMaxSpeed)
@@ -122,9 +145,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             }
             rb.AddRelativeForce(input * airAcceleration);
         }
-
-        // Gravity
-        rb.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
     }
 
     private void SetAirborne()
@@ -142,7 +162,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
 
     public void Damage(float damage)
     {
-        if (isInvincible)
+        if (isInvincible || flaggedForDeath)
         {
             return;
         }
@@ -152,15 +172,24 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         HUDController.instance.SetHealth(health);
         if (health <= 0)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
-            //Respawn();
+            Die();
         }
 
+    }
+
+    private void Die()
+    {
+        flaggedForDeath = true;
+        deathTimer = 3f;
+        SetAirborne();
+        transform.DORotate(Vector3.forward * 90, 1.2f).SetEase(Ease.OutBounce);
+        CameraController.instance.DeathAnimation();
     }
 
     public void Respawn()
     {
         health = maxHealth;
+        flaggedForDeath = false;
         SetAirborne();
         var respawnPosition = ProgressionManager.instance.GetActiveCheckpointPosition();
         if (respawnPosition != Vector3.zero)

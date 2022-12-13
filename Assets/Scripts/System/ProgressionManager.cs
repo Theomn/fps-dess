@@ -83,11 +83,6 @@ public class ProgressionManager : SingletonMonoBehaviour<ProgressionManager>
 
     public void ActivateCheckpoint(int id)
     {
-        if (id == 0)
-        {
-            return;
-        }
-        Debug.Log("Checkpoint " + id + " reached.");
         foreach(Checkpoint checkpoint in checkpoints.list)
         {
             if(checkpoint.id == id)

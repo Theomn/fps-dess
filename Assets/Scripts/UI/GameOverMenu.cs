@@ -5,13 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameOverMenu : MonoBehaviour
 {
-
-
-
-
     public void RestartGame()
     {
-
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void SettingsButton()

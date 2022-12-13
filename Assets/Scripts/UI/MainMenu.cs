@@ -28,5 +28,9 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-
+    public void LoadCheckpoint(int checkpointId)
+    {
+        ProgressionManager.instance.ActivateCheckpoint(checkpointId);
+        SceneManager.LoadScene("Game");
+    }
 }
