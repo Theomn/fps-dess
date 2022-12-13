@@ -153,10 +153,10 @@ public class HUDController : SingletonMonoBehaviour<HUDController>
 
     public void DisplayText(string text, float duration)
     {
-       
-        // Show the text
-        textMesh.color = Color.white;
 
+        // Show the text
+        textMesh.DOKill();
+        textMesh.color = Color.white;
         textMesh.text = text;
 
         // Set isDisplaying flag to true

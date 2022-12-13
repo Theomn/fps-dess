@@ -13,6 +13,40 @@ MonoBehaviour:
   m_Name: Localization
   m_EditorClassIdentifier: 
   localization:
-  - key: TEST
-    english: Attention a droite :)
-    time: 4
+  - key: MOVE
+    english: Move with the WASD KEYS. Look around with the mouse.
+    time: 10
+  - key: EMPTY
+    english: 
+    time: 1
+  - key: LOOK
+    english: Look around by moving the mouse.
+    time: 10
+  - key: JUMP
+    english: Jump with SPACEBAR
+    time: 10
+  - key: SHOOT
+    english: Shoot with LEFT CLICK
+    time: 10
+  - key: CHANGE
+    english: Change gun with the 1-5 KEYS, or MOUSE SCROLL
+    time: 10
+  - key: WINK
+    english: This game has rocket jump and bunny hopping ;)
+    time: 5
+  - key: HEART
+    english: Use the heart with LEFT CLICK. It gives back half your health.
+    time: 5
+  - key: INVINCIBILITY
+    english: The star makes you invincible for a short amount of time.
+    time: 5
+  - key: BARREL_SHOOT
+    english: Shoot barrels to make them explode
+    time: 10
+  - key: BARREL_THROW
+    english: Press E next to a barrel to hold it. Then press LEFT CLICK to throw
+      it.
+    time: 10
+  - key: WIN
+    english: Congratulations! You did it :)
+    time: 10
