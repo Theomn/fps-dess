@@ -373,7 +373,7 @@ MonoBehaviour:
   bulletData:
     damagesPlayer: 1
     damagesEnemies: 0
-    damage: 2
+    damage: 6
     endEvent: {fileID: 0}
     speed: 15
     gravity: 0
@@ -446,7 +446,7 @@ MonoBehaviour:
   bulletData:
     damagesPlayer: 1
     damagesEnemies: 0
-    damage: 1
+    damage: 4
     endEvent: {fileID: 0}
     speed: 50
     gravity: 0

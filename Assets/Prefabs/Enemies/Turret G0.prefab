@@ -740,7 +740,7 @@ MonoBehaviour:
   bulletData:
     damagesPlayer: 1
     damagesEnemies: 0
-    damage: 1
+    damage: 4
     endEvent: {fileID: 0}
     speed: 25
     gravity: 0

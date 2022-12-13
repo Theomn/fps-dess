@@ -710,7 +710,7 @@ MonoBehaviour:
     damagesEnemies: 0
     damage: 0
     endEvent: {fileID: 7826445943607923957, guid: 9773d95890d5eaa4591bef05d6a1d5d8, type: 3}
-    speed: 20
+    speed: 25
     gravity: 30
     trackingSpeed: 0
     maxPierceCount: 1
