@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject settingsPanel;
-
+    public GameObject checkPointPanel;
         
     public void StartGame()
     {
-        SceneManager.LoadScene("Game");
+        //SceneManager.LoadScene("Game");
+        checkPointPanel.gameObject.SetActive(true);
     }
 
     public void SettingsButton()
@@ -23,10 +24,17 @@ public class MainMenu : MonoBehaviour
         settingsPanel.gameObject.SetActive(false);
     }
 
+    public void CloseCheckPointPanel()
+    {
+        checkPointPanel.gameObject.SetActive(false);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
     }
+
+
 
     public void LoadCheckpoint(int checkpointId)
     {
