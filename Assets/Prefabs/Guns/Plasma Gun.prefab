@@ -278,7 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.25
   bulletCount: 1
-  randomSpread: 2
+  randomSpread: 0.5
   bulletPrefab: {fileID: 7908677262566707853, guid: 520c21135961e3144a2b5a2d55445daa, type: 3}
   bulletData:
     damagesPlayer: 0
@@ -289,7 +289,7 @@ MonoBehaviour:
     gravity: 0
     trackingSpeed: 0
     maxPierceCount: 2
-    lifetime: 7
+    lifetime: 15
     destroyOnGroundContact: 1
     maxRange: 0
   nozzleFlashSize: 0.4
