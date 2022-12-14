@@ -379,7 +379,7 @@ MonoBehaviour:
     gravity: 0
     trackingSpeed: 0
     maxPierceCount: 1
-    lifetime: 5
+    lifetime: 10
     destroyOnGroundContact: 1
     maxRange: 0
   nozzleFlashSize: 1.5
