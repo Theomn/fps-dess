@@ -7,10 +7,27 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject settingsPanel;
     public GameObject checkPointPanel;
-        
+
+    public List<GameObject> checkpointButtons;
+
+    private void Start()
+    {
+        foreach(GameObject button in checkpointButtons)
+        {
+            button.SetActive(false);
+        }
+        checkpointButtons[0].SetActive(true);
+        foreach(Checkpoint cp in ProgressionManager.instance.checkpoints.list)
+        {
+            if (cp.id < checkpointButtons.Count && cp.state != Checkpoint.State.Locked)
+            {
+                checkpointButtons[cp.id].SetActive(true);
+            }
+        }
+    }
+
     public void StartGame()
     {
-        //SceneManager.LoadScene("Game");
         checkPointPanel.gameObject.SetActive(true);
     }
 

@@ -29,7 +29,8 @@ public class ProgressionManager : SingletonMonoBehaviour<ProgressionManager>
 {
     [SerializeField] private bool rememberActiveCheckpointOnQuit;
 
-    private SerializableList<Checkpoint> checkpoints;
+    [HideInInspector]
+    public SerializableList<Checkpoint> checkpoints;
     private readonly string filename = "/save.json";
 
     protected override void Awake()

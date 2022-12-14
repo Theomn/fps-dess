@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4405,6 +4405,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsPanel: {fileID: 1722603409}
   checkPointPanel: {fileID: 443298836}
+  checkpointButtons:
+  - {fileID: 2058242165}
+  - {fileID: 1452621030}
+  - {fileID: 1118643635}
+  - {fileID: 17328687}
+  - {fileID: 1566452008}
+  - {fileID: 981849405}
+  - {fileID: 867043604}
+  - {fileID: 362357374}
+  - {fileID: 1635833730}
+  - {fileID: 937941156}
+  - {fileID: 395718881}
+  - {fileID: 785073352}
+  - {fileID: 1139976290}
+  - {fileID: 1317915548}
 --- !u!1 &1917386516
 GameObject:
   m_ObjectHideFlags: 0
