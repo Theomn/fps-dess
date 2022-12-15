@@ -180,7 +180,7 @@ MonoBehaviour:
     maxRange: 1000
   nozzleFlashSize: 0.6
   nozzleFlashDuration: 0.3
-  fireSound: Railgun
+  fireSound: Sniper
   maxEnergy: 100
   energyRechargeRate: 8
   energyCost: 45

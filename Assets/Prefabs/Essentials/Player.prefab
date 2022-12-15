@@ -76,6 +76,7 @@ MonoBehaviour:
   footstepInterval: 0.3
   speedThreshold: 10
   footstepSoundId: Footsteps
+  hitSoundId: EnemyHit
 --- !u!136 &8281855838772831200
 CapsuleCollider:
   m_ObjectHideFlags: 0
