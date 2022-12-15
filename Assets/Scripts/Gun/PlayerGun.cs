@@ -26,6 +26,7 @@ public class PlayerGun : Gun
     [SerializeField] public int id;
     [SerializeField] public bool canZoom;
     [SerializeField] public bool isConsummable;
+    [SerializeField] public bool cannotSwitch;
     [SerializeField] public GameObject visual;
 
     private float energy;

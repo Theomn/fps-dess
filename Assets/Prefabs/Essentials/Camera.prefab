@@ -60,6 +60,7 @@ MonoBehaviour:
   - {fileID: 8606557797529332993}
   - {fileID: 8610543504703835265}
   - {fileID: 4492179771686788657}
+  switchSpeed: 0.5
   consummables:
   - key: 0
     gun: {fileID: 4508937678165702665}

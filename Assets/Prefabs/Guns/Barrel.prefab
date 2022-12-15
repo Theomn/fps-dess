@@ -223,4 +223,5 @@ MonoBehaviour:
   id: 8
   canZoom: 0
   isConsummable: 1
+  cannotSwitch: 1
   visual: {fileID: 2431147389268411663}

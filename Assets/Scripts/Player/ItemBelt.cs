@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using DG.Tweening;
 
 [Serializable] public struct ConsummablePair
 {
@@ -20,6 +21,7 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
 {
     [SerializeField] private float grabRange;
     [SerializeField] private List<PlayerGun> guns;
+    [SerializeField] private float switchSpeed;
 
     [Header("Consummables")]
     [SerializeField] private List<ConsummablePair> consummables;
@@ -29,12 +31,22 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
     [SerializeField] private float swayMaxAmount;
     [SerializeField] private float swaySmooth;
 
+    public enum State
+    {
+        Ready,
+        SwitchingOut,
+        SwitchingIn,
+        Dying
+    }
+
+    private State state;
     private PlayerGun equippedGun;
     private int equippedGunId;
     private CameraController cam;
     private HUDController hud;
-    private bool isHoldingGrabbable;
-    private bool lockFire;
+    private float switchOutTimer;
+    private float switchInTimer;
+    private int pendingSwitchId;
 
     void Start()
     {
@@ -50,54 +62,72 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
 
     void Update()
     {
-        // Fire
-        if (!lockFire && Input.GetButton("Fire1"))
+        if (state == State.Ready)
         {
-            FireGun();
-        }
+            // Fire
+            if (Input.GetButton("Fire1"))
+            {
+                FireGun();
+            }
 
-        if (Input.GetButtonUp("Fire1"))
-        {
-            lockFire = false;
-        }
-
-        // Grab barrel
-        if (!isHoldingGrabbable) // Cannot grab if holding item
-        {
+            // Grab
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Grab();
             }
-        }
 
-        // Zoom
-        if (Input.GetButtonDown("Fire2") && equippedGun.canZoom)
-        {
-            cam.Zoom(25);
-        }
-        if (Input.GetButtonUp("Fire2"))
-        {
-            cam.ResetZoom();
-        }
-
-        // Change weapon
-        if (!isHoldingGrabbable) // Cannot change weapon if holding item
-        {
-            for (int i = 0; i < guns.Count; i++)
+            // Zoom
+            if (Input.GetButton("Fire2") && equippedGun.canZoom)
             {
-                if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+                cam.Zoom(25);
+            }
+            if (Input.GetButtonUp("Fire2"))
+            {
+                cam.ResetZoom();
+            }
+
+            // Weapon switch
+            if (!equippedGun.cannotSwitch)
+            {
+                // Alpha 1 to 5
+                for (int i = 0; i < guns.Count; i++)
                 {
-                    EquipGun(i);
+                    if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+                    {
+                        SwitchTo(i);
+                    }
+                }
+
+                // Scroll Wheel
+                if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+                {
+                    SwitchTo(equippedGunId + 1);
+                }
+                else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // backwards
+                {
+                    SwitchTo(equippedGunId - 1);
                 }
             }
+        }
 
-            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if (state == State.SwitchingOut)
+        {
+            switchOutTimer -= Time.deltaTime;
+            if (switchOutTimer <= 0)
             {
-                EquipGun(equippedGunId + 1);
+                switchInTimer = switchSpeed / 2f;
+                state = State.SwitchingIn;
+                transform.DOLocalMove(Vector3.zero, switchSpeed / 2);
+                EquipGun(pendingSwitchId);
             }
-            else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // backwards
+        }
+
+        if (state == State.SwitchingIn)
+        {
+            switchInTimer -= Time.deltaTime;
+            if (switchInTimer <= 0)
             {
-                EquipGun(equippedGunId - 1);
+                state = State.Ready;
             }
         }
 
@@ -112,14 +142,26 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
             cam.ResetZoom();
             if (equippedGun.isConsummable)
             {
-                lockFire = true;
                 guns.RemoveAt(equippedGunId);
-                EquipGun(equippedGunId);
+                SwitchTo(0);
             }
-            isHoldingGrabbable = false;
         }
     }
 
+    // Activates weapon switch animation
+    private void SwitchTo(int id)
+    {
+        if (equippedGunId == id)
+        {
+            return;
+        }
+        pendingSwitchId = id;
+        switchOutTimer = switchSpeed / 2f;
+        state = State.SwitchingOut;
+        transform.DOLocalMove(new Vector3(-0.1f, -0.3f, -1f), switchSpeed / 2);
+    }
+
+    // Changes the equipped gun without switch animation
     private void EquipGun(int id)
     {
         if(id >= guns.Count)
@@ -146,7 +188,6 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
             if (grabbable)
             {
                 grabbable.Grab();
-                isHoldingGrabbable = true;
             }
         }
     }
@@ -170,13 +211,15 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
             return false;
 
         guns.Add(consummable);
-        if (!isHoldingGrabbable)
-            EquipGun(guns.Count - 1);
+        if (!equippedGun.cannotSwitch)
+            SwitchTo(guns.Count - 1);
         return true;
     }
 
     public void FlagForDeath()
     {
-        gameObject.SetActive(false);
+        state = State.Dying;
+        transform.DOLocalMove(new Vector3(0, -0.5f, -0.5f), 0.5f);
+
     }
 }

@@ -89,7 +89,7 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
 
     public void Zoom(float targetFOV)
     {
-        if (flaggedForDeath)
+        if (isZoomed || flaggedForDeath)
         {
             return;
         }
