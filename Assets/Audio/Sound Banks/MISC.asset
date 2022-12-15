@@ -31,5 +31,5 @@ MonoBehaviour:
   - name: Explosion_Small
     clips:
     - {fileID: 8300000, guid: 382d563f6ab81414c965ce92c701f49a, type: 3}
-    volume: 0.462
+    volume: 0.782
     pitchRandom: 0.1

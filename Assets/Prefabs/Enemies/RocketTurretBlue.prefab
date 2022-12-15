@@ -311,7 +311,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -829,7 +829,7 @@ MonoBehaviour:
   nozzleFlashes: []
   nozzleFlashSize: 4
   nozzleFlashDuration: 0.3
-  fireSound: 
+  fireSound: EnemyRocket
 --- !u!1 &6797613740883334325
 GameObject:
   m_ObjectHideFlags: 0
