@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e7f12a8c442e144a367642d1ccddcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 120
+  maxHealth: 150
   endEvent: {fileID: 7826445943607923957, guid: 91296492a84440947887bfc1bca9dbd6, type: 3}
   destroyTime: 2
   deathFX: {fileID: 7757539532388215130}

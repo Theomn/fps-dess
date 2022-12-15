@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e7f12a8c442e144a367642d1ccddcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 80
   endEvent: {fileID: 7826445943607923957, guid: 0ebef39ffcdd0a041a1422e6f0ae81dd, type: 3}
   destroyTime: 1.5
   deathFX: {fileID: 7257903356218897977}
