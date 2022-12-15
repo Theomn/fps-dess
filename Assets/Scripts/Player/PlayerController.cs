@@ -63,7 +63,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
             if (deathTimer <= 0)
             {
                 SceneManager.LoadScene("GameOver Menu");
-                Cursor.lockState = CursorLockMode.None;
             }
             return;
         }

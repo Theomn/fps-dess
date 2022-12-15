@@ -42,6 +42,11 @@ public class CameraController : SingletonMonoBehaviour<CameraController>
         flaggedForDeath = false;
     }
 
+    private void OnDestroy()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     // Update is called once per frame
     void Update()
     {
