@@ -18,7 +18,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: fd3aebca39f17274dafa7ada623bd8f9, type: 3}
     volume: 0.285
     pitchRandom: 0.0482
-    spatialisation: 0.657
+    spatialisation: 0.095
   - name: EnemyHit
     clips:
     - {fileID: 8300000, guid: e1038d0dce5317e4cb95e8aecd577458, type: 3}
@@ -28,12 +28,12 @@ MonoBehaviour:
   - name: Explosion
     clips:
     - {fileID: 8300000, guid: 3437eec623d87714bba461582c47fa2a, type: 3}
-    volume: 0.018
+    volume: 0.533
     pitchRandom: 0.1
     spatialisation: 1
   - name: Explosion_Small
     clips:
     - {fileID: 8300000, guid: 382d563f6ab81414c965ce92c701f49a, type: 3}
-    volume: 0.06
+    volume: 0.146
     pitchRandom: 0.1
     spatialisation: 1
