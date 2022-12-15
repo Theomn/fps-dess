@@ -61,10 +61,12 @@ public class GunDeprecated : MonoBehaviour
     private Transform currentNozzleFlash;
     private Quaternion initialRotation;
     private Vector3 initialPosition;
+    private AudioSource audioSource;
     
 
     void Awake()
     {
+        audioSource = GetComponentInParent<AudioSource>();
         energy = maxEnergy;
         ready = true;
         if (nozzleFlashes.Count > 0 && (nozzles.Count != nozzleFlashes.Count))
@@ -130,7 +132,8 @@ public class GunDeprecated : MonoBehaviour
                 currentNozzleFlash.localScale = Vector3.zero;
                 currentNozzleFlash.DOPunchScale(Vector3.one * nozzleFlashSize, nozzleFlashDuration, 0, 0).SetEase(Ease.OutCubic);
             }
-            AudioManager.instance.PlaySoundAtPosition(fireSound, transform.position);
+            if (audioSource != null)
+                AudioManager.instance.PlaySound(fireSound, audioSource);
             if (recoilDuration > 0)
             {
                 transform.DORewind();
