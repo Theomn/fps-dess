@@ -18,28 +18,34 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 9a780092c4b02444891ce1999b877fab, type: 3}
     volume: 0.809
     pitchRandom: 0.015
+    spatialisation: 0
   - name: MachineGun
     clips:
     - {fileID: 8300000, guid: 0449c6b757380e149968cf8b21b8e8d2, type: 3}
     volume: 0.539
     pitchRandom: 0.04
+    spatialisation: 0
   - name: FlameThrower
     clips:
     - {fileID: 8300000, guid: f89124420d06e9448baf27660e88f762, type: 3}
     volume: 0.547
     pitchRandom: 0.0325
+    spatialisation: 0
   - name: ShotGun
     clips:
     - {fileID: 8300000, guid: 632a83178fbca744f94e8b59bbd38166, type: 3}
     volume: 0.622
     pitchRandom: 0.0308
+    spatialisation: 0
   - name: Rocket
     clips:
     - {fileID: 8300000, guid: 238acf47dc7cc08428e46f93971b893a, type: 3}
     volume: 0.622
     pitchRandom: 0
+    spatialisation: 0
   - name: Railgun
     clips:
     - {fileID: 8300000, guid: 71f56383a9e421e47bd0e8a4aa02b417, type: 3}
-    volume: 0.698
+    volume: 0.606
     pitchRandom: 0.0346
+    spatialisation: 0

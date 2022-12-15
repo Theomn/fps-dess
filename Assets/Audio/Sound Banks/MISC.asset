@@ -16,21 +16,24 @@ MonoBehaviour:
   - name: Footsteps
     clips:
     - {fileID: 8300000, guid: fd3aebca39f17274dafa7ada623bd8f9, type: 3}
-    - {fileID: 8300000, guid: 9977cc2cdf09fa046890fae49dde8db8, type: 3}
-    - {fileID: 8300000, guid: d4e01db3a010a4740a1a2258913e4185, type: 3}
-    - {fileID: 8300000, guid: 182f8b89d16e93d4d877af2b2dcc69c8, type: 3}
-    - {fileID: 8300000, guid: 7691763b74845ff41af4131795697e31, type: 3}
-    - {fileID: 8300000, guid: ac2ef71cc4ea9ff40b6f2528a477d754, type: 3}
-    - {fileID: 8300000, guid: 5a45a93f968b5a446ac7fa4c7665ddf1, type: 3}
     volume: 0.285
-    pitchRandom: 0.0134
+    pitchRandom: 0.0482
+    spatialisation: 0.657
   - name: EnemyHit
     clips:
     - {fileID: 8300000, guid: e1038d0dce5317e4cb95e8aecd577458, type: 3}
     volume: 0.304
     pitchRandom: 0.0403
+    spatialisation: 0
   - name: Explosion
     clips:
     - {fileID: 8300000, guid: 3437eec623d87714bba461582c47fa2a, type: 3}
-    volume: 0.557
-    pitchRandom: 0.0609
+    volume: 0.018
+    pitchRandom: 0.1
+    spatialisation: 1
+  - name: Explosion_Small
+    clips:
+    - {fileID: 8300000, guid: 382d563f6ab81414c965ce92c701f49a, type: 3}
+    volume: 0.06
+    pitchRandom: 0.1
+    spatialisation: 1

@@ -11,6 +11,7 @@ public struct Sound
     public List<AudioClip> clips;
     [Range(0f, 1f)] public float volume;
     [Range(0f, 0.1f)] public float pitchRandom;
+    [Range(0f, 1f)] public float spatialisation;
 }
 
 [CreateAssetMenu(fileName = "SoundBank", menuName = "Scriptable Objects/Sound Bank", order = 1)]

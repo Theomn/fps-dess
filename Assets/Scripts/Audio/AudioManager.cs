@@ -51,9 +51,11 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
             Debug.LogWarning("Sound with name \"" + name + "\" does not exist in SoundBank.");
             return;
         }
+        //parametres dans SoundBanks.cs
         transform.position = position;
         source.volume = sound.volume;
         source.pitch = Random.Range(-sound.pitchRandom, sound.pitchRandom) + 1f;
+        source.spatialBlend = sound.spatialisation;
         
 
         source.PlayOneShot(sound.clips[Random.Range(0, sound.clips.Count)]);
