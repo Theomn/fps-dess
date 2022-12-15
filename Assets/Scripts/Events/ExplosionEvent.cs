@@ -45,10 +45,11 @@ public class ExplosionEvent : Event
                     enemy.ExplosionForce(force, transform.position);
                 }
             }
-            AudioManager.instance.PlaySoundAtPosition(explosionSound, transform.position);
+            
         }
         damagedEnemies.Clear();
         visual.localScale = Vector3.one * radius * 2f;
         visual.DOScale(Vector3.zero, duration).SetEase(Ease.OutCubic);
+        AudioManager.instance.PlaySoundAtPosition(explosionSound, transform.position);
     }
 }

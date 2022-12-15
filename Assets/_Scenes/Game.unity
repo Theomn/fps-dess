@@ -293,28 +293,84 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 923696299255966613, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 923696299255966613, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
     - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
       propertyPath: m_Volume
-      value: 0.355
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
       propertyPath: MaxDistance
-      value: 308.07
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
+      propertyPath: MinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
+      propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
+      propertyPath: DopplerLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
+      propertyPath: BypassEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
+      propertyPath: BypassListenerEffects
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
       propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
-      value: 0.425
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
       propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
-      value: 0.887
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 923696299255966615, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
       propertyPath: m_RootOrder
@@ -360,7 +416,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 923696299255966614, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e4d1830efd8d2284c93cf272a96563de, type: 3}
 --- !u!1001 &457892927
 PrefabInstance:
@@ -1664,6 +1721,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3600697427613778553, guid: 97a69b3e369f10c4a863af8b2ca21889, type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600697427613778553, guid: 97a69b3e369f10c4a863af8b2ca21889, type: 3}
+      propertyPath: Priority
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600697427613778553, guid: 97a69b3e369f10c4a863af8b2ca21889, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600697427613778553, guid: 97a69b3e369f10c4a863af8b2ca21889, type: 3}
+      propertyPath: DopplerLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600697427613778553, guid: 97a69b3e369f10c4a863af8b2ca21889, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600697427613778553, guid: 97a69b3e369f10c4a863af8b2ca21889, type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0.483
+      objectReference: {fileID: 0}
     - target: {fileID: 6843905640687837506, guid: 97a69b3e369f10c4a863af8b2ca21889, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1707,6 +1788,10 @@ PrefabInstance:
     - target: {fileID: 6843905640687837506, guid: 97a69b3e369f10c4a863af8b2ca21889, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6843905640687837508, guid: 97a69b3e369f10c4a863af8b2ca21889, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6843905640687837511, guid: 97a69b3e369f10c4a863af8b2ca21889, type: 3}
       propertyPath: m_Name
