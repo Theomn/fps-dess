@@ -53,11 +53,25 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         }
         //parametres dans SoundBanks.cs
         transform.position = position;
-        source.volume = sound.volume;
         source.pitch = Random.Range(-sound.pitchRandom, sound.pitchRandom) + 1f;
-        source.spatialBlend = sound.spatialisation;
-        
 
-        source.PlayOneShot(sound.clips[Random.Range(0, sound.clips.Count)]);
+        source.PlayOneShot(sound.clips[Random.Range(0, sound.clips.Count)], sound.volume);
+    }
+
+    public void PlaySound(string soundName, AudioSource source)
+    {
+        if (string.IsNullOrEmpty(soundName))
+        {
+            return;
+        }
+        if (!clips.TryGetValue(soundName, out var sound))
+        {
+            Debug.LogWarning("Sound with name \"" + name + "\" does not exist in SoundBank.");
+            return;
+        }
+        //parametres dans SoundBanks.cs
+        source.pitch = Random.Range(-sound.pitchRandom, sound.pitchRandom) + 1f;
+        
+        source.PlayOneShot(sound.clips[Random.Range(0, sound.clips.Count)], sound.volume);
     }
 }

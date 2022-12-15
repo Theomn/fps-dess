@@ -27,10 +27,12 @@ public abstract class Gun : MonoBehaviour
     private float fireRateTimer;
     protected Transform activeNozzle;
     protected Transform activeNozzleFlash;
+    private AudioSource audioSource;
     
     protected virtual void Awake()
     {
         ready = true;
+        audioSource = GetComponentInParent<AudioSource>();
     }
 
     protected virtual void Update()
@@ -72,8 +74,10 @@ public abstract class Gun : MonoBehaviour
 
         ready = false;
         fireRateTimer = fireRate;
-        
-        AudioManager.instance.PlaySoundAtPosition(fireSound, transform.position);
+        if (audioSource != null)
+        {
+            AudioManager.instance.PlaySound(fireSound, audioSource);
+        }
         return true;
     }
 

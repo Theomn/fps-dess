@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour, IResettable
     private MeshRenderer[] hitFlashMeshes;
     protected bool flaggedForDestroy;
     private bool soundPlayed;
+    private AudioSource audioSource;
     private Vector3 initialPosition;
     private Quaternion initialRotation;
     private float destroyTimer;
@@ -38,6 +39,7 @@ public class Enemy : MonoBehaviour, IResettable
     {
         colliders = GetComponentsInChildren<Collider>();
         behaviours = GetComponentsInChildren<EnemyBehaviour>();
+        audioSource = GetComponent<AudioSource>();
         initialPosition = transform.position;
         initialRotation = transform.rotation;
     }
@@ -127,7 +129,7 @@ public class Enemy : MonoBehaviour, IResettable
             if (!soundPlayed)
             {
                 soundPlayed = true;
-                AudioManager.instance.PlaySoundAtPosition(hitSound, transform.position);
+                FootstepSound.instance.PlayHitSound();
             }
 
         }

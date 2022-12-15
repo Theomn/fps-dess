@@ -2,21 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FootstepSound : MonoBehaviour
+public class FootstepSound : SingletonMonoBehaviour<FootstepSound>
 {
     [SerializeField] private float footstepInterval;
     [SerializeField] private float speedThreshold;
     [SerializeField] private string footstepSoundId;
+    [SerializeField] private string hitSoundId;
 
     private Rigidbody rb;
     private PlayerController player;
     private float footstepTimer;
     private bool isMoving;
+    private AudioSource audioSource;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         rb = GetComponent<Rigidbody>();
         player = GetComponent<PlayerController>();
+        audioSource = GetComponent<AudioSource>();
     }
     
     void Update()
@@ -26,9 +30,14 @@ public class FootstepSound : MonoBehaviour
             footstepTimer -= Time.deltaTime;
             if (footstepTimer <= 0)
             {
-                AudioManager.instance.PlaySoundAtPosition(footstepSoundId, transform.position);
+                AudioManager.instance.PlaySound(footstepSoundId, audioSource);
                 footstepTimer = footstepInterval;
             }
         }
+    }
+
+    public void PlayHitSound()
+    {
+        AudioManager.instance.PlaySound(hitSoundId, audioSource);
     }
 }
