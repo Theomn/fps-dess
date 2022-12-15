@@ -64,7 +64,7 @@ MonoBehaviour:
     maxRange: 0
   nozzleFlashSize: 4
   nozzleFlashDuration: 0.3
-  fireSound: 
+  fireSound: EnemyRocket
   nozzles:
   - {fileID: 5325290080603016390}
   - {fileID: 8264109983539298107}
@@ -388,7 +388,7 @@ MonoBehaviour:
     maxRange: 0
   nozzleFlashSize: 1
   nozzleFlashDuration: 0.2
-  fireSound: 
+  fireSound: EnemyGun
   nozzles:
   - {fileID: 5404334855156665165}
   - {fileID: 5404334854382518773}
@@ -548,7 +548,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

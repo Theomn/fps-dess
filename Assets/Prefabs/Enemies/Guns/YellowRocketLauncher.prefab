@@ -146,7 +146,7 @@ MonoBehaviour:
     maxRange: 0
   nozzleFlashSize: 4
   nozzleFlashDuration: 0.3
-  fireSound: 
+  fireSound: EnemyRocket
   nozzles:
   - {fileID: 1468188330856035225}
   fireAtPlayer: 0
