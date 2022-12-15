@@ -174,4 +174,9 @@ public class ItemBelt : SingletonMonoBehaviour<ItemBelt>
             EquipGun(guns.Count - 1);
         return true;
     }
+
+    public void FlagForDeath()
+    {
+        gameObject.SetActive(false);
+    }
 }

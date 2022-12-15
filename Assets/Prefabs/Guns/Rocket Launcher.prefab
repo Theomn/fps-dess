@@ -169,9 +169,9 @@ MonoBehaviour:
   bulletData:
     damagesPlayer: 0
     damagesEnemies: 1
-    damage: 5
+    damage: 9
     endEvent: {fileID: 7826445943607923957, guid: d5106e20ab65b994daf89101e355dd34, type: 3}
-    speed: 40
+    speed: 60
     gravity: 0
     trackingSpeed: 0
     maxPierceCount: 1

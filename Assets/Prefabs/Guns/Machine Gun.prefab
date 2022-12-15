@@ -247,7 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.1
   bulletCount: 1
-  randomSpread: 2.5
+  randomSpread: 1
   bulletPrefab: {fileID: 8685403030757105085, guid: 321c7eed0f16c014a996247e33728557, type: 3}
   bulletData:
     damagesPlayer: 0

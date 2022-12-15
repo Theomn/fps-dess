@@ -30,8 +30,6 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
     private bool flaggedForDeath;
     private float deathTimer;
 
-
-
     public enum State
     {
         Grounded,
@@ -184,6 +182,7 @@ public class PlayerController : SingletonMonoBehaviour<PlayerController>
         SetAirborne();
         transform.DORotate(Vector3.forward * 90, 1.2f).SetEase(Ease.OutBounce);
         CameraController.instance.DeathAnimation();
+        ItemBelt.instance.FlagForDeath();
     }
 
     public void Respawn()

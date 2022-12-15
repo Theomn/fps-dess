@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour, IResettable
     [Tooltip("How long it takes to destroy the enemy once it's killed.")]
     [SerializeField] private float destroyTime;
     [SerializeField] private GameObject deathFX;
-    [SerializeField] private string hitSound;
+    [SerializeField, HideInInspector] private string hitSound;
     
 
     private float health;
