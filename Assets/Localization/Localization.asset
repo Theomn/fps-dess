@@ -47,6 +47,9 @@ MonoBehaviour:
     english: Press E next to a barrel to hold it. Then press LEFT CLICK to throw
       it.
     time: 10
+  - key: KILL
+    english: You have to kill every enemy in a room to open the door.
+    time: 10
   - key: WIN
     english: Congratulations! You did it :)
     time: 10
