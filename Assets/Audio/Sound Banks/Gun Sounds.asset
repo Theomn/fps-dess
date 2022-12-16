@@ -16,12 +16,12 @@ MonoBehaviour:
   - name: Sniper
     clips:
     - {fileID: 8300000, guid: 9a780092c4b02444891ce1999b877fab, type: 3}
-    volume: 0.809
+    volume: 0.666
     pitchRandom: 0.015
   - name: MachineGun
     clips:
     - {fileID: 8300000, guid: 0449c6b757380e149968cf8b21b8e8d2, type: 3}
-    volume: 0.539
+    volume: 0.435
     pitchRandom: 0.04
   - name: FlameThrower
     clips:
@@ -31,12 +31,12 @@ MonoBehaviour:
   - name: ShotGun
     clips:
     - {fileID: 8300000, guid: 632a83178fbca744f94e8b59bbd38166, type: 3}
-    volume: 0.622
+    volume: 0.452
     pitchRandom: 0.0308
   - name: Rocket
     clips:
     - {fileID: 8300000, guid: 238acf47dc7cc08428e46f93971b893a, type: 3}
-    volume: 0.622
+    volume: 0.518
     pitchRandom: 0
   - name: Railgun
     clips:
@@ -46,8 +46,8 @@ MonoBehaviour:
   - name: EnemyGun
     clips:
     - {fileID: 8300000, guid: 97631af3392481547ba1ee865c980a7f, type: 3}
-    volume: 0.635
-    pitchRandom: 0.0346
+    volume: 0.576
+    pitchRandom: 0.1
   - name: EnemyRocket
     clips:
     - {fileID: 8300000, guid: 206071f02648be34e961b17db3022214, type: 3}

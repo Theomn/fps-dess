@@ -4924,7 +4924,7 @@ MonoBehaviour:
   force: 40
   visual: {fileID: 7826445944273797796}
   duration: 1
-  explosionSound: 
+  explosionSound: Explosion
 --- !u!82 &5544889792840507202
 AudioSource:
   m_ObjectHideFlags: 0
