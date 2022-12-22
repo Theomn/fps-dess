@@ -1287,6 +1287,14 @@ PrefabInstance:
       propertyPath: lockEnemies.Array.data[0]
       value: 
       objectReference: {fileID: 738485977}
+    - target: {fileID: 6695416827320110268, guid: 504544e23c0dcef4798bacf6fef520fb, type: 3}
+      propertyPath: loaded.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695416827320110268, guid: 504544e23c0dcef4798bacf6fef520fb, type: 3}
+      propertyPath: loaded.Array.data[0]
+      value: 
+      objectReference: {fileID: 1022627038}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 504544e23c0dcef4798bacf6fef520fb, type: 3}
 --- !u!4 &1141873422 stripped

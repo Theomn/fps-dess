@@ -7,7 +7,7 @@ public class VictoryTrigger : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        Invoke("LoadVictoryScene", 3f);
+        Invoke("LoadVictoryScene", 10f);
     }
 
     void LoadVictoryScene()
