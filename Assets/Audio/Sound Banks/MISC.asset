@@ -33,3 +33,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 382d563f6ab81414c965ce92c701f49a, type: 3}
     volume: 0.782
     pitchRandom: 0.1
+  - name: Explosion_Yellow
+    clips:
+    - {fileID: 8300000, guid: d818bb7dbb86d1e4aa317f4ca71757c1, type: 3}
+    volume: 0.495
+    pitchRandom: 0.1
