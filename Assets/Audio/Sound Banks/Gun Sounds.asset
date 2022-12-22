@@ -46,10 +46,10 @@ MonoBehaviour:
   - name: EnemyGun
     clips:
     - {fileID: 8300000, guid: 97631af3392481547ba1ee865c980a7f, type: 3}
-    volume: 0.576
+    volume: 0.785
     pitchRandom: 0.1
   - name: EnemyRocket
     clips:
     - {fileID: 8300000, guid: 206071f02648be34e961b17db3022214, type: 3}
-    volume: 0.857
+    volume: 0.877
     pitchRandom: 0.0346
